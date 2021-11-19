@@ -1,0 +1,18 @@
+mod {
+  wizards.newContentElement.wizardItems.slubprofileaccount {
+    after = common
+    header = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.title
+
+    elements {
+      slubprofileaccount_accountdetail {
+        iconIdentifier = slubprofileaccount-wizard-accountdetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.accountdetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.accountdetail.description
+        tt_content_defValues.CType = slubprofileaccount_accountdetail
+      }
+    }
+
+    show := addToList(slubprofileaccount_accountdetail)
+  }
+}

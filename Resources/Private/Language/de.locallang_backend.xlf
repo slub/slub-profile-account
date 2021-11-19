@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_account">
+		<header/>
+		<body>
+			<trans-unit id="plugin.title" resname="plugin.title">
+				<source>User account</source>
+				<target>Benutzerkonto</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.accountdetail.title" resname="plugin.accountdetail.title">
+				<source>User account details</source>
+				<target>Benutzerkontodetails</target>
+			</trans-unit>
+			<trans-unit id="plugin.accountdetail.description" resname="plugin.accountdetail.description">
+				<source>Details of a specific user account / user.</source>
+				<target>Details zu einem spezifischen Benutzerkonto / Benutzer.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
