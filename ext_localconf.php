@@ -1,6 +1,6 @@
 <?php
 
-use Slub\SlubProfileAccount\Controller\AccountController;
+use Slub\SlubProfileAccount\Controller\UserController;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -11,15 +11,15 @@ ExtensionManagementUtility::addPageTSConfig(
     '@import "EXT:slub_profile_account/Configuration/TsConfig/Page.tsconfig"'
 );
 
-// Configure plugin - event list
+// Configure plugin - user detail
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
-    'AccountDetail',
+    'UserDetail',
     [
-        AccountController::class => 'detail'
+        UserController::class => 'detail'
     ],
     [
-        AccountController::class => 'detail'
+        UserController::class => 'detail'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

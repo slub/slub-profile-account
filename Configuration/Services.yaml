@@ -6,3 +6,9 @@ services:
 
   Slub\SlubProfileAccount\:
     resource: '../Classes/*'
+
+  Slub\SlubProfileAccount\Http\Request:
+    public: true
+
+  Slub\SlubProfileAccount\Service\ApiService:
+    public: true

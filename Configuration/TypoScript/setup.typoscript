@@ -7,4 +7,13 @@ plugin.tx_slubprofileaccount {
   features {
     skipDefaultArguments = 1
   }
+
+  settings {
+    api {
+      path {
+        # cat=plugin.tx_slubprofileaccount//a; type=string; label=Api path for user
+        user = https://ddev-slub-katalog.ddev.site/libero/core/###USER_ID###/index.json
+      }
+    }
+  }
 }

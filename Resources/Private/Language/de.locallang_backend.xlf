@@ -8,13 +8,13 @@
 				<target>Benutzerkonto</target>
 			</trans-unit>
 
-			<trans-unit id="plugin.accountdetail.title" resname="plugin.accountdetail.title">
-				<source>User account details</source>
-				<target>Benutzerkontodetails</target>
+			<trans-unit id="plugin.userdetail.title" resname="plugin.userdetail.title">
+				<source>User detail</source>
+				<target>Benutzerdetails</target>
 			</trans-unit>
-			<trans-unit id="plugin.accountdetail.description" resname="plugin.accountdetail.description">
-				<source>Details of a specific user account / user.</source>
-				<target>Details zu einem spezifischen Benutzerkonto / Benutzer.</target>
+			<trans-unit id="plugin.userdetail.description" resname="plugin.userdetail.description">
+				<source>Details of a specific user.</source>
+				<target>Details zu einem spezifischen Benutzer.</target>
 			</trans-unit>
 		</body>
 	</file>

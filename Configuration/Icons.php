@@ -3,9 +3,9 @@
 defined('TYPO3') || die();
 
 return [
-    'slubprofileaccount-wizard-accountdetail' => [
+    'slubprofileaccount-wizard-userdetail' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/account-detail.svg'
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-detail.svg'
     ],
     'slubprofileaccount-overlay-extension' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,

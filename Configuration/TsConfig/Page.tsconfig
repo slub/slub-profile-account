@@ -4,15 +4,15 @@ mod {
     header = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.title
 
     elements {
-      slubprofileaccount_accountdetail {
-        iconIdentifier = slubprofileaccount-wizard-accountdetail
+      slubprofileaccount_userdetail {
+        iconIdentifier = slubprofileaccount-wizard-userdetail
         iconOverlay = slubprofileaccount-overlay-extension
-        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.accountdetail.title
-        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.accountdetail.description
-        tt_content_defValues.CType = slubprofileaccount_accountdetail
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdetail.description
+        tt_content_defValues.CType = slubprofileaccount_userdetail
       }
     }
 
-    show := addToList(slubprofileaccount_accountdetail)
+    show := addToList(slubprofileaccount_userdetail)
   }
 }
