@@ -48,6 +48,7 @@ class UserService
         $uri = $this->apiConfiguration->getUserUri();
         $uri = ApiUtility::replaceUriPlaceholder([$validatedArguments['user']], $uri);
 
-        return $this->request->process($uri) ?? [];
+        // Wrap with brackets for array, if not mvc -> json -> view does not work
+        return [$this->request->process($uri)] ?? [];
     }
 }
