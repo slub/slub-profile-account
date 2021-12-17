@@ -42,4 +42,28 @@ class UserController extends ActionController
 
         return $this->jsonResponse();
     }
+
+    /**
+     * @return ResponseInterface
+     * @throws \JsonException
+     */
+    public function updateAction(): ResponseInterface
+    {
+        $user = $this->userService->getUser($this->request->getArguments());
+        $receivedData = json_decode(file_get_contents('php://input'), true, 512, JSON_THROW_ON_ERROR) ?? [];
+
+        $data = [
+            'user' => $user,
+            'receivedData' => $receivedData
+        ];
+
+        // @todo just send the received data back to check if the circle works. Next step: save the data here
+        // create domain model, dashboard_widgets colon separated string, external user data as array to separate data?
+        // the update needs to accept the "widgets" array
+
+        $this->view->setVariablesToRender(['userUpdate']);
+        $this->view->assign('userUpdate', $data);
+
+        return $this->jsonResponse();
+    }
 }

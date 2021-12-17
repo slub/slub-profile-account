@@ -23,3 +23,16 @@ ExtensionUtility::configurePlugin(
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+// Configure plugin - user update
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserUpdate',
+    [
+        UserController::class => 'update'
+    ],
+    [
+        UserController::class => 'update'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);

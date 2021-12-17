@@ -23,7 +23,9 @@ class Request implements LoggerAwareInterface
     use LoggerAwareTrait;
 
     public array $options = [
-        'headers' => ['Cache-Control' => 'no-cache'],
+        'headers' => [
+            'Cache-Control' => 'no-cache'
+        ],
         'allow_redirects' => false
     ];
     protected RequestFactory $requestFactory;
@@ -42,6 +44,7 @@ class Request implements LoggerAwareInterface
      * @param string $method
      * @param array $options
      * @return array|null
+     * @throws \JsonException
      */
     public function process($uri = '', $method = 'GET', array $options = []): ?array
     {
@@ -75,18 +78,19 @@ class Request implements LoggerAwareInterface
      * @param ResponseInterface $response
      * @param string $uri
      * @return array|null
+     * @throws \JsonException
      */
     protected function getContent(ResponseInterface $response, $uri = ''): ?array
     {
         $content = '';
 
         if ($response->getStatusCode() === 200 && strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0) {
-            $content = (array)json_decode($response->getBody()->getContents(), true);
+            $content = (array)json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
         }
 
         if (empty($content)) {
             $this->logger->warning(
-                'Requesting {request} was not successful, got status code {status} ({reason})',
+                'Requesting request was not successful.',
                 [
                     'request' => $uri,
                     'status' => $response->getStatusCode(),

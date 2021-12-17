@@ -11,8 +11,16 @@ mod {
         description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdetail.description
         tt_content_defValues.CType = slubprofileaccount_userdetail
       }
+
+      slubprofileaccount_userupdate {
+        iconIdentifier = slubprofileaccount-wizard-userupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userupdate.description
+        tt_content_defValues.CType = slubprofileaccount_userupdate
+      }
     }
 
-    show := addToList(slubprofileaccount_userdetail)
+    show := addToList(slubprofileaccount_userdetail, slubprofileaccount_userupdate)
   }
 }

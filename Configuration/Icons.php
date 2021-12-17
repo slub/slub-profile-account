@@ -7,6 +7,10 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-detail.svg'
     ],
+    'slubprofileaccount-wizard-userupdate' => [
+        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-update.svg'
+    ],
     'slubprofileaccount-overlay-extension' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Overlay/extension.svg'

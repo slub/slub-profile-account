@@ -13,6 +13,13 @@
 			<trans-unit id="plugin.userdetail.description" resname="plugin.userdetail.description">
 				<source>Details of a specific user.</source>
 			</trans-unit>
+
+			<trans-unit id="plugin.userupdate.title" resname="plugin.userupdate.title">
+				<source>User update</source>
+			</trans-unit>
+			<trans-unit id="plugin.userupdate.description" resname="plugin.userupdate.description">
+				<source>Update data of a specific user.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

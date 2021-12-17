@@ -16,6 +16,15 @@
 				<source>Details of a specific user.</source>
 				<target>Details zu einem spezifischen Benutzer.</target>
 			</trans-unit>
+
+			<trans-unit id="plugin.userupdate.title" resname="plugin.userupdate.title">
+				<source>User update</source>
+				<target>Benutzer aktualisieren</target>
+			</trans-unit>
+			<trans-unit id="plugin.userupdate.description" resname="plugin.userupdate.description">
+				<source>Update data of a specific user.</source>
+				<target>Daten zu einem spezifischen Benutzer aktualisieren.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
