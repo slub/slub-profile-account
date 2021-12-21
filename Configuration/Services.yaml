@@ -10,5 +10,11 @@ services:
   Slub\SlubProfileAccount\Http\Request:
     public: true
 
+  Slub\SlubProfileAccount\Service\AccountService:
+    public: true
+
   Slub\SlubProfileAccount\Service\ApiService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserService:
     public: true

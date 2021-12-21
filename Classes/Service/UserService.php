@@ -11,44 +11,111 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
-use Slub\SlubProfileAccount\Domain\Model\Dto\ApiConfiguration;
-use Slub\SlubProfileAccount\Utility\ApiUtility;
-use Slub\SlubProfileAccount\Validation\AccountArgumentValidator;
-use Slub\SlubProfileEvents\Http\Request;
+use Slub\SlubProfileAccount\Domain\Model\User;
+use Slub\SlubProfileAccount\Domain\Repository\UserRepository;
+use Slub\SlubProfileAccount\Validation\WidgetValidator;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
+use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 class UserService
 {
-    protected AccountArgumentValidator $accountArgumentValidator;
-    protected ApiConfiguration $apiConfiguration;
-    protected Request $request;
+    protected AccountService $accountService;
+    protected PersistenceManager $persistenceManager;
+    protected UserRepository $userRepository;
+    protected WidgetValidator $widgetValidator;
 
     /**
-     * @param AccountArgumentValidator $accountArgumentValidator
-     * @param ApiConfiguration $apiConfiguration
-     * @param Request $request
+     * @param AccountService $accountService
+     * @param PersistenceManager $persistenceManager
+     * @param UserRepository $userRepository
+     * @param WidgetValidator $widgetValidator
      */
     public function __construct(
-        AccountArgumentValidator $accountArgumentValidator,
-        ApiConfiguration $apiConfiguration,
-        Request $request
+        AccountService $accountService,
+        PersistenceManager $persistenceManager,
+        UserRepository $userRepository,
+        WidgetValidator $widgetValidator
     ) {
-        $this->accountArgumentValidator = $accountArgumentValidator;
-        $this->apiConfiguration = $apiConfiguration;
-        $this->request = $request;
+        $this->accountService = $accountService;
+        $this->persistenceManager = $persistenceManager;
+        $this->userRepository = $userRepository;
+        $this->widgetValidator = $widgetValidator;
     }
 
     /**
      * @param array $arguments
-     * @return array
+     * @return User|null
+     * @throws IllegalObjectTypeException
      */
-    public function getUser(array $arguments): array
+    public function getUser(array $arguments): ?User
     {
-        $validatedArguments = $this->accountArgumentValidator->validateAccountArguments($arguments);
+        $user = null;
 
-        $uri = $this->apiConfiguration->getUserUri();
-        $uri = ApiUtility::replaceUriPlaceholder([$validatedArguments['user']], $uri);
+        $accountData = $this->accountService->getAccountData($arguments);
+        $accountId = $this->accountService->getAccountId();
 
-        // Wrap with brackets for array, if not mvc -> json -> view does not work
-        return [$this->request->process($uri)] ?? [];
+        !is_array($accountData) ?: $user = $this->findUser($accountId);
+        $user === null ?: $user->setAccountData($accountData);
+
+        return $user;
+    }
+
+    /**
+     * @param User $user
+     * @param array $data
+     * @return User
+     * @throws IllegalObjectTypeException
+     * @throws UnknownObjectException
+     */
+    public function updateUser(User $user, array $data): User
+    {
+        $hasChanges = false;
+
+        if (is_array($data['widgets'])) {
+            $hasChanges = true;
+            $dashboardWidgets = implode(',', $this->widgetValidator->validate($data['widgets']));
+
+            $user->setDashboardWidgets($dashboardWidgets);
+        }
+
+        if ($hasChanges) {
+            $this->userRepository->update($user);
+            $this->persistenceManager->persistAll();
+        }
+
+        return $user;
+    }
+
+    /**
+     * @param int $accountId
+     * @return User
+     * @throws IllegalObjectTypeException
+     */
+    protected function findUser(int $accountId): User
+    {
+        /** @var User|null $user */
+        $user = $this->userRepository->findOneByAccountId($accountId);
+        $user instanceof User ?: $user = $this->createUser($accountId);
+
+        return $user;
+    }
+
+    /**
+     * @param int $accountId
+     * @return User
+     * @throws IllegalObjectTypeException
+     */
+    protected function createUser(int $accountId): User
+    {
+        /** @var User $user */
+        $user = GeneralUtility::makeInstance(User::class);
+        $user->setAccountId($accountId);
+
+        $this->userRepository->add($user);
+        $this->persistenceManager->persistAll();
+
+        return $user;
     }
 }

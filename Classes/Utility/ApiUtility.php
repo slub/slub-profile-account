@@ -13,6 +13,17 @@ namespace Slub\SlubProfileAccount\Utility;
 
 class ApiUtility
 {
+    public const STATUS = [
+        200 => [
+            'code' => 200,
+            'message' => 'OK'
+        ],
+        500 => [
+            'code' => 500,
+            'message' => 'Internal Server Error'
+        ]
+    ];
+
     public const URI_PLACEHOLDER = [
         '###USER_ID###'
     ];

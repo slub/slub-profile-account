@@ -34,8 +34,14 @@ class JsonView extends ExtbaseJsonView
      */
     protected array $accountConfiguration = [
         'userDetail' => [
+            '_only' => [
+                'accountData'
+            ],
+            '_descend' => [
+                'accountData' => []
+            ]
         ],
-        'userUpdate' => [
+        'status' => [
         ],
     ];
 

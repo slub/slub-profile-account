@@ -12,14 +12,17 @@ declare(strict_types=1);
 namespace Slub\SlubProfileAccount\Controller;
 
 use Psr\Http\Message\ResponseInterface;
+use Slub\SlubProfileAccount\Domain\Model\User;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
 use Slub\SlubProfileAccount\Service\UserService;
+use Slub\SlubProfileAccount\Utility\ApiUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class UserController extends ActionController
 {
     protected $view;
     protected $defaultViewObjectName = JsonView::class;
+    protected ?User $user;
     protected UserService $userService;
 
     /**
@@ -35,10 +38,8 @@ class UserController extends ActionController
      */
     public function detailAction(): ResponseInterface
     {
-        $user = $this->userService->getUser($this->request->getArguments());
-
         $this->view->setVariablesToRender(['userDetail']);
-        $this->view->assign('userDetail', $user);
+        $this->view->assign('userDetail', $this->user);
 
         return $this->jsonResponse();
     }
@@ -49,21 +50,32 @@ class UserController extends ActionController
      */
     public function updateAction(): ResponseInterface
     {
-        $user = $this->userService->getUser($this->request->getArguments());
-        $receivedData = json_decode(file_get_contents('php://input'), true, 512, JSON_THROW_ON_ERROR) ?? [];
+        $content = $this->getContent();
+        $user = $this->userService->updateUser($this->user, $content);
+        $status = $user instanceof User ? 200 : 500;
 
-        $data = [
-            'user' => $user,
-            'receivedData' => $receivedData
-        ];
-
-        // @todo just send the received data back to check if the circle works. Next step: save the data here
-        // create domain model, dashboard_widgets colon separated string, external user data as array to separate data?
-        // the update needs to accept the "widgets" array
-
-        $this->view->setVariablesToRender(['userUpdate']);
-        $this->view->assign('userUpdate', $data);
+        $this->view->setVariablesToRender(['status']);
+        $this->view->assign('status', ApiUtility::STATUS[$status]);
 
         return $this->jsonResponse();
+    }
+
+    /**
+     * @return array
+     * @throws \JsonException
+     */
+    protected function getContent(): array
+    {
+        return json_decode(
+            file_get_contents('php://input'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        ) ?? [];
+    }
+
+    protected function initializeAction(): void
+    {
+        $this->user = $this->userService->getUser($this->request->getArguments());
     }
 }

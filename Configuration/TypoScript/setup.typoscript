@@ -4,9 +4,8 @@ plugin.tx_slubprofileaccount {
     throwPageNotFoundExceptionIfActionCantBeResolved = 1
   }
 
-  features {
-    skipDefaultArguments = 1
-  }
+  features.skipDefaultArguments = 1
+  persistence.storagePid = {$plugin.tx_slubprofileaccount.persistence.storagePid}
 
   settings {
     api {

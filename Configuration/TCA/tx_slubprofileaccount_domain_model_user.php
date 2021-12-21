@@ -1,34 +1,28 @@
 <?php
+
 defined('TYPO3_MODE') || die();
 
 $ll = [
     'core' => [
         'tabs' => 'LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf',
+        'tca' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf',
         'general' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf'
     ],
     'frontend' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf',
-    'slubProfileAccount' => [
-        'db' => 'LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_db.xlf',
-        'tca' => 'LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_tca.xlf'
-    ]
-
-    /*
-     *
-                    --palette--;' . $ll['slubProfileAccount']['tca'] . ':palette.hidden;hidden,
-                    --palette--;' . $ll['slubProfileAccount']['tca'] . ':palette.access;access,
-     */
+    'slubProfileAccount' => 'LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_db.xlf'
 ];
 
 return [
     'ctrl' => [
-        'title' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user',
-        'label' => 'title',
+        'title' => $ll['slubProfileAccount'] . ':tx_slubprofileaccount_domain_model_user',
+        'label' => 'account_id',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
+        'editlock' => 'editlock',
         'delete' => 'deleted',
-        'sortby' => 'title',
-        'default_sortby' => 'title',
+        //'sortby' => 'account_id',
+        'default_sortby' => 'account_id DESC',
         'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -37,13 +31,12 @@ return [
         ],
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l18n_parent',
-        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'transOrigDiffSourceField' => 'l18n_diffsource',
         'descriptionColumn' => 'description',
-        'editlock' => 'editlock',
         'translationSource' => 'l10n_source',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
-        'searchFields' => 'uid,title',
+        'searchFields' => 'account_id, dashboard_widgets',
         'typeicon_classes' => [
             'default' => 'slubprofileaccount-model-user'
         ],
@@ -52,7 +45,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $ll['core']['tabs'] . ':general,
-                    title,
+                    account_id, dashboard_widgets,
                 --div--;' . $ll['core']['tabs'] . ':language,
                     --palette--;;language,
                 --div--;' . $ll['core']['tabs'] . ':access,
@@ -66,7 +59,9 @@ return [
             'label' => $ll['frontend'] . ':palette.access',
             'showitem' => '
                 starttime;' . $ll['frontend'] . ':starttime_formlabel,
-                endtime;' . $ll['frontend'] . ':endtime_formlabel
+                endtime;' . $ll['frontend'] . ':endtime_formlabel,
+                --linebreak--,
+                editlock
             ',
         ],
         'hidden' => [
@@ -82,6 +77,15 @@ return [
         ],
     ],
     'columns' => [
+        'editlock' => [
+            'exclude' => true,
+            'displayCond' => 'HIDE_FOR_NON_ADMINS',
+            'label' => $ll['core']['tca'] . ':editlock',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+            ],
+        ],
         'sys_language_uid' => [
             'exclude' => true,
             'label' => $ll['core']['general'] . ':LGL.language',
@@ -116,7 +120,7 @@ return [
                 'default' => 0
             ]
         ],
-        'l10n_diffsource' => [
+        'l18n_diffsource' => [
             'config' => [
                 'type' => 'passthrough',
                 'default' => ''
@@ -173,21 +177,27 @@ return [
                 ]
             ]
         ],
-        'sorting' => [
-            'config' => [
-                'type' => 'passthrough'
-            ]
-        ],
-        'title' => [
+        'account_id' => [
             'exclude' => true,
-            'l10n_mode' => 'prefixLangTitle',
-            'l10n_cat' => 'text',
-            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.title',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
+            'label' => $ll['slubProfileAccount'] . ':tx_slubprofileaccount_domain_model_user.account_id',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
                 'max' => 255,
                 'eval' => 'unique,trim,required'
+            ]
+        ],
+        'dashboard_widgets' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
+            'label' => $ll['slubProfileAccount'] . ':tx_slubprofileaccount_domain_model_user.dashboard_widgets',
+            'config' => [
+                'type' => 'text',
+                'rows' => 5,
+                'cols' => 30,
             ]
         ],
     ]

@@ -1,10 +1,9 @@
 # customsubcategory=76595002_Api=API
 
 plugin.tx_slubprofileaccount {
-  settings {
-    # cat=plugin.tx_slubprofileaccount//a; type=string; label=Default storage PID
-    storagePid = 0
+  persistence.storagePid = 14
 
+  settings {
     api {
       path {
         # cat=plugin.tx_slubprofileaccount/76595002_Api/100; type=string; label=Path for user
