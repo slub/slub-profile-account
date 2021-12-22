@@ -90,20 +90,7 @@ return [
             'exclude' => true,
             'label' => $ll['core']['general'] . ':LGL.language',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'sys_language',
-                'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => [
-                    [$ll['core']['general'] . ':LGL.allLanguages', -1],
-                    [$ll['core']['general'] . ':LGL.default_value', 0]
-                ],
-                'default' => 0,
-                'fieldWizard' => [
-                    'selectIcons' => [
-                        'disabled' => false,
-                    ],
-                ],
+                'type' => 'language'
             ]
         ],
         'l18n_parent' => [
