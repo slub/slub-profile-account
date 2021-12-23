@@ -1,6 +1,7 @@
 <?php
 
 use Slub\SlubProfileAccount\Controller\UserController;
+use Slub\SlubProfileAccount\Form\Element\AccountDataElement;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -36,3 +37,10 @@ ExtensionUtility::configurePlugin(
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+// Register new renderType - accountData"
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][time()] = [
+    'nodeName' => 'accountData',
+    'priority' => 40,
+    'class' => AccountDataElement::class,
+];

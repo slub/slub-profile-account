@@ -1,0 +1,112 @@
+{namespace slub=Slub\SlubProfileAccount\ViewHelpers}
+
+<html
+    xmlns:slub="http://typo3.org/ns/Slub\SlubProfileAccount/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:layout name="FormElement" />
+
+<f:section name="Content">
+    <f:variable
+        name="languagePath"
+        value="LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xml" />
+
+    <f:if condition="{account -> f:count()} > 0">
+        <f:then>
+            <table class="table table-striped table-hover mt-2 mb-0">
+                <thead>
+                    <tr>
+                        <th style="width:25%" scope="col">
+                            <f:translate key="{languagePath}:table.head.id" />
+                        </th>
+                        <th style="width:75%" scope="col">
+                            <f:translate key="{languagePath}:table.head.value" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <f:for each="{account}" as="item" key="key" iteration="iteration">
+                        <tr>
+                            <f:if condition="{item -> slub:php.isArray()}">
+                                <f:then>
+                                    <f:render
+                                        section="RowPanel"
+                                        arguments="{
+                                            id: iteration.index,
+                                            item: item,
+                                            key: key,
+                                            languagePath: languagePath
+                                        }"/>
+                                </f:then>
+                                <f:else>
+                                    <f:render
+                                        section="RowDefault"
+                                        arguments="{
+                                            item: item,
+                                            key: key
+                                        }"/>
+                                </f:else>
+                            </f:if>
+                        </tr>
+                    </f:for>
+                </tbody>
+            </table>
+        </f:then>
+        <f:else>
+            <f:be.infobox
+                title="{f:translate(key: '{languagePath}:error.api.account.title')}"
+                message="{f:translate(key: '{languagePath}:error.api.account.message')}"
+                state="2" />
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="RowPanel">
+    <f:if condition="{item -> f:count()} > 0">
+        <f:then>
+            <td colspan="2" class="p-0">
+                <div class="panel-collapse mb-0">
+                    <div class="panel-heading px-1" role="tab" id="heading-{id}" style="color:var(--bs-table-striped-color)">
+                        <p class="panel-title">
+                            <a role="button" data-bs-toggle="collapse" href="#collapse-{id}" aria-expanded="false" aria-controls="collapse-{id}" class="collapsed">
+                                <span class="caret"></span>
+                                {key}
+                            </a>
+                        </p>
+                    </div>
+                    <div class="collapse" id="collapse-{id}" role="tabpanel" aria-labelledby="heading-{id}">
+                        <div class="panel-body p-0">
+                            <f:render
+                                partial="AccountDataItems"
+                                arguments="{
+                                    data: item,
+                                    languagePath: languagePath,
+                                    level: 0
+                                }"/>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </f:then>
+        <f:else>
+            <f:render
+                section="RowDefault"
+                arguments="{
+                    item: item,
+                    key: key
+                }"/>
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="RowDefault">
+    <td>{key}</td>
+    <td>
+        <f:if condition="{item}">
+            <f:then>{item}</f:then>
+            <f:else>-</f:else>
+        </f:if>
+    </td>
+</f:section>
+</html>

@@ -3,6 +3,11 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_account">
 		<header/>
 		<body>
+
+			<!--
+				Plugin
+			-->
+
 			<trans-unit id="plugin.title" resname="plugin.title">
 				<source>User account</source>
 				<target>Benutzerkonto</target>
@@ -24,6 +29,32 @@
 			<trans-unit id="plugin.userupdate.description" resname="plugin.userupdate.description">
 				<source>Update data of a specific user.</source>
 				<target>Daten zu einem spezifischen Benutzer aktualisieren.</target>
+			</trans-unit>
+
+			<!--
+				Error
+			-->
+
+			<trans-unit id="error.api.account.title" resname="error.api.account.title">
+				<source>Error connect user account</source>
+				<target>Fehler bei Verbindung mit Benutzerkonto</target>
+			</trans-unit>
+			<trans-unit id="error.api.account.message" resname="error.api.account.message">
+				<source>A connection to the account api was not possible. Please check your settings.</source>
+				<target>Eine Verbindung zum Benutzerkonto konnte nicht hergestellt werden. Bitte prüfen Sie die Einstellungen.</target>
+			</trans-unit>
+
+			<!--
+				Table
+			-->
+
+			<trans-unit id="table.head.id" resname="table.head.id">
+				<source>ID</source>
+				<target>ID</target>
+			</trans-unit>
+			<trans-unit id="table.head.value" resname="table.head.value">
+				<source>Value</source>
+				<target>Wert</target>
 			</trans-unit>
 		</body>
 	</file>

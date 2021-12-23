@@ -11,9 +11,15 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Utility;
 
-class ConstantsUtility
+use TYPO3\CMS\Core\Localization\LanguageService;
+
+class LanguageUtility
 {
-    public const EXTENSION_NAME = 'slubprofileaccount';
-    public const EXTENSION_KEY = 'slub_profile_account';
-    public const LANGUAGE_PATH_BACKEND = 'LLL:EXT:' . self::EXTENSION_KEY . '/Resources/Private/Language/locallang_backend.xlf';
+    /**
+     * @return LanguageService
+     */
+    public static function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
+    }
 }

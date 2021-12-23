@@ -53,7 +53,7 @@ class UserService
     {
         $user = null;
 
-        $accountData = $this->accountService->getAccountData($arguments);
+        $accountData = $this->accountService->getAccountDataByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
 
         !is_array($accountData) ?: $user = $this->findUser($accountId);

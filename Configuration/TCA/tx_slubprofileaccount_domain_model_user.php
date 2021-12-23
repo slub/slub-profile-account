@@ -4,17 +4,20 @@ defined('TYPO3_MODE') || die();
 
 $ll = [
     'core' => [
+        'general' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf',
         'tabs' => 'LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf',
-        'tca' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf',
-        'general' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf'
+        'tca' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf'
     ],
     'frontend' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf',
-    'slubProfileAccount' => 'LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_db.xlf'
+    'slubProfileAccount' => [
+        'db' => 'LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_db.xlf',
+        'tabs' => 'LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_tabs.xlf'
+    ]
 ];
 
 return [
     'ctrl' => [
-        'title' => $ll['slubProfileAccount'] . ':tx_slubprofileaccount_domain_model_user',
+        'title' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user',
         'label' => 'account_id',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -45,7 +48,9 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $ll['core']['tabs'] . ':general,
-                    account_id, dashboard_widgets,
+                    dashboard_widgets,
+                --div--;' . $ll['slubProfileAccount']['tabs'] . ':account,
+                    account_id, account_overview,
                 --div--;' . $ll['core']['tabs'] . ':language,
                     --palette--;;language,
                 --div--;' . $ll['core']['tabs'] . ':access,
@@ -168,7 +173,7 @@ return [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
-            'label' => $ll['slubProfileAccount'] . ':tx_slubprofileaccount_domain_model_user.account_id',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.account_id',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -176,11 +181,18 @@ return [
                 'eval' => 'unique,trim,required'
             ]
         ],
+        'account_overview' => [
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.account_overview',
+            'config' => [
+                'type' => 'user',
+                'renderType' => 'accountData',
+            ],
+        ],
         'dashboard_widgets' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
-            'label' => $ll['slubProfileAccount'] . ':tx_slubprofileaccount_domain_model_user.dashboard_widgets',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.dashboard_widgets',
             'config' => [
                 'type' => 'text',
                 'rows' => 5,

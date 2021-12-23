@@ -39,17 +39,25 @@ class AccountService
     }
 
     /**
+     * @param int $id
+     * @return array|null
+     */
+    public function getAccountDataById(int $id): ?array
+    {
+        $this->accountId = $id;
+
+        return $this->getAccount();
+    }
+
+    /**
      * @param array $arguments
      * @return array|null
      */
-    public function getAccountData(array $arguments): ?array
+    public function getAccountDataByArguments(array $arguments): ?array
     {
         $this->accountId = (int)$this->accountArgumentValidator->validateAccountArguments($arguments)['user'];
 
-        $uri = $this->apiConfiguration->getUserUri();
-        $uri = ApiUtility::replaceUriPlaceholder([$this->accountId], $uri);
-
-        return $this->request->process($uri);
+        return $this->getAccount();
     }
 
     /**
@@ -58,5 +66,16 @@ class AccountService
     public function getAccountId(): int
     {
         return $this->accountId;
+    }
+
+    /**
+     * @return array|null
+     */
+    protected function getAccount(): ?array
+    {
+        $uri = $this->apiConfiguration->getUserUri();
+        $uri = ApiUtility::replaceUriPlaceholder([$this->accountId], $uri);
+
+        return $this->request->process($uri);
     }
 }

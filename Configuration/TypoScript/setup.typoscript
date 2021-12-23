@@ -16,3 +16,6 @@ plugin.tx_slubprofileaccount {
     }
   }
 }
+
+# Event this extension has not module, this is used to call the api from backend in general.
+module.tx_slubprofileaccount.settings < plugin.tx_slubprofileaccount.settings

@@ -9,6 +9,9 @@
 			<trans-unit id="tx_slubprofileaccount_domain_model_user.account_id" resname="tx_slubprofileaccount_domain_model_user.account_id">
 				<source>Account ID</source>
 			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_user.account_overview" resname="tx_slubprofileaccount_domain_model_user.account_overview">
+				<source>Account overview</source>
+			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_user.dashboard_widgets" resname="tx_slubprofileaccount_domain_model_user.dashboard_widgets">
 				<source>Dashboard widget</source>
 			</trans-unit>
