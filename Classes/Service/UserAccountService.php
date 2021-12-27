@@ -46,12 +46,16 @@ class UserAccountService
     public function getUser(array $arguments): ?User
     {
         $user = null;
-
         $accountData = $this->accountService->getAccountDataByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
 
-        ($accountId === 0) ?: $user = $this->findUser($accountId);
-        $user === null ?: $user->setAccountData($accountData);
+        if ($accountId > 0 && is_array($accountData)) {
+            $user = $this->findUser($accountId);
+        }
+
+        if ($user instanceof User) {
+            $user->setAccountData($accountData);
+        }
 
         return $user;
     }
@@ -65,7 +69,10 @@ class UserAccountService
     {
         /** @var User|null $userAccount */
         $userAccount = $this->userRepository->findOneByAccountId($accountId);
-        $userAccount instanceof User ?: $userAccount = $this->createUser($accountId);
+
+        if ($userAccount === null) {
+            $userAccount = $this->createUser($accountId);
+        }
 
         return $userAccount;
     }

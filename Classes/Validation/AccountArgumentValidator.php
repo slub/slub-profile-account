@@ -36,6 +36,8 @@ class AccountArgumentValidator
      */
     protected function validateInteger($key = '', $value = ''): void
     {
-        empty($value) ?: $this->validArguments[$key] = (int)$value;
+        if (!empty($value)) {
+            $this->validArguments[$key] = (int)$value;
+        }
     }
 }

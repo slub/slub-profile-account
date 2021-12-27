@@ -11,14 +11,15 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Controller;
 
+use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Domain\Model\User\Dashboard as UserDashboard;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
 use Slub\SlubProfileAccount\Service\UserDashboardService;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
-use Slub\SlubProfileAccount\Utility\FileUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
+use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 
 class UserDashboardController extends ActionController
 {
@@ -37,12 +38,12 @@ class UserDashboardController extends ActionController
 
     /**
      * @return ResponseInterface
-     * @throws \JsonException
+     * @throws UnknownObjectException|\JsonException
+     * @throws IllegalObjectTypeException
      */
     public function updateAction(): ResponseInterface
     {
-        $content = FileUtility::getContent();
-        $userDashboard = $this->userDashboardService->updateUser($this->userDashboard, $content);
+        $userDashboard = $this->userDashboardService->updateUser($this->userDashboard);
         $status = $userDashboard instanceof UserDashboard ? 200 : 500;
 
         $this->view->setVariablesToRender(['status']);
@@ -51,6 +52,9 @@ class UserDashboardController extends ActionController
         return $this->jsonResponse();
     }
 
+    /**
+     * @throws Exception
+     */
     protected function initializeAction(): void
     {
         try {
@@ -58,6 +62,7 @@ class UserDashboardController extends ActionController
                 $this->request->getArguments()
             );
         } catch (IllegalObjectTypeException $e) {
+            throw new Exception($e->getMessage());
         }
     }
 }

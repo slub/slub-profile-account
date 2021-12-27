@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Controller;
 
+use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Domain\Model\User\Account as UserAccount;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
@@ -44,6 +45,9 @@ class UserAccountController extends ActionController
         return $this->jsonResponse();
     }
 
+    /**
+     * @throws Exception
+     */
     protected function initializeAction(): void
     {
         try {
@@ -51,6 +55,7 @@ class UserAccountController extends ActionController
                 $this->request->getArguments()
             );
         } catch (IllegalObjectTypeException $e) {
+            throw new Exception($e->getMessage());
         }
     }
 }

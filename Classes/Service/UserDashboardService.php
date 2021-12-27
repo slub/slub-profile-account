@@ -13,6 +13,7 @@ namespace Slub\SlubProfileAccount\Service;
 
 use Slub\SlubProfileAccount\Domain\Model\User\Dashboard as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\DashboardRepository as UserRepository;
+use Slub\SlubProfileAccount\Utility\FileUtility;
 use Slub\SlubProfileAccount\Validation\WidgetValidator;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
@@ -52,25 +53,27 @@ class UserDashboardService
     public function getUser(array $arguments): ?User
     {
         $user = null;
-
         $accountData = $this->accountService->getAccountDataByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
 
-        !is_array($accountData) ?: $user = $this->findUser($accountId);
+        if ($accountId > 0 && is_array($accountData)) {
+            $user = $this->findUser($accountId);
+        }
 
         return $user;
     }
 
     /**
      * @param User $user
-     * @param array $data
      * @return User
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
+     * @throws \JsonException
      */
-    public function updateUser(User $user, array $data): User
+    public function updateUser(User $user): User
     {
         $hasChanges = false;
+        $data = FileUtility::getContent();
 
         if (is_array($data['widgets'])) {
             $hasChanges = true;
@@ -96,7 +99,10 @@ class UserDashboardService
     {
         /** @var User|null $user */
         $user = $this->userRepository->findOneByAccountId($accountId);
-        $user instanceof User ?: $user = $this->createUser($accountId);
+
+        if ($user === null) {
+            $user = $this->createUser($accountId);
+        }
 
         return $user;
     }
