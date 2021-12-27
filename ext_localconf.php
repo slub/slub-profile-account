@@ -1,6 +1,7 @@
 <?php
 
-use Slub\SlubProfileAccount\Controller\UserController;
+use Slub\SlubProfileAccount\Controller\UserAccountController;
+use Slub\SlubProfileAccount\Controller\UserDashboardController;
 use Slub\SlubProfileAccount\Form\Element\AccountDataElement;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
@@ -15,12 +16,12 @@ ExtensionManagementUtility::addPageTSConfig(
 // Configure plugin - user detail
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
-    'UserDetail',
+    'UserAccountDetail',
     [
-        UserController::class => 'detail'
+        UserAccountController::class => 'detail'
     ],
     [
-        UserController::class => 'detail'
+        UserAccountController::class => 'detail'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -28,12 +29,12 @@ ExtensionUtility::configurePlugin(
 // Configure plugin - user update
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
-    'UserUpdate',
+    'UserDashboardUpdate',
     [
-        UserController::class => 'update'
+        UserDashboardController::class => 'update'
     ],
     [
-        UserController::class => 'update'
+        UserDashboardController::class => 'update'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

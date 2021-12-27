@@ -4,23 +4,23 @@ mod {
     header = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.title
 
     elements {
-      slubprofileaccount_userdetail {
-        iconIdentifier = slubprofileaccount-wizard-userdetail
+      slubprofileaccount_useraccountdetail {
+        iconIdentifier = slubprofileaccount-wizard-useraccountdetail
         iconOverlay = slubprofileaccount-overlay-extension
-        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdetail.title
-        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdetail.description
-        tt_content_defValues.CType = slubprofileaccount_userdetail
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.useraccountdetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.useraccountdetail.description
+        tt_content_defValues.CType = slubprofileaccount_useraccountdetail
       }
 
-      slubprofileaccount_userupdate {
-        iconIdentifier = slubprofileaccount-wizard-userupdate
+      slubprofileaccount_userdashboardupdate {
+        iconIdentifier = slubprofileaccount-wizard-userdashboardupdate
         iconOverlay = slubprofileaccount-overlay-extension
-        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userupdate.title
-        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userupdate.description
-        tt_content_defValues.CType = slubprofileaccount_userupdate
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboardupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboardupdate.description
+        tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
     }
 
-    show := addToList(slubprofileaccount_userdetail, slubprofileaccount_userupdate)
+    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate)
   }
 }

@@ -9,10 +9,10 @@ declare(strict_types=1);
 * LICENSE file that was distributed with this source code.
 */
 
-namespace Slub\SlubProfileAccount\Domain\Repository;
+namespace Slub\SlubProfileAccount\Domain\Repository\User;
 
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
-class UserRepository extends Repository
+class DashboardRepository extends Repository
 {
 }

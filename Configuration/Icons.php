@@ -15,12 +15,12 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/PageTree/user-folder.svg'
     ],
-    'slubprofileaccount-wizard-userdetail' => [
+    'slubprofileaccount-wizard-useraccountdetail' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-detail.svg'
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-account-detail.svg'
     ],
-    'slubprofileaccount-wizard-userupdate' => [
+    'slubprofileaccount-wizard-userdashboardupdate' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-update.svg'
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-dashboard-update.svg'
     ],
 ];

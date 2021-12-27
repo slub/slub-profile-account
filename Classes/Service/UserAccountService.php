@@ -11,37 +11,31 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
-use Slub\SlubProfileAccount\Domain\Model\User;
-use Slub\SlubProfileAccount\Domain\Repository\UserRepository;
-use Slub\SlubProfileAccount\Validation\WidgetValidator;
+use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
+use Slub\SlubProfileAccount\Domain\Repository\User\AccountRepository as UserRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
-use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
-class UserService
+class UserAccountService
 {
     protected AccountService $accountService;
     protected PersistenceManager $persistenceManager;
     protected UserRepository $userRepository;
-    protected WidgetValidator $widgetValidator;
 
     /**
      * @param AccountService $accountService
      * @param PersistenceManager $persistenceManager
      * @param UserRepository $userRepository
-     * @param WidgetValidator $widgetValidator
      */
     public function __construct(
         AccountService $accountService,
         PersistenceManager $persistenceManager,
-        UserRepository $userRepository,
-        WidgetValidator $widgetValidator
+        UserRepository $userRepository
     ) {
         $this->accountService = $accountService;
         $this->persistenceManager = $persistenceManager;
         $this->userRepository = $userRepository;
-        $this->widgetValidator = $widgetValidator;
     }
 
     /**
@@ -56,34 +50,8 @@ class UserService
         $accountData = $this->accountService->getAccountDataByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
 
-        !is_array($accountData) ?: $user = $this->findUser($accountId);
+        ($accountId === 0) ?: $user = $this->findUser($accountId);
         $user === null ?: $user->setAccountData($accountData);
-
-        return $user;
-    }
-
-    /**
-     * @param User $user
-     * @param array $data
-     * @return User
-     * @throws IllegalObjectTypeException
-     * @throws UnknownObjectException
-     */
-    public function updateUser(User $user, array $data): User
-    {
-        $hasChanges = false;
-
-        if (is_array($data['widgets'])) {
-            $hasChanges = true;
-            $dashboardWidgets = implode(',', $this->widgetValidator->validate($data['widgets']));
-
-            $user->setDashboardWidgets($dashboardWidgets);
-        }
-
-        if ($hasChanges) {
-            $this->userRepository->update($user);
-            $this->persistenceManager->persistAll();
-        }
 
         return $user;
     }
@@ -95,11 +63,11 @@ class UserService
      */
     protected function findUser(int $accountId): User
     {
-        /** @var User|null $user */
-        $user = $this->userRepository->findOneByAccountId($accountId);
-        $user instanceof User ?: $user = $this->createUser($accountId);
+        /** @var User|null $userAccount */
+        $userAccount = $this->userRepository->findOneByAccountId($accountId);
+        $userAccount instanceof User ?: $userAccount = $this->createUser($accountId);
 
-        return $user;
+        return $userAccount;
     }
 
     /**
@@ -109,13 +77,13 @@ class UserService
      */
     protected function createUser(int $accountId): User
     {
-        /** @var User $user */
-        $user = GeneralUtility::makeInstance(User::class);
-        $user->setAccountId($accountId);
+        /** @var User $userAccount */
+        $userAccount = GeneralUtility::makeInstance(User::class);
+        $userAccount->setAccountId($accountId);
 
-        $this->userRepository->add($user);
+        $this->userRepository->add($userAccount);
         $this->persistenceManager->persistAll();
 
-        return $user;
+        return $userAccount;
     }
 }

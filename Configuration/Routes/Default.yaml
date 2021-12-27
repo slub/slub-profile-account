@@ -1,5 +1,5 @@
 # This route enhancer config is not final
 # But you can simply include it in your site configuration:
 imports:
-  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDetail.yaml'
-  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserUpdate.yaml'
+  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserAccountDetail.yaml'
+  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardUpdate.yaml'

@@ -16,5 +16,7 @@ services:
   Slub\SlubProfileAccount\Service\ApiService:
     public: true
 
-  Slub\SlubProfileAccount\Service\UserService:
-    public: true
+#  Slub\SlubProfileAccount\Service\UserService:
+#    public: true
+
+  Slub\SlubProfileAccount\Service\UserAccountService:

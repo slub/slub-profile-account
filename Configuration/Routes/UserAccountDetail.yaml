@@ -1,9 +1,9 @@
 routeEnhancers:
-  SlubAccountUserUpdate:
+  SlubAccountUserAccountDetail:
     type: Simple
-    limitToPages: [13]
+    limitToPages: [11]
     routePath: '/{user}'
     requirements:
       user: '[0-9]{1,10}'
     _arguments:
-      user: 'tx_slubprofileaccount_userupdate/user'
+      user: 'tx_slubprofileaccount_useraccountdetail/user'
