@@ -1,17 +1,10 @@
 <f:if condition="{data -> f:count()} > 0">
     <f:variable name="level" value="{level + 1}"/>
-    <f:variable name="styleTable" value=""/>
-    <f:variable name="classRow" value=""/>
 
-    <f:if condition="{level} == 1">
-        <f:variable name="styleTable" value="border-left:none;border-right:none"/>
-        <f:variable name="classRow" value="px-3"/>
-    </f:if>
-
-    <table class="table table-striped table-hover mb-0" style="{styleTable}">
+    <table class="table table-striped table-hover mb-0">
         <thead>
             <tr>
-                <th style="width:25%" scope="col" class="{classRow}">
+                <th style="width:25%" scope="col">
                     <f:translate key="{languagePath}:table.head.id" />
                 </th>
                 <th style="width:75%" scope="col">
