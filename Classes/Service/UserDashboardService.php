@@ -13,8 +13,8 @@ namespace Slub\SlubProfileAccount\Service;
 
 use Slub\SlubProfileAccount\Domain\Model\User\Dashboard as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\DashboardRepository as UserRepository;
+use Slub\SlubProfileAccount\Sanitization\WidgetSanitization;
 use Slub\SlubProfileAccount\Utility\FileUtility;
-use Slub\SlubProfileAccount\Validation\WidgetValidator;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
@@ -25,24 +25,24 @@ class UserDashboardService
     protected AccountService $accountService;
     protected PersistenceManager $persistenceManager;
     protected UserRepository $userRepository;
-    protected WidgetValidator $widgetValidator;
+    protected WidgetSanitization $widgetSanitization;
 
     /**
      * @param AccountService $accountService
      * @param PersistenceManager $persistenceManager
      * @param UserRepository $userRepository
-     * @param WidgetValidator $widgetValidator
+     * @param WidgetSanitization $widgetSanitization
      */
     public function __construct(
         AccountService $accountService,
         PersistenceManager $persistenceManager,
         UserRepository $userRepository,
-        WidgetValidator $widgetValidator
+        WidgetSanitization $widgetSanitization
     ) {
         $this->accountService = $accountService;
         $this->persistenceManager = $persistenceManager;
         $this->userRepository = $userRepository;
-        $this->widgetValidator = $widgetValidator;
+        $this->widgetSanitization = $widgetSanitization;
     }
 
     /**
@@ -77,7 +77,7 @@ class UserDashboardService
 
         if (is_array($data['widgets'])) {
             $hasChanges = true;
-            $dashboardWidgets = implode(',', $this->widgetValidator->validate($data['widgets']));
+            $dashboardWidgets = implode(',', $this->widgetSanitization->sanitize($data['widgets']));
 
             $user->setDashboardWidgets($dashboardWidgets);
         }

@@ -12,28 +12,28 @@ declare(strict_types=1);
 namespace Slub\SlubProfileAccount\Service;
 
 use Slub\SlubProfileAccount\Domain\Model\Dto\ApiConfiguration;
+use Slub\SlubProfileAccount\Sanitization\AccountArgumentSanitization;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
-use Slub\SlubProfileAccount\Validation\AccountArgumentValidator;
 use Slub\SlubProfileEvents\Http\Request;
 
 class AccountService
 {
-    protected AccountArgumentValidator $accountArgumentValidator;
+    protected AccountArgumentSanitization $accountArgumentSanitization;
     protected ApiConfiguration $apiConfiguration;
     protected Request $request;
     protected int $accountId;
 
     /**
-     * @param AccountArgumentValidator $accountArgumentValidator
+     * @param AccountArgumentSanitization $accountArgumentSanitization
      * @param ApiConfiguration $apiConfiguration
      * @param Request $request
      */
     public function __construct(
-        AccountArgumentValidator $accountArgumentValidator,
+        AccountArgumentSanitization $accountArgumentSanitization,
         ApiConfiguration $apiConfiguration,
         Request $request
     ) {
-        $this->accountArgumentValidator = $accountArgumentValidator;
+        $this->accountArgumentSanitization = $accountArgumentSanitization;
         $this->apiConfiguration = $apiConfiguration;
         $this->request = $request;
     }
@@ -55,7 +55,7 @@ class AccountService
      */
     public function getAccountDataByArguments(array $arguments): ?array
     {
-        $id = (int)$this->accountArgumentValidator->validateAccountArguments($arguments)['user'];
+        $id = (int)$this->accountArgumentSanitization->sanitizeAccountArguments($arguments)['user'];
         $this->accountId = $id;
 
         return $this->getAccount($id);

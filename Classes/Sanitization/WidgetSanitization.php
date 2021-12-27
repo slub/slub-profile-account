@@ -9,9 +9,9 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace Slub\SlubProfileAccount\Validation;
+namespace Slub\SlubProfileAccount\Sanitization;
 
-class WidgetValidator
+class WidgetSanitization
 {
     protected array $pattern = [
         '/[^_a-zA-Z\s]/',
@@ -22,22 +22,22 @@ class WidgetValidator
      * @param array $widgets
      * @return array
      */
-    public function validate(array $widgets): array
+    public function sanitize(array $widgets): array
     {
-        $validWidgets = [];
+        $sanitizedWidgets = [];
 
         foreach ($widgets as $widget) {
-            $validWidgets[] = $this->validateString($widget);
+            $sanitizedWidgets[] = $this->sanitizeString($widget);
         }
 
-        return $validWidgets;
+        return $sanitizedWidgets;
     }
 
     /**
      * @param string $string
      * @return string
      */
-    protected function validateString($string = ''): string
+    protected function sanitizeString($string = ''): string
     {
         return preg_replace($this->pattern, '', $string);
     }

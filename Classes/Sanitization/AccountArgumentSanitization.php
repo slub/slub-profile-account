@@ -9,35 +9,35 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace Slub\SlubProfileAccount\Validation;
+namespace Slub\SlubProfileAccount\Sanitization;
 
-class AccountArgumentValidator
+class AccountArgumentSanitization
 {
-    protected array $validArguments = [];
+    protected array $sanitizedArguments = [];
 
     /**
      * @param array $arguments
      * @return array
      */
-    public function validateAccountArguments(array $arguments): array
+    public function sanitizeAccountArguments(array $arguments): array
     {
         if (count($arguments) === 0) {
             return ['user' => 0];
         }
 
-        $this->validateInteger('user', $arguments['user']);
+        $this->sanitizeInteger('user', $arguments['user']);
 
-        return $this->validArguments;
+        return $this->sanitizedArguments;
     }
 
     /**
      * @param string $key
      * @param string $value
      */
-    protected function validateInteger($key = '', $value = ''): void
+    protected function sanitizeInteger($key = '', $value = ''): void
     {
         if (!empty($value)) {
-            $this->validArguments[$key] = (int)$value;
+            $this->sanitizedArguments[$key] = (int)$value;
         }
     }
 }
