@@ -22,18 +22,18 @@ class Dashboard extends AbstractEntity implements AccountIdInterface
     protected string $dashboardWidgets = '';
 
     /**
-     * @return string $dashboardWidgets
+     * @return array $dashboardWidgets
      */
-    public function getDashboardWidgets(): string
+    public function getDashboardWidgets(): array
     {
-        return $this->dashboardWidgets;
+        return explode(',', $this->dashboardWidgets);
     }
 
     /**
-     * @param string $dashboardWidgets
+     * @param array $dashboardWidgets
      */
-    public function setDashboardWidgets(string $dashboardWidgets): void
+    public function setDashboardWidgets(array $dashboardWidgets): void
     {
-        $this->dashboardWidgets = $dashboardWidgets;
+        $this->dashboardWidgets = implode(',', $dashboardWidgets);
     }
 }

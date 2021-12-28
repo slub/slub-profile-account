@@ -77,7 +77,7 @@ class UserDashboardService
 
         if (is_array($data['widgets'])) {
             $hasChanges = true;
-            $dashboardWidgets = implode(',', $this->widgetSanitization->sanitize($data['widgets']));
+            $dashboardWidgets = $this->widgetSanitization->sanitize($data['widgets']);
 
             $user->setDashboardWidgets($dashboardWidgets);
         }
