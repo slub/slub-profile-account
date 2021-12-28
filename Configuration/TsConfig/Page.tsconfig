@@ -12,6 +12,14 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_useraccountdetail
       }
 
+      slubprofileaccount_userdashboarddetail {
+        iconIdentifier = slubprofileaccount-wizard-userdashboarddetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboarddetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboarddetail.description
+        tt_content_defValues.CType = slubprofileaccount_userdashboarddetail
+      }
+
       slubprofileaccount_userdashboardupdate {
         iconIdentifier = slubprofileaccount-wizard-userdashboardupdate
         iconOverlay = slubprofileaccount-overlay-extension
@@ -21,6 +29,6 @@ mod {
       }
     }
 
-    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate)
+    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail)
   }
 }

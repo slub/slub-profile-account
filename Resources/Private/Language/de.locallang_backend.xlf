@@ -14,21 +14,30 @@
 			</trans-unit>
 
 			<trans-unit id="plugin.useraccountdetail.title" resname="plugin.useraccountdetail.title">
-				<source>User detail</source>
-				<target>Benutzerdetails</target>
+				<source>User detail (constraint: account)</source>
+				<target>Details eines Benutzers (Einschränkung: Account)</target>
 			</trans-unit>
 			<trans-unit id="plugin.useraccountdetail.description" resname="plugin.useraccountdetail.description">
-				<source>Details of a specific user.</source>
-				<target>Details zu einem spezifischen Benutzer.</target>
+				<source>Details of a specific user (account). Returns only the user constraint "account" data.</source>
+				<target>Details zu einem spezifischen Benutzer (Account). Gibt nur die Daten des Benutzers mit der Einschränkung "Account" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userdashboarddetail.title" resname="plugin.userdashboarddetail.title">
+				<source>User detail (constraint: dashboard)</source>
+				<target>Details eines Benutzers (Einschränkung: Dashboard)</target>
+			</trans-unit>
+			<trans-unit id="plugin.userdashboarddetail.description" resname="plugin.userdashboarddetail.description">
+				<source>Details of a specific user (dashboard). Returns only the user constraint "dashboard" data.</source>
+				<target>Details zu einem spezifischen Benutzer (Dashboard). Gibt nur die Daten des Benutzers mit der Einschränkung "Dashboard" zurück.</target>
 			</trans-unit>
 
 			<trans-unit id="plugin.userdashboardupdate.title" resname="plugin.userdashboardupdate.title">
-				<source>User update</source>
-				<target>Benutzer aktualisieren</target>
+				<source>User update (dashboard)</source>
+				<target>Benutzer aktualisieren (Dashboard)</target>
 			</trans-unit>
 			<trans-unit id="plugin.userdashboardupdate.description" resname="plugin.userdashboardupdate.description">
-				<source>Update data of a specific user.</source>
-				<target>Daten zu einem spezifischen Benutzer aktualisieren.</target>
+				<source>Update data of a specific dashboard user.</source>
+				<target>Daten zu einem spezifischen Benutzerdashboard aktualisieren.</target>
 			</trans-unit>
 
 			<!--

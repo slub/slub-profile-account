@@ -13,7 +13,7 @@ ExtensionManagementUtility::addPageTSConfig(
     '@import "EXT:slub_profile_account/Configuration/TsConfig/Page.tsconfig"'
 );
 
-// Configure plugin - user detail
+// Configure plugin - useraccount  detail
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
     'UserAccountDetail',
@@ -26,7 +26,20 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - user update
+// Configure plugin - user dashboard detail
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserDashboardDetail',
+    [
+        UserDashboardController::class => 'detail'
+    ],
+    [
+        UserDashboardController::class => 'detail'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - user dashboard update
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
     'UserDashboardUpdate',

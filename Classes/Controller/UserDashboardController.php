@@ -38,6 +38,17 @@ class UserDashboardController extends ActionController
 
     /**
      * @return ResponseInterface
+     */
+    public function detailAction(): ResponseInterface
+    {
+        $this->view->setVariablesToRender(['userDashboardDetail']);
+        $this->view->assign('userDashboardDetail', $this->userDashboard);
+
+        return $this->jsonResponse();
+    }
+
+    /**
+     * @return ResponseInterface
      * @throws UnknownObjectException|\JsonException
      * @throws IllegalObjectTypeException
      */

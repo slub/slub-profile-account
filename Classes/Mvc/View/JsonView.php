@@ -41,6 +41,11 @@ class JsonView extends ExtbaseJsonView
                 'accountData' => []
             ]
         ],
+        'userDashboardDetail' => [
+            '_only' => [
+                'dashboardWidgets'
+            ],
+        ],
         'status' => [
         ],
     ];
