@@ -26,6 +26,10 @@ class Dashboard extends AbstractEntity implements AccountIdInterface
      */
     public function getDashboardWidgets(): array
     {
+        if (empty($this->dashboardWidgets)) {
+            return [];
+        }
+
         return explode(',', $this->dashboardWidgets);
     }
 
