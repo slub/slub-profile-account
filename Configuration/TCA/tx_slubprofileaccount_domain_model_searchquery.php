@@ -17,15 +17,14 @@ $ll = [
 
 return [
     'ctrl' => [
-        'title' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user',
-        'label' => 'account_id',
+        'title' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_searchquery',
+        'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'editlock' => 'editlock',
         'delete' => 'deleted',
-        //'sortby' => 'account_id',
-        'default_sortby' => 'account_id DESC',
+        'sortby' => 'sorting',
         'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -39,18 +38,16 @@ return [
         'translationSource' => 'l10n_source',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
-        'searchFields' => 'account_id, search_query, dashboard_widgets',
+        'searchFields' => 'title, type, query, user',
         'typeicon_classes' => [
-            'default' => 'slubprofileaccount-model-user'
+            'default' => 'slubprofileaccount-model-searchquery'
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '
                 --div--;' . $ll['core']['tabs'] . ':general,
-                    dashboard_widgets, search_query,
-                --div--;' . $ll['slubProfileAccount']['tabs'] . ':account,
-                    account_id, account_overview,
+                    title, type, query, user,
                 --div--;' . $ll['core']['tabs'] . ':language,
                     --palette--;;language,
                 --div--;' . $ll['core']['tabs'] . ':access,
@@ -107,8 +104,8 @@ return [
                 'items' => [
                     ['', 0]
                 ],
-                'foreign_table' => 'tx_slubprofileaccount_domain_model_user',
-                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_user.pid=###CURRENT_PID### AND tx_slubprofileaccount_domain_model_user.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_slubprofileaccount_domain_model_searchquery',
+                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_searchquery.pid=###CURRENT_PID### AND tx_slubprofileaccount_domain_model_searchquery.sys_language_uid IN (-1,0)',
                 'default' => 0
             ]
         ],
@@ -169,67 +166,55 @@ return [
                 ]
             ]
         ],
-        'account_id' => [
+        'title' => [
             'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly',
-            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.account_id',
+            'l10n_mode' => 'prefixLangTitle',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_searchquery.title',
             'config' => [
                 'type' => 'input',
-                'size' => 50,
-                'max' => 255,
-                'eval' => 'unique,trim,required'
+                'eval' => 'trim,required',
             ]
         ],
-        'account_overview' => [
-            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.account_overview',
-            'config' => [
-                'type' => 'user',
-                'renderType' => 'accountData',
-            ],
-        ],
-        'dashboard_widgets' => [
+        'type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
-            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.dashboard_widgets',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_searchquery.type',
+            'config' => [
+                'type' => 'input',
+            ]
+        ],
+        'query' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_searchquery.query',
             'config' => [
                 'type' => 'text',
                 'rows' => 5,
                 'cols' => 30,
             ]
         ],
-        'search_query' => [
+        'user' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
-            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.search_query',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_searchquery.user',
             'config' => [
-                'type' => 'inline',
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_field' => 'uid_foreign',
-                'foreign_table' => 'tx_slubprofileaccount_domain_model_searchquery',
-                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_searchquery.sys_language_uid IN (-1,0) AND tx_slubprofileaccount_domain_model_searchquery.hidden = 0 AND tx_slubprofileaccount_domain_model_searchquery.deleted = 0 ORDER BY tx_slubprofileaccount_domain_model_searchquery.sorting',
+                'foreign_table' => 'tx_slubprofileaccount_domain_model_user',
+                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_user.sys_language_uid IN (-1,0) AND tx_slubprofileaccount_domain_model_user.pid=###CURRENT_PID### AND tx_slubprofileaccount_domain_model_user.deleted = 0',
                 'MM' => 'tx_slubprofileaccount_domain_model_user_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_slubprofileaccount_domain_model_searchquery'
                 ],
                 'MM_hasUidField' => 1,
-                'minitems' => 0,
-                'maxitems' => 999,
-                'appearance' => [
-                    'useSortable' => true,
-                    'showSynchronizationLink' => true,
-                    'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showRemovedLocalizationRecords' => true,
-                    'expandSingle' => true,
-                    'enabledControls' => [
-                        'localize' => true,
-                    ]
-                ],
-                'behaviour' => [
-                    'mode' => 'select',
-                ],
+                'MM_opposite_field' => 'search_query',
+                'minitems' => 1,
+                'maxitems' => 1,
+                'readOnly' => true
             ]
         ],
     ]

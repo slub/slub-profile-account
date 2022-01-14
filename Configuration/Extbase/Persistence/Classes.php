@@ -8,5 +8,8 @@ return [
     ],
     \Slub\SlubProfileAccount\Domain\Model\User\Dashboard::class => [
         'tableName' => 'tx_slubprofileaccount_domain_model_user',
+    ],
+    \Slub\SlubProfileAccount\Domain\Model\User\SearchQuery::class => [
+        'tableName' => 'tx_slubprofileaccount_domain_model_user',
     ]
 ];

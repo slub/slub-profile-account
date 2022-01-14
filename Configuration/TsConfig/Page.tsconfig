@@ -27,8 +27,16 @@ mod {
         description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboardupdate.description
         tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
+
+      slubprofileaccount_usersearchqueryadd {
+        iconIdentifier = slubprofileaccount-wizard-usersearchqueryadd
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryadd.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryadd.description
+        tt_content_defValues.CType = slubprofileaccount_usersearchqueryadd
+      }
     }
 
-    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail)
+    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail, slubprofileaccount_usersearchqueryadd)
   }
 }

@@ -13,10 +13,11 @@ services:
   Slub\SlubProfileAccount\Service\AccountService:
     public: true
 
-  Slub\SlubProfileAccount\Service\ApiService:
+  Slub\SlubProfileAccount\Service\UserAccountService:
     public: true
 
-#  Slub\SlubProfileAccount\Service\UserService:
-#    public: true
+  Slub\SlubProfileAccount\Service\UserDashboardService:
+    public: true
 
-  Slub\SlubProfileAccount\Service\UserAccountService:
+  Slub\SlubProfileAccount\Service\UserSearchQueryService:
+    public: true

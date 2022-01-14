@@ -13,13 +13,15 @@ namespace Slub\SlubProfileAccount\Controller;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;
-use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
+use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
-use Slub\SlubProfileAccount\Service\UserAccountService as UserService;
+use Slub\SlubProfileAccount\Service\UserSearchQueryService as UserService;
+use Slub\SlubProfileAccount\Utility\ApiUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
+use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 
-class UserAccountController extends ActionController
+class UserSearchQueryController extends ActionController
 {
     protected $view;
     protected $defaultViewObjectName = JsonView::class;
@@ -36,11 +38,17 @@ class UserAccountController extends ActionController
 
     /**
      * @return ResponseInterface
+     * @throws IllegalObjectTypeException
+     * @throws UnknownObjectException
+     * @throws \JsonException
      */
-    public function detailAction(): ResponseInterface
+    public function addAction(): ResponseInterface
     {
-        $this->view->setVariablesToRender(['userDetail']);
-        $this->view->assign('userDetail', $this->user);
+        $user = $this->userService->addUser($this->user);
+        $status = $user instanceof User ? 200 : 500;
+
+        $this->view->setVariablesToRender(['status']);
+        $this->view->assign('status', ApiUtility::STATUS[$status]);
 
         return $this->jsonResponse();
     }

@@ -3,6 +3,11 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_account">
 		<header/>
 		<body>
+
+			<!--
+				User
+			-->
+
 			<trans-unit id="tx_slubprofileaccount_domain_model_user" resname="tx_slubprofileaccount_domain_model_user">
 				<source>User</source>
 			</trans-unit>
@@ -14,6 +19,29 @@
 			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_user.dashboard_widgets" resname="tx_slubprofileaccount_domain_model_user.dashboard_widgets">
 				<source>Dashboard widget</source>
+			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_user.search_query" resname="tx_slubprofileaccount_domain_model_user.search_query">
+				<source>Search queries</source>
+			</trans-unit>
+
+			<!--
+				Search query
+			-->
+
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery" resname="tx_slubprofileaccount_domain_model_searchquery">
+				<source>Search query</source>
+			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.title" resname="tx_slubprofileaccount_domain_model_searchquery.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.type" resname="tx_slubprofileaccount_domain_model_searchquery.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.query" resname="tx_slubprofileaccount_domain_model_searchquery.query">
+				<source>Query</source>
+			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.user" resname="tx_slubprofileaccount_domain_model_searchquery.user">
+				<source>User</source>
 			</trans-unit>
 		</body>
 	</file>

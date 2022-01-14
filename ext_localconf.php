@@ -2,6 +2,7 @@
 
 use Slub\SlubProfileAccount\Controller\UserAccountController;
 use Slub\SlubProfileAccount\Controller\UserDashboardController;
+use Slub\SlubProfileAccount\Controller\UserSearchQueryController;
 use Slub\SlubProfileAccount\Form\Element\AccountDataElement;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
@@ -52,7 +53,20 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Register new renderType - accountData"
+// Configure plugin - user search query add
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserSearchQueryAdd',
+    [
+        UserSearchQueryController::class => 'add'
+    ],
+    [
+        UserSearchQueryController::class => 'add'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Register new renderType - accountData
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][time()] = [
     'nodeName' => 'accountData',
     'priority' => 40,

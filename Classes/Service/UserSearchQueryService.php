@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
-use Slub\SlubProfileAccount\Domain\Model\User\Dashboard as User;
-use Slub\SlubProfileAccount\Domain\Repository\User\DashboardRepository;
-use Slub\SlubProfileAccount\Domain\Repository\User\DashboardRepository as UserRepository;
+use Slub\SlubProfileAccount\Domain\Model\SearchQuery;
+use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
+use Slub\SlubProfileAccount\Domain\Repository\User\SearchQueryRepository as UserRepository;
 use Slub\SlubProfileAccount\Sanitization\WidgetSanitization;
 use Slub\SlubProfileAccount\Utility\FileUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -22,12 +22,12 @@ use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class UserDashboardService
+class UserSearchQueryService
 {
     protected AccountService $accountService;
     protected PersistenceManager $persistenceManager;
     protected UserRepository $userRepository;
-    protected WidgetSanitization $widgetSanitization;
+protected WidgetSanitization $widgetSanitization;
 
     /**
      * @param AccountService $accountService
@@ -39,12 +39,12 @@ class UserDashboardService
         AccountService $accountService,
         PersistenceManager $persistenceManager,
         UserRepository $userRepository,
-        WidgetSanitization $widgetSanitization
+WidgetSanitization $widgetSanitization
     ) {
         $this->accountService = $accountService;
         $this->persistenceManager = $persistenceManager;
         $this->userRepository = $userRepository;
-        $this->widgetSanitization = $widgetSanitization;
+$this->widgetSanitization = $widgetSanitization;
     }
 
     /**
@@ -72,17 +72,23 @@ class UserDashboardService
      * @throws UnknownObjectException
      * @throws \JsonException
      */
-    public function updateUser(User $user): User
+    public function addUser(User $user): User
     {
         $hasChanges = false;
         $data = FileUtility::getContent();
 
-        if (is_array($data['widgets'])) {
+        if (is_array($data['searchQuery'])) {
             $hasChanges = true;
-            $dashboardWidgets = $this->widgetSanitization->sanitize($data['widgets']);
-            $dashboardWidgets = implode(',', $dashboardWidgets);
+            //$dashboardWidgets = $this->widgetSanitization->sanitize($data['widgets']);
 
-            $user->setDashboardWidgets($dashboardWidgets);
+            /** @var SearchQuery $searchQuery */
+            $searchQuery = GeneralUtility::makeInstance(SearchQuery::class);
+            $searchQuery->setTitle($data['searchQuery']['query'][0]['input']);
+            $searchQuery->setType($data['searchQuery']['type']);
+            $searchQuery->setQuery(json_encode($data['searchQuery']['query'], JSON_THROW_ON_ERROR));
+
+
+            $user->addSearchQuery($searchQuery);
         }
 
         if ($hasChanges) {

@@ -19,8 +19,14 @@ class FileUtility
      */
     public static function getContent(): array
     {
+        $content = file_get_contents('php://input');
+
+        if (empty($content)) {
+            return [];
+        }
+
         return json_decode(
-            file_get_contents('php://input'),
+            $content,
             true,
             512,
             JSON_THROW_ON_ERROR
