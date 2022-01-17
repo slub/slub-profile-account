@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Mvc\View;
 
-use Slub\SlubProfileAccount\Domain\Model\User\Dashboard;
 use TYPO3\CMS\Extbase\Mvc\View\JsonView as ExtbaseJsonView;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class JsonView extends ExtbaseJsonView
 {
