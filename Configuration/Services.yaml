@@ -13,6 +13,9 @@ services:
   Slub\SlubProfileAccount\Service\AccountService:
     public: true
 
+  Slub\SlubProfileAccount\Service\DashboardService:
+    public: true
+
   Slub\SlubProfileAccount\Service\UserAccountService:
     public: true
 

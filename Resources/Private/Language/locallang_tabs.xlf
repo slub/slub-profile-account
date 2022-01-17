@@ -3,8 +3,11 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_account">
 		<header/>
 		<body>
-			<trans-unit id="account" resname="plugin.account">
-				<source>Account</source>
+			<trans-unit id="dashboard" resname="dashboard">
+				<source>Dashboard</source>
+			</trans-unit>
+			<trans-unit id="searchQuery" resname="searchQuery">
+				<source>Search query</source>
 			</trans-unit>
 		</body>
 	</file>

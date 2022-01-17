@@ -39,4 +39,8 @@ mod {
 
     show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail, slubprofileaccount_usersearchqueryadd)
   }
+
+  web_list.tableDisplayOrder {
+    tx_slubprofileaccount_domain_model_user.before = tx_slubprofileaccount_domain_model_searchquery
+  }
 }

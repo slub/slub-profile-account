@@ -20,31 +20,30 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class UserDashboardService
 {
     protected AccountService $accountService;
+    protected DashboardService $dashboardService;
     protected PersistenceManager $persistenceManager;
     protected UserRepository $userRepository;
-    protected WidgetSanitization $widgetSanitization;
 
     /**
      * @param AccountService $accountService
+     * @param DashboardService $dashboardService
      * @param PersistenceManager $persistenceManager
      * @param UserRepository $userRepository
-     * @param WidgetSanitization $widgetSanitization
      */
     public function __construct(
         AccountService $accountService,
+        DashboardService $dashboardService,
         PersistenceManager $persistenceManager,
-        UserRepository $userRepository,
-        WidgetSanitization $widgetSanitization
+        UserRepository $userRepository
     ) {
         $this->accountService = $accountService;
+        $this->dashboardService = $dashboardService;
         $this->persistenceManager = $persistenceManager;
         $this->userRepository = $userRepository;
-        $this->widgetSanitization = $widgetSanitization;
     }
 
     /**
@@ -79,8 +78,7 @@ class UserDashboardService
 
         if (is_array($data['widgets'])) {
             $hasChanges = true;
-            $dashboardWidgets = $this->widgetSanitization->sanitize($data['widgets']);
-            $dashboardWidgets = implode(',', $dashboardWidgets);
+            $dashboardWidgets = $this->dashboardService->setDashboardWidgets($data['widgets']);
 
             $user->setDashboardWidgets($dashboardWidgets);
         }

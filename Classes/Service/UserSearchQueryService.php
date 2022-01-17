@@ -11,40 +11,37 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
-use Slub\SlubProfileAccount\Domain\Model\SearchQuery;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\SearchQueryRepository as UserRepository;
-use Slub\SlubProfileAccount\Sanitization\WidgetSanitization;
 use Slub\SlubProfileAccount\Utility\FileUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class UserSearchQueryService
 {
     protected AccountService $accountService;
     protected PersistenceManager $persistenceManager;
+    protected SearchQueryService $searchQueryService;
     protected UserRepository $userRepository;
-protected WidgetSanitization $widgetSanitization;
 
     /**
      * @param AccountService $accountService
      * @param PersistenceManager $persistenceManager
+     * @param SearchQueryService $searchQueryService
      * @param UserRepository $userRepository
-     * @param WidgetSanitization $widgetSanitization
      */
     public function __construct(
         AccountService $accountService,
         PersistenceManager $persistenceManager,
-        UserRepository $userRepository,
-WidgetSanitization $widgetSanitization
+        SearchQueryService $searchQueryService,
+        UserRepository $userRepository
     ) {
         $this->accountService = $accountService;
+        $this->searchQueryService = $searchQueryService;
         $this->persistenceManager = $persistenceManager;
         $this->userRepository = $userRepository;
-$this->widgetSanitization = $widgetSanitization;
     }
 
     /**
@@ -77,16 +74,9 @@ $this->widgetSanitization = $widgetSanitization;
         $hasChanges = false;
         $data = FileUtility::getContent();
 
-        if (is_array($data['searchQuery'])) {
+        if (count($data['searchQuery']['query']) > 0) {
             $hasChanges = true;
-            //$dashboardWidgets = $this->widgetSanitization->sanitize($data['widgets']);
-
-            /** @var SearchQuery $searchQuery */
-            $searchQuery = GeneralUtility::makeInstance(SearchQuery::class);
-            $searchQuery->setTitle($data['searchQuery']['query'][0]['input']);
-            $searchQuery->setType($data['searchQuery']['type']);
-            $searchQuery->setQuery(json_encode($data['searchQuery']['query'], JSON_THROW_ON_ERROR));
-
+            $searchQuery = $this->searchQueryService->setSearchQuery($data['searchQuery']);
 
             $user->addSearchQuery($searchQuery);
         }

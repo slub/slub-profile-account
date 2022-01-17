@@ -19,6 +19,7 @@ class SearchQuery extends AbstractEntity
     protected string $type = '';
     protected string $query = '';
     protected int $user = 0;
+    protected int $numberOfResults = 0;
 
     /**
      * @return string $title
@@ -82,5 +83,21 @@ class SearchQuery extends AbstractEntity
     public function setUser(int $user): void
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return int $numberOfResults
+     */
+    public function getNumberOfResults(): int
+    {
+        return $this->numberOfResults;
+    }
+
+    /**
+     * @param int $numberOfResults
+     */
+    public function setNumberOfResults(int $numberOfResults): void
+    {
+        $this->numberOfResults = $numberOfResults;
     }
 }

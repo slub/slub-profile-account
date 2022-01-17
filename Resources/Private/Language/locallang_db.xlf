@@ -40,6 +40,9 @@
 			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.query" resname="tx_slubprofileaccount_domain_model_searchquery.query">
 				<source>Query</source>
 			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.numberOfResults" resname="tx_slubprofileaccount_domain_model_searchquery.numberOfResults">
+				<source>Number of results</source>
+			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.user" resname="tx_slubprofileaccount_domain_model_searchquery.user">
 				<source>User</source>
 			</trans-unit>

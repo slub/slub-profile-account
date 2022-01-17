@@ -48,9 +48,11 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $ll['core']['tabs'] . ':general,
-                    dashboard_widgets, search_query,
-                --div--;' . $ll['slubProfileAccount']['tabs'] . ':account,
                     account_id, account_overview,
+                --div--;' . $ll['slubProfileAccount']['tabs'] . ':dashboard,
+                    dashboard_widgets,
+                --div--;' . $ll['slubProfileAccount']['tabs'] . ':searchQuery,
+                    search_query,
                 --div--;' . $ll['core']['tabs'] . ':language,
                     --palette--;;language,
                 --div--;' . $ll['core']['tabs'] . ':access,
@@ -206,9 +208,10 @@ return [
             'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.search_query',
             'config' => [
                 'type' => 'inline',
-                'foreign_field' => 'uid_foreign',
+                'foreign_field' => 'user',
                 'foreign_table' => 'tx_slubprofileaccount_domain_model_searchquery',
-                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_searchquery.sys_language_uid IN (-1,0) AND tx_slubprofileaccount_domain_model_searchquery.hidden = 0 AND tx_slubprofileaccount_domain_model_searchquery.deleted = 0 ORDER BY tx_slubprofileaccount_domain_model_searchquery.sorting',
+                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_searchquery.sys_language_uid IN (-1,0) AND tx_slubprofileaccount_domain_model_searchquery.hidden = 0 AND tx_slubprofileaccount_domain_model_searchquery.deleted = 0',
+                'foreign_sortby' => 'sorting',
                 'MM' => 'tx_slubprofileaccount_domain_model_user_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_slubprofileaccount_domain_model_searchquery'
