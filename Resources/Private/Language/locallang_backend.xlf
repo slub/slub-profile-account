@@ -33,11 +33,11 @@
 				<source>Update data of dashboard to user.</source>
 			</trans-unit>
 
-			<trans-unit id="plugin.usersearchqueryadd.title" resname="plugin.usersearchqueryadd.title">
-				<source>User search query - add</source>
+			<trans-unit id="plugin.usersearchqueryupdate.title" resname="plugin.usersearchqueryupdate.title">
+				<source>User search query - update</source>
 			</trans-unit>
-			<trans-unit id="plugin.usersearchqueryadd.description" resname="plugin.usersearchqueryadd.description">
-				<source>Add data of user search to user.</source>
+			<trans-unit id="plugin.usersearchqueryupdate.description" resname="plugin.usersearchqueryupdate.description">
+				<source>Update data of user search to user.</source>
 			</trans-unit>
 
 			<!--

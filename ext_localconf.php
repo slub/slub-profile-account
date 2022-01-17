@@ -53,15 +53,15 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - user search query add
+// Configure plugin - user search query update
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
-    'UserSearchQueryAdd',
+    'UserSearchQueryUpdate',
     [
-        UserSearchQueryController::class => 'add'
+        UserSearchQueryController::class => 'update'
     ],
     [
-        UserSearchQueryController::class => 'add'
+        UserSearchQueryController::class => 'update'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

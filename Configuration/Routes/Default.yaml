@@ -4,4 +4,4 @@ imports:
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserAccountDetail.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardDetail.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardUpdate.yaml'
-  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryAdd.yaml'
+  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryUpdate.yaml'

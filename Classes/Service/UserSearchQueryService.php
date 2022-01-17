@@ -69,7 +69,7 @@ class UserSearchQueryService
      * @throws UnknownObjectException
      * @throws \JsonException
      */
-    public function addUser(User $user): User
+    public function updateUser(User $user): User
     {
         $hasChanges = false;
         $data = FileUtility::getContent();

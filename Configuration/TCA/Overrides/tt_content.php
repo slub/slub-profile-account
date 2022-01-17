@@ -59,5 +59,5 @@ defined('TYPO3') || die();
     }
 })(
     'slub_profile_account',
-    ['useraccountdetail', 'userdashboarddetail', 'userdashboardupdate', 'usersearchqueryadd']
+    ['useraccountdetail', 'userdashboarddetail', 'userdashboardupdate', 'usersearchqueryupdate']
 );

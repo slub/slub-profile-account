@@ -28,16 +28,16 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
 
-      slubprofileaccount_usersearchqueryadd {
-        iconIdentifier = slubprofileaccount-wizard-usersearchqueryadd
+      slubprofileaccount_usersearchqueryupdate {
+        iconIdentifier = slubprofileaccount-wizard-usersearchqueryupdate
         iconOverlay = slubprofileaccount-overlay-extension
-        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryadd.title
-        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryadd.description
-        tt_content_defValues.CType = slubprofileaccount_usersearchqueryadd
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryupdate.description
+        tt_content_defValues.CType = slubprofileaccount_usersearchqueryupdate
       }
     }
 
-    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail, slubprofileaccount_usersearchqueryadd)
+    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail, slubprofileaccount_usersearchqueryupdate)
   }
 
   web_list.tableDisplayOrder {

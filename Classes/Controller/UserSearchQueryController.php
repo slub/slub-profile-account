@@ -42,9 +42,9 @@ class UserSearchQueryController extends ActionController
      * @throws UnknownObjectException
      * @throws \JsonException
      */
-    public function addAction(): ResponseInterface
+    public function updateAction(): ResponseInterface
     {
-        $user = $this->userService->addUser($this->user);
+        $user = $this->userService->updateUser($this->user);
         $status = $user instanceof User ? 200 : 500;
 
         $this->view->setVariablesToRender(['status']);

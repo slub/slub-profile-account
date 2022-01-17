@@ -40,13 +40,13 @@
 				<target>Daten einer Dashboardeinstellung eines Benutzers aktualisieren.</target>
 			</trans-unit>
 
-			<trans-unit id="plugin.usersearchqueryadd.title" resname="plugin.usersearchqueryadd.title">
-				<source>User search query - add</source>
-				<target>Benutzersuchanfrage - hinzufügen</target>
+			<trans-unit id="plugin.usersearchqueryupdate.title" resname="plugin.usersearchqueryupdate.title">
+				<source>User search query - update</source>
+				<target>Benutzersuchanfrage - aktualisieren</target>
 			</trans-unit>
-			<trans-unit id="plugin.usersearchqueryadd.description" resname="plugin.usersearchqueryadd.description">
-				<source>Add data of user search to user.</source>
-				<target>Daten einer Benutzersuchanfrage dem Benutzer hinzufügen.</target>
+			<trans-unit id="plugin.usersearchqueryupdate.description" resname="plugin.usersearchqueryupdate.description">
+				<source>Update data of user search to user.</source>
+				<target>Daten einer Benutzersuchanfrage dem Benutzer aktualisieren.</target>
 			</trans-unit>
 
 			<!--

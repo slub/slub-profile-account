@@ -31,8 +31,8 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-dashboard-update.svg'
     ],
-    'slubprofileaccount-wizard-usersearchqueryadd' => [
+    'slubprofileaccount-wizard-usersearchqueryupdate' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-search-query-add.svg'
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-search-query-update.svg'
     ],
 ];
