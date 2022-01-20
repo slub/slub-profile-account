@@ -16,6 +16,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class SearchQuery extends AbstractEntity
 {
     protected string $title = '';
+    protected string $description = '';
     protected string $type = '';
     protected string $query = '';
     protected int $user = 0;
@@ -35,6 +36,22 @@ class SearchQuery extends AbstractEntity
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return string $description
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
     }
 
     /**

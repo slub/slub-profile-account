@@ -25,12 +25,13 @@ class SearchQueryService
     {
         /** @var SearchQuery $searchQuery */
         $searchQuery = GeneralUtility::makeInstance(SearchQuery::class);
-        $title = $this->getTitle($query['query']);
+        $title = $this->createTitle($query['query']);
 
+        $searchQuery->setTitle($title);
+        $searchQuery->setDescription(trim($query['description']));
         $searchQuery->setType($query['type']);
         $searchQuery->setNumberOfResults((int)$query['numberOfResults']);
         $searchQuery->setQuery(json_encode($query['query'], JSON_THROW_ON_ERROR));
-        $searchQuery->setTitle($title);
 
         return $searchQuery;
     }
@@ -39,12 +40,12 @@ class SearchQueryService
      * @param array $query
      * @return string
      */
-    public function getTitle(array $query): string
+    public function createTitle(array $query): string
     {
         $titles = [];
 
         foreach ($query as $queryItem) {
-            $titles[] = $queryItem['input'];
+            $titles[] = trim($queryItem['input']);
         }
 
         return implode(', ', $titles);

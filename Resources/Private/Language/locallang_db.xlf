@@ -34,6 +34,9 @@
 			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.title" resname="tx_slubprofileaccount_domain_model_searchquery.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.description" resname="tx_slubprofileaccount_domain_model_searchquery.description">
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.type" resname="tx_slubprofileaccount_domain_model_searchquery.type">
 				<source>Type</source>
 			</trans-unit>

@@ -38,7 +38,7 @@ return [
         'translationSource' => 'l10n_source',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
-        'searchFields' => 'title, type, query, number_of_results, user',
+        'searchFields' => 'title, description, type, query, number_of_results, user',
         'typeicon_classes' => [
             'default' => 'slubprofileaccount-model-searchquery'
         ],
@@ -47,7 +47,9 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $ll['core']['tabs'] . ':general,
-                    title, type, query, number_of_results, user,
+                    title, description, user,
+                --div--;' . $ll['slubProfileAccount']['tabs'] . ':search,
+                    query, type, number_of_results,
                 --div--;' . $ll['core']['tabs'] . ':language,
                     --palette--;;language,
                 --div--;' . $ll['core']['tabs'] . ':access,
@@ -173,6 +175,17 @@ return [
             'config' => [
                 'type' => 'input',
                 'eval' => 'trim,required',
+            ]
+        ],
+        'description' => [
+            'exclude' => true,
+            'l10n_mode' => 'prefixLangTitle',
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_searchquery.description',
+            'config' => [
+                'type' => 'text',
+                'rows' => 5,
+                'cols' => 30,
+                'eval' => 'trim',
             ]
         ],
         'type' => [

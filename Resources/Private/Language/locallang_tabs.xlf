@@ -6,6 +6,9 @@
 			<trans-unit id="dashboard" resname="dashboard">
 				<source>Dashboard</source>
 			</trans-unit>
+			<trans-unit id="search" resname="search">
+				<source>Search</source>
+			</trans-unit>
 			<trans-unit id="searchQuery" resname="searchQuery">
 				<source>Search query</source>
 			</trans-unit>

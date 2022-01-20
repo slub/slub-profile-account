@@ -41,6 +41,10 @@
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.description" resname="tx_slubprofileaccount_domain_model_searchquery.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.type" resname="tx_slubprofileaccount_domain_model_searchquery.type">
 				<source>Type</source>
 				<target>Typ</target>
