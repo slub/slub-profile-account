@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
+use JsonException;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\SearchQueryRepository as UserRepository;
 use Slub\SlubProfileAccount\Utility\FileUtility;
@@ -67,7 +68,7 @@ class UserSearchQueryService
      * @return User
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function updateUser(User $user): User
     {
@@ -78,7 +79,7 @@ class UserSearchQueryService
             $hasChanges = true;
             $searchQuery = $this->searchQueryService->setSearchQuery($data['searchQuery']);
 
-            $user->addSearchQuery($searchQuery);
+            $user->attachSearchQuery($searchQuery);
         }
 
         if ($hasChanges) {
@@ -99,7 +100,11 @@ class UserSearchQueryService
         /** @var User|null $user */
         $user = $this->userRepository->findOneByAccountId($accountId);
 
-        if ($user === null) {
+        if ($user instanceof User) {
+            // The child objects like search query are not sorted by repository settings.
+            // Ask the search query service to sort them
+            $user = $this->searchQueryService->sortSearchQueryFromUser($user);
+        } else {
             $user = $this->createUser($accountId);
         }
 

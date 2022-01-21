@@ -24,7 +24,8 @@ return [
         'cruser_id' => 'cruser_id',
         'editlock' => 'editlock',
         'delete' => 'deleted',
-        'sortby' => 'sorting',
+        'sortby' => 'uid DESC',
+        'default_sortby' => 'uid DESC',
         'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -168,6 +169,12 @@ return [
                 ]
             ]
         ],
+        'crdate' => [
+            'config' => [
+                'type' => 'passthrough',
+                'default' => ''
+            ]
+        ],
         'title' => [
             'exclude' => true,
             'l10n_mode' => 'prefixLangTitle',
@@ -237,8 +244,7 @@ return [
                 'MM_hasUidField' => 1,
                 'MM_opposite_field' => 'search_query',
                 'minitems' => 1,
-                'maxitems' => 1,
-                'readOnly' => true
+                'maxitems' => 1
             ]
         ],
     ]

@@ -53,6 +53,19 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - user search query detail
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserSearchQueryDetail',
+    [
+        UserSearchQueryController::class => 'detail'
+    ],
+    [
+        UserSearchQueryController::class => 'detail'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user search query update
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',

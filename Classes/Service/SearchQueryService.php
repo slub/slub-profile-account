@@ -11,15 +11,51 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
+use JsonException;
 use Slub\SlubProfileAccount\Domain\Model\SearchQuery;
+use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
+use Slub\SlubProfileAccount\Domain\Repository\SearchQueryRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class SearchQueryService
 {
+    protected SearchQueryRepository $searchQueryRepository;
+
+    /**
+     * @param SearchQueryRepository $searchQueryRepository
+     */
+    public function __construct(SearchQueryRepository $searchQueryRepository)
+    {
+        $this->searchQueryRepository = $searchQueryRepository;
+    }
+
+    /**
+     * @param User $user
+     * @return User
+     */
+    public function sortSearchQueryFromUser(User $user): User
+    {
+        $userUid = $userUid = $user->getUid();
+        $userSearchQuery = $this->searchQueryRepository
+            ->findByUserUid($userUid)
+            ->toArray();
+
+        if (count($userSearchQuery) > 0) {
+            $user->removeAllSearchQuery();
+
+            /** @var SearchQuery $searchQuery */
+            foreach ($userSearchQuery as $searchQuery) {
+                $user->attachSearchQuery($searchQuery);
+            }
+        }
+
+        return $user;
+    }
+
     /**
      * @param array $query
      * @return SearchQuery
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function setSearchQuery(array $query): SearchQuery
     {

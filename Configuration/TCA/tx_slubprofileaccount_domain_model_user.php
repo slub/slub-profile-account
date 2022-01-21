@@ -208,9 +208,8 @@ return [
             'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.search_query',
             'config' => [
                 'type' => 'inline',
-                'foreign_field' => 'user',
                 'foreign_table' => 'tx_slubprofileaccount_domain_model_searchquery',
-                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_searchquery.sys_language_uid IN (-1,0) AND tx_slubprofileaccount_domain_model_searchquery.hidden = 0 AND tx_slubprofileaccount_domain_model_searchquery.deleted = 0',
+                'foreign_table_where' => 'AND tx_slubprofileaccount_domain_model_searchquery.sys_language_uid IN (-1,0) AND tx_slubprofileaccount_domain_model_searchquery.pid=###CURRENT_PID### AND tx_slubprofileaccount_domain_model_searchquery.deleted = 0',
                 'foreign_sortby' => 'sorting',
                 'MM' => 'tx_slubprofileaccount_domain_model_user_mm',
                 'MM_match_fields' => [
@@ -220,7 +219,7 @@ return [
                 'minitems' => 0,
                 'maxitems' => 999,
                 'appearance' => [
-                    'useSortable' => true,
+                    'useSortable' => false,
                     'showSynchronizationLink' => true,
                     'showAllLocalizationLink' => true,
                     'showPossibleLocalizationRecords' => true,
@@ -228,6 +227,8 @@ return [
                     'expandSingle' => true,
                     'enabledControls' => [
                         'localize' => true,
+                        'new' => false,
+                        'sort' => false
                     ]
                 ],
                 'behaviour' => [

@@ -39,8 +39,8 @@ class UserAccountController extends ActionController
      */
     public function detailAction(): ResponseInterface
     {
-        $this->view->setVariablesToRender(['userDetail']);
-        $this->view->assign('userDetail', $this->user);
+        $this->view->setVariablesToRender(['userAccountDetail']);
+        $this->view->assign('userAccountDetail', $this->user);
 
         return $this->jsonResponse();
     }

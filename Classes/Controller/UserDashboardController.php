@@ -13,9 +13,9 @@ namespace Slub\SlubProfileAccount\Controller;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;
-use Slub\SlubProfileAccount\Domain\Model\User\Dashboard as UserDashboard;
+use Slub\SlubProfileAccount\Domain\Model\User\Dashboard as User;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
-use Slub\SlubProfileAccount\Service\UserDashboardService;
+use Slub\SlubProfileAccount\Service\UserDashboardService as UserService;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
@@ -25,15 +25,15 @@ class UserDashboardController extends ActionController
 {
     protected $view;
     protected $defaultViewObjectName = JsonView::class;
-    protected ?UserDashboard $userDashboard;
-    protected UserDashboardService $userDashboardService;
+    protected ?User $user;
+    protected UserService $userService;
 
     /**
-     * @param UserDashboardService $userDashboardService
+     * @param UserService $userService
      */
-    public function __construct(UserDashboardService $userDashboardService)
+    public function __construct(UserService $userService)
     {
-        $this->userDashboardService = $userDashboardService;
+        $this->userService = $userService;
     }
 
     /**
@@ -42,7 +42,7 @@ class UserDashboardController extends ActionController
     public function detailAction(): ResponseInterface
     {
         $this->view->setVariablesToRender(['userDashboardDetail']);
-        $this->view->assign('userDashboardDetail', $this->userDashboard);
+        $this->view->assign('userDashboardDetail', $this->user);
 
         return $this->jsonResponse();
     }
@@ -54,8 +54,8 @@ class UserDashboardController extends ActionController
      */
     public function updateAction(): ResponseInterface
     {
-        $userDashboard = $this->userDashboardService->updateUser($this->userDashboard);
-        $status = $userDashboard instanceof UserDashboard ? 200 : 500;
+        $user = $this->userService->updateUser($this->user);
+        $status = $user instanceof User ? 200 : 500;
 
         $this->view->setVariablesToRender(['status']);
         $this->view->assign('status', ApiUtility::STATUS[$status]);
@@ -69,7 +69,7 @@ class UserDashboardController extends ActionController
     protected function initializeAction(): void
     {
         try {
-            $this->userDashboard = $this->userDashboardService->getUser(
+            $this->user = $this->userService->getUser(
                 $this->request->getArguments()
             );
         } catch (IllegalObjectTypeException $e) {

@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Mvc\View;
 
+use DateTime;
 use TYPO3\CMS\Extbase\Mvc\View\JsonView as ExtbaseJsonView;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class JsonView extends ExtbaseJsonView
 {
@@ -46,6 +48,26 @@ class JsonView extends ExtbaseJsonView
                 'dashboardWidgets'
             ]
         ],
+        'userSearchQueryDetail' => [
+            '_only' => [
+                'searchQuery'
+            ],
+            '_descend' => [
+                'searchQuery' => [
+                    '_descendAll' => [
+                        '_exclude' => ['pid', 'user'],
+                        '_descend' => [
+                            'creationDate' => [],
+                            /*'user' => [
+                                '_descendAll' => [
+                                    '_exclude' => ['pid'],
+                                ]
+                            ]*/
+                        ]
+                    ]
+                ]
+            ]
+        ],
         'status' => [
         ],
     ];
@@ -53,5 +75,29 @@ class JsonView extends ExtbaseJsonView
     public function __construct()
     {
         $this->setConfiguration($this->accountConfiguration);
+    }
+
+    /**
+     * Always transforming object storages to arrays for the JSON view
+     *
+     * @param mixed $value
+     * @param array $configuration
+     * @param bool $firstLevel
+     * @return mixed
+     */
+    protected function transformValue($value, array $configuration, $firstLevel = false)
+    {
+        if ($value instanceof ObjectStorage) {
+            $value = $value->toArray();
+        }
+
+        if ($value instanceof DateTime) {
+            return [
+                'format' => $value->format('c'),
+                'timestamp' => $value->getTimestamp()
+            ];
+        }
+
+        return parent::transformValue($value, $configuration);
     }
 }

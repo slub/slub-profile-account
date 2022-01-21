@@ -22,6 +22,8 @@ class Account extends AbstractEntity implements AccountIdInterface
     protected array $accountData = [];
 
     /**
+     * You have to set the data first to get something. They are not stored in the database.
+     *
      * @return array $accountData
      */
     public function getAccountData(): array

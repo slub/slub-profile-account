@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Slub\SlubProfileAccount\Controller;
 
 use Exception;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
@@ -38,9 +39,20 @@ class UserSearchQueryController extends ActionController
 
     /**
      * @return ResponseInterface
+     */
+    public function detailAction(): ResponseInterface
+    {
+        $this->view->setVariablesToRender(['userSearchQueryDetail']);
+        $this->view->assign('userSearchQueryDetail', $this->user);
+
+        return $this->jsonResponse();
+    }
+
+    /**
+     * @return ResponseInterface
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function updateAction(): ResponseInterface
     {

@@ -11,16 +11,49 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Domain\Model;
 
+use DateTime;
+use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class SearchQuery extends AbstractEntity
 {
+    protected ?DateTime $creationDate = null;
     protected string $title = '';
     protected string $description = '';
     protected string $type = '';
     protected string $query = '';
-    protected int $user = 0;
     protected int $numberOfResults = 0;
+    /**
+     * @Extbase\ORM\Lazy
+     * @var ?ObjectStorage<User>
+     */
+    protected ?ObjectStorage $user = null;
+
+    /**
+     * User constructor.
+     */
+    public function __construct()
+    {
+        $this->user = new ObjectStorage();
+    }
+
+    /**
+     * @return DateTime $creationDate
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param DateTime $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+        $this->creationDate = $creationDate;
+    }
 
     /**
      * @return string $title
@@ -87,22 +120,6 @@ class SearchQuery extends AbstractEntity
     }
 
     /**
-     * @return int $user
-     */
-    public function getUser(): int
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param int $user
-     */
-    public function setUser(int $user): void
-    {
-        $this->user = $user;
-    }
-
-    /**
      * @return int $numberOfResults
      */
     public function getNumberOfResults(): int
@@ -116,5 +133,37 @@ class SearchQuery extends AbstractEntity
     public function setNumberOfResults(int $numberOfResults): void
     {
         $this->numberOfResults = $numberOfResults;
+    }
+
+    /**
+     * @return ObjectStorage<User>
+     */
+    public function getUser(): ?ObjectStorage
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param ObjectStorage $user
+     */
+    public function setUser(ObjectStorage $user): void
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function attachUser(User $user): void
+    {
+        $this->user->attach($user);
+    }
+
+    /**
+     * @param User $user
+     */
+    public function removeUser(User $user): void
+    {
+        $this->user->detach($user);
     }
 }

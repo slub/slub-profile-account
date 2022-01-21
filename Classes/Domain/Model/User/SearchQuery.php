@@ -55,7 +55,7 @@ class SearchQuery extends AbstractEntity implements AccountIdInterface
     /**
      * @param ModelSearchQuery $searchQuery
      */
-    public function addSearchQuery(ModelSearchQuery $searchQuery): void
+    public function attachSearchQuery(ModelSearchQuery $searchQuery): void
     {
         $this->searchQuery->attach($searchQuery);
     }
@@ -66,5 +66,10 @@ class SearchQuery extends AbstractEntity implements AccountIdInterface
     public function removeSearchQuery(ModelSearchQuery $searchQuery): void
     {
         $this->searchQuery->detach($searchQuery);
+    }
+
+    public function removeAllSearchQuery(): void
+    {
+        $this->searchQuery = new ObjectStorage();
     }
 }
