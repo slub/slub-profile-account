@@ -222,8 +222,6 @@ return [
                     'useSortable' => false,
                     'showSynchronizationLink' => true,
                     'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showRemovedLocalizationRecords' => true,
                     'expandSingle' => true,
                     'enabledControls' => [
                         'localize' => true,

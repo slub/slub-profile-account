@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
+use Doctrine\DBAL\DBALException;
 use JsonException;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\SearchQueryRepository as UserRepository;
@@ -69,25 +70,76 @@ class UserSearchQueryService
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      * @throws JsonException
+     * @throws DBALException
      */
     public function updateUser(User $user): User
     {
-        $hasChanges = false;
         $data = FileUtility::getContent();
 
-        if (count($data['searchQuery']['query']) > 0) {
-            $hasChanges = true;
-            $searchQuery = $this->searchQueryService->setSearchQuery($data['searchQuery']);
-
-            $user->attachSearchQuery($searchQuery);
+        if (isset($data['searchQuery']['query']) && count($data['searchQuery']['query']) > 0) {
+            $this->updateSearchQuery($user, $data['searchQuery']);
         }
 
-        if ($hasChanges) {
-            $this->userRepository->update($user);
-            $this->persistenceManager->persistAll();
+        if (isset($data['searchQuery']['delete']) && count($data['searchQuery']['delete']) > 0) {
+            $this->deleteSearchQuery($user, $data['searchQuery']['delete']);
         }
 
-        return $user;
+        return $this->findUser($user->getAccountId());
+    }
+
+    /**
+     * @param User $user
+     * @param array $deleteIds
+     * @throws DBALException
+     */
+    protected function deleteSearchQuery(User $user, array $deleteIds): void
+    {
+        $userSearchQueryIds = $this->getUserSearchQueryIds($user);
+
+        foreach ($deleteIds as $deleteId) {
+            $hasUserSearchQueryUid = $this->searchQueryService->hasUserSearchQueryUid($userSearchQueryIds, (int)$deleteId);
+
+            if ($hasUserSearchQueryUid === true) {
+                $this->searchQueryService->hideSearchQuery((int)$deleteId);
+            }
+        }
+    }
+
+    /**
+     * @param User $user
+     * @param array $query
+     * @throws IllegalObjectTypeException
+     * @throws JsonException
+     * @throws UnknownObjectException
+     */
+    protected function updateSearchQuery(User $user, array $query): void
+    {
+        $searchQuery = $this->searchQueryService->setSearchQuery($query);
+
+        $user->attachSearchQuery($searchQuery);
+
+        $this->userRepository->update($user);
+        $this->persistenceManager->persistAll();
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     */
+    protected function getUserSearchQueryIds(User $user): array
+    {
+        $queries = $user->getSearchQuery();
+        $queryIds = [];
+
+        if (count($queries) === 0) {
+            return $queryIds;
+        }
+
+        foreach ($queries as $query) {
+            $queryIds[] = $query->getUid();
+        }
+
+        return $queryIds;
     }
 
     /**

@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Controller;
 
+use Doctrine\DBAL\DBALException;
 use Exception;
 use JsonException;
 use Psr\Http\Message\ResponseInterface;
@@ -53,6 +54,7 @@ class UserSearchQueryController extends ActionController
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      * @throws JsonException
+     * @throws DBALException
      */
     public function updateAction(): ResponseInterface
     {

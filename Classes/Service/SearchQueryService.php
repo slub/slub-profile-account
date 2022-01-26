@@ -11,21 +11,31 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Service;
 
+use Doctrine\DBAL\DBALException;
 use JsonException;
+use PDO;
 use Slub\SlubProfileAccount\Domain\Model\SearchQuery;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Domain\Repository\SearchQueryRepository;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class SearchQueryService
 {
+    protected const TABLE = 'tx_slubprofileaccount_domain_model_searchquery';
+    protected ConnectionPool $connectionPool;
     protected SearchQueryRepository $searchQueryRepository;
 
     /**
+     * @param ConnectionPool $connectionPool
      * @param SearchQueryRepository $searchQueryRepository
      */
-    public function __construct(SearchQueryRepository $searchQueryRepository)
-    {
+    public function __construct(
+        ConnectionPool $connectionPool,
+        SearchQueryRepository $searchQueryRepository
+    ) {
+        $this->connectionPool = $connectionPool;
         $this->searchQueryRepository = $searchQueryRepository;
     }
 
@@ -53,6 +63,25 @@ class SearchQueryService
     }
 
     /**
+     * @param int $uid
+     * @throws DBALException
+     */
+    public function hideSearchQuery(int $uid): void
+    {
+        $queryBuilder = $this->getQueryBuilder(self::TABLE);
+        $queryBuilder
+            ->update(self::TABLE)
+            ->where(
+                $queryBuilder->expr()->eq(
+                    'uid',
+                    $queryBuilder->createNamedParameter($uid, PDO::PARAM_INT)
+                )
+            )
+            ->set('hidden', 1)
+            ->executeStatement();
+    }
+
+    /**
      * @param array $query
      * @return SearchQuery
      * @throws JsonException
@@ -73,6 +102,16 @@ class SearchQueryService
     }
 
     /**
+     * @param array $userSearchQueryIds
+     * @param int $searchQueryUid
+     * @return bool
+     */
+    public function hasUserSearchQueryUid(array $userSearchQueryIds, int $searchQueryUid): bool
+    {
+        return in_array($searchQueryUid, $userSearchQueryIds, true);
+    }
+
+    /**
      * @param array $query
      * @return string
      */
@@ -85,5 +124,14 @@ class SearchQueryService
         }
 
         return implode(', ', $titles);
+    }
+
+    /**
+     * @param string $table
+     * @return QueryBuilder
+     */
+    protected function getQueryBuilder(string $table): QueryBuilder
+    {
+        return $this->connectionPool->getQueryBuilderForTable($table);
     }
 }
