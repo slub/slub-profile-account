@@ -24,7 +24,7 @@ return [
         'cruser_id' => 'cruser_id',
         'editlock' => 'editlock',
         'delete' => 'deleted',
-        'sortby' => 'uid DESC',
+        'sortby' => 'uid',
         'default_sortby' => 'uid DESC',
         'enablecolumns' => [
             'disabled' => 'hidden',
