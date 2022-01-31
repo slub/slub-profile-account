@@ -1,0 +1,14 @@
+# customsubcategory=76595002_Api=API
+
+plugin.tx_slubprofileaccount {
+  persistence.storagePid = 14
+
+  settings {
+    api {
+      path {
+        # cat=plugin.tx_slubprofileaccount/76595002_Api/100; type=string; label=Path for user
+        user = https://ddev-slub-katalog.ddev.site/libero/core/###USER_ID###/
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Slub\SlubProfileAccount\:
+    resource: '../Classes/*'
+
+  Slub\SlubProfileAccount\Http\Request:
+    public: true
+
+  Slub\SlubProfileAccount\Service\AccountService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\DashboardService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserAccountService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserDashboardService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserSearchQueryService:
+    public: true
