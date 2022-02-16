@@ -33,9 +33,10 @@ Please check the routes' configuration. You have to set the matching page (limit
 
 ### 3.2 Typoscript
 
-Setup / Constant | Comment
----------------- | -------
-plugin.tx_slubprofile_account.settings.api.path.user | Path to get user info / detail.
+| Setup / Constant                                              | Comment                          |
+|---------------------------------------------------------------|----------------------------------|
+| plugin.tx_slubprofile_account.settings.api.path.user          | Path to get user info / detail.  |
+| plugin.tx_slubprofile_account.settings.cache.account.lifeTime | Life time to cache account data. |
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/

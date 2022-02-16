@@ -14,27 +14,33 @@ namespace Slub\SlubProfileAccount\Service;
 use Slub\SlubProfileAccount\Domain\Model\Dto\ApiConfiguration;
 use Slub\SlubProfileAccount\Sanitization\AccountArgumentSanitization;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
+use Slub\SlubProfileAccount\Utility\CacheUtility;
 use Slub\SlubProfileEvents\Http\Request;
+use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
 class AccountService
 {
     protected AccountArgumentSanitization $accountArgumentSanitization;
-    protected ApiConfiguration $apiConfiguration;
-    protected Request $request;
     protected int $accountId;
+    protected ApiConfiguration $apiConfiguration;
+    protected FrontendInterface $cache;
+    protected Request $request;
 
     /**
      * @param AccountArgumentSanitization $accountArgumentSanitization
      * @param ApiConfiguration $apiConfiguration
+     * @param FrontendInterface $cache
      * @param Request $request
      */
     public function __construct(
         AccountArgumentSanitization $accountArgumentSanitization,
         ApiConfiguration $apiConfiguration,
+        FrontendInterface $cache,
         Request $request
     ) {
         $this->accountArgumentSanitization = $accountArgumentSanitization;
         $this->apiConfiguration = $apiConfiguration;
+        $this->cache = $cache;
         $this->request = $request;
     }
 
@@ -74,6 +80,24 @@ class AccountService
      * @return array|null
      */
     protected function getAccount(int $id): ?array
+    {
+        $cacheIdentifier = CacheUtility::getIdentifier((string)$id);
+
+        if (!$this->cache->has($cacheIdentifier)) {
+            $data = $this->requestAccount($id);
+            $lifeTime = CacheUtility::getAccountLifeTime();
+
+            $this->cache->set($cacheIdentifier, $data, ['accountId_' . $id], $lifeTime);
+        }
+
+        return $this->cache->get($cacheIdentifier);
+    }
+
+    /**
+     * @param int $id
+     * @return array|null
+     */
+    protected function requestAccount(int $id): ?array
     {
         $uri = $this->apiConfiguration->getUserUri();
         $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);

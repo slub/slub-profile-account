@@ -85,3 +85,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][time()] = [
     'priority' => 40,
     'class' => AccountDataElement::class,
 ];
+
+// Custom cache to save user account
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['slubprofileaccount_account'] ??= [];

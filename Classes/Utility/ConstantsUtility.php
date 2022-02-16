@@ -16,4 +16,5 @@ class ConstantsUtility
     public const EXTENSION_NAME = 'slubprofileaccount';
     public const EXTENSION_KEY = 'slub_profile_account';
     public const LANGUAGE_PATH_BACKEND = 'LLL:EXT:' . self::EXTENSION_KEY . '/Resources/Private/Language/locallang_backend.xlf';
+    public const CACHE_ACCOUNT_LIFETIME = 3600;
 }

@@ -1,14 +1,14 @@
 # customsubcategory=76595002_Api=API
+# customsubcategory=76595003_Cache=Cache
 
 plugin.tx_slubprofileaccount {
   persistence.storagePid = 14
 
   settings {
-    api {
-      path {
-        # cat=plugin.tx_slubprofileaccount/76595002_Api/100; type=string; label=Path for user
-        user = https://ddev-slub-katalog.ddev.site/libero/core/###USER_ID###/
-      }
-    }
+    # cat=plugin.tx_slubprofileaccount/76595002_Api/100; type=string; label=Path for user
+    api.path.user = https://ddev-slub-katalog.ddev.site/libero/core/###USER_ID###/index.json
+
+    # cat=plugin.tx_slubprofileaccount/76595003_Cache/100; type=int; label=Life time account cache in seconds
+    cache.account.lifeTime = 3600
   }
 }

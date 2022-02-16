@@ -8,12 +8,8 @@ plugin.tx_slubprofileaccount {
   persistence.storagePid = {$plugin.tx_slubprofileaccount.persistence.storagePid}
 
   settings {
-    api {
-      path {
-        # cat=plugin.tx_slubprofileaccount//a; type=string; label=Api path for user
-        user = https://ddev-slub-katalog.ddev.site/libero/core/###USER_ID###/index.json
-      }
-    }
+    api.path.user = {$plugin.tx_slubprofileaccount.settings.api.path.user}
+    cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}
   }
 }
 

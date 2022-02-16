@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileAccount\Domain\Model\Dto;
 
-use Slub\SlubProfileAccount\Utility\ConstantsUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use Slub\SlubProfileAccount\Utility\SettingsUtility;
 
 class ApiConfiguration
 {
@@ -24,7 +22,7 @@ class ApiConfiguration
 
     public function __construct()
     {
-        $settings = $this->getPluginSettings();
+        $settings = SettingsUtility::getPluginSettings();
 
         $this->setUserUri($settings['api']['path']['user']);
     }
@@ -40,22 +38,8 @@ class ApiConfiguration
     /**
      * @param string $userUri
      */
-    public function setUserUri($userUri = ''): void
+    public function setUserUri(string $userUri = ''): void
     {
         $this->userUri = $userUri;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getPluginSettings(): array
-    {
-        /** @var ConfigurationManagerInterface $configurationManager */
-        $configurationManager = GeneralUtility::makeInstance(ConfigurationManagerInterface::class);
-
-        return $configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
-            ConstantsUtility::EXTENSION_NAME
-        );
     }
 }
