@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Slub\SlubProfileAccount\Http;
 
 use GuzzleHttp\Exception\RequestException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
@@ -44,9 +45,9 @@ class Request implements LoggerAwareInterface
      * @param string $method
      * @param array $options
      * @return array|null
-     * @throws \JsonException
+     * @throws JsonException
      */
-    public function process($uri = '', $method = 'GET', array $options = []): ?array
+    public function process(string $uri = '', string $method = 'GET', array $options = []): ?array
     {
         try {
             $options = $this->mergeOptions($this->options, $options);
@@ -79,9 +80,9 @@ class Request implements LoggerAwareInterface
      * @param ResponseInterface $response
      * @param string $uri
      * @return array|null
-     * @throws \JsonException
+     * @throws JsonException
      */
-    protected function getContent(ResponseInterface $response, $uri = ''): ?array
+    protected function getContent(ResponseInterface $response, string $uri = ''): ?array
     {
         $content = '';
 
