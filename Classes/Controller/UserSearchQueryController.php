@@ -58,11 +58,10 @@ class UserSearchQueryController extends ActionController
      */
     public function updateAction(): ResponseInterface
     {
-        $user = $this->userService->updateUser($this->user);
-        $status = $user instanceof User ? 200 : 500;
+        $this->userService->updateUser($this->user);
 
         $this->view->setVariablesToRender(['status']);
-        $this->view->assign('status', ApiUtility::STATUS[$status]);
+        $this->view->assign('status', ApiUtility::STATUS[200]);
 
         return $this->jsonResponse();
     }
