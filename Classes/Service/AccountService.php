@@ -102,6 +102,12 @@ class AccountService
         $uri = $this->apiConfiguration->getUserUri();
         $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
 
-        return $this->request->process($uri);
+        return $this->request->process($uri, 'GET', [
+            'headers' => [
+                'X-SLUB-Standard' => 'paia_ext',
+                'X-SLUB-pretty' => '1',
+                'X-SLUB-sort' => 'ASC'
+            ]
+        ]);
     }
 }
