@@ -6,7 +6,7 @@ plugin.tx_slubprofileaccount {
 
   settings {
     # cat=plugin.tx_slubprofileaccount/76595002_Api/100; type=string; label=Path for user
-    api.path.user = https://ddev-slub-katalog.ddev.site/libero/core/###USER_ID###/index.json
+    api.path.user = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###
 
     # cat=plugin.tx_slubprofileaccount/76595003_Cache/100; type=int; label=Life time account cache in seconds
     cache.account.lifeTime = 3600
