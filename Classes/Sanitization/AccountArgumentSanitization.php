@@ -68,7 +68,9 @@ class AccountArgumentSanitization
      */
     protected function sanitizeString(string $key = '', string $string = ''): void
     {
-        $this->sanitizedArguments[$key] = trim(str_replace($this->disallowedCharacters, '', $string));
+        if (!empty($string)) {
+            $this->sanitizedArguments[$key] = trim(str_replace($this->disallowedCharacters, '', $string));
+        }
     }
 
     /**

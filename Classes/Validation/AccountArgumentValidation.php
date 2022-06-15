@@ -23,19 +23,19 @@ class AccountArgumentValidation
     {
         $error = [];
 
-        if (empty($arguments['GivenNames'])) {
+        if (isset($arguments['GivenNames']) && empty($arguments['GivenNames'])) {
             $error['GivenNames'] = ApiUtility::VALIDATION['isEmpty'];
         }
 
-        if (empty($arguments['Surname'])) {
+        if (isset($arguments['Surname']) && empty($arguments['Surname'])) {
             $error['Surname'] = ApiUtility::VALIDATION['isEmpty'];
         }
 
-        if (empty($arguments['EmailAddress'])) {
+        if (isset($arguments['EmailAddress']) && empty($arguments['EmailAddress'])) {
             $error['EmailAddress'] = ApiUtility::VALIDATION['isEmpty'];
         }
 
-        if (!filter_var($arguments['EmailAddress'], FILTER_VALIDATE_EMAIL)) {
+        if (isset($arguments['EmailAddress']) && !filter_var($arguments['EmailAddress'], FILTER_VALIDATE_EMAIL)) {
             $error['EmailAddress'] = ApiUtility::VALIDATION['isInvalid'];
         }
 
