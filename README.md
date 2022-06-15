@@ -45,8 +45,6 @@ To update data via external form you have to send an array called "account" via 
 | Field name         | Comment    |
 |--------------------|------------|
 | EmailAddress       | Obligation |
-| GivenNames         | Obligation |
-| Surname            | Obligation |
 | PostalAddress1     |            |
 | PostalAddress2     |            |
 | PostalCity         |            |

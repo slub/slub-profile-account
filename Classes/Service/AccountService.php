@@ -94,6 +94,10 @@ class AccountService
             return $validated;
         }
 
+        // This data items shall not be updated. Make sure, that they will be ignored, even they are sent.
+        unset($data['GivenNames']);
+        unset($data['Surname']);
+
         $uri = $this->apiConfiguration->getUserUri();
         $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
 

@@ -44,9 +44,6 @@ class AccountArgumentSanitization
     {
         $this->sanitizedArguments = $arguments;
 
-        $this->sanitizeString('GivenNames', $arguments['GivenNames'] ?? '');
-        $this->sanitizeString('Surname', $arguments['Surname'] ?? '');
-
         $this->sanitizeString('PostalAddress1', $arguments['PostalAddress1'] ?? '');
         $this->sanitizeString('PostalAddress2', $arguments['PostalAddress2'] ?? '');
         $this->sanitizeString('PostalCity', $arguments['PostalCity'] ?? '');
