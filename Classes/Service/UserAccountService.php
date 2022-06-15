@@ -70,9 +70,9 @@ class UserAccountService
     public function updateUser(User $user): array
     {
         $accountId = $user->getAccountId();
-        $data = FileUtility::getContent();
+        $data = FileUtility::getContent()['account'];
 
-        if (count($data['account']) === 0) {
+        if ($data === null) {
             return ApiUtility::STATUS[400];
         }
 

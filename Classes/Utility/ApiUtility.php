@@ -21,7 +21,6 @@ class ApiUtility
         400 => [
             'code' => 400,
             'message' => 'Bad Request',
-            'error' => []
         ],
         500 => [
             'code' => 500,

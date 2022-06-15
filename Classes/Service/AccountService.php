@@ -87,7 +87,7 @@ class AccountService
      */
     public function updateAccount(int $id, array $data): ?array
     {
-        $data = $this->accountArgumentSanitization->sanitizeUpdateArguments($data['account']);
+        $data = $this->accountArgumentSanitization->sanitizeUpdateArguments($data);
         $validated = $this->accountArgumentValidation->validateUpdateArguments($data);
 
         if ($validated['code'] === 400) {
