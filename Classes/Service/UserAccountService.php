@@ -13,6 +13,8 @@ namespace Slub\SlubProfileAccount\Service;
 
 use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\AccountRepository as UserRepository;
+use Slub\SlubProfileAccount\Utility\ApiUtility;
+use Slub\SlubProfileAccount\Utility\FileUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
@@ -58,6 +60,29 @@ class UserAccountService
         }
 
         return $user;
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     * @throws \JsonException
+     */
+    public function updateUser(User $user): array
+    {
+        $accountId = $user->getAccountId();
+        $data = FileUtility::getContent();
+
+        if (count($data['account']) === 0) {
+            return ApiUtility::STATUS[400];
+        }
+
+        $updateStatus = $this->accountService->updateAccount($accountId, $data);
+
+        if ($updateStatus['code'] === 200) {
+            $this->accountService->flushCache($accountId);
+        }
+
+        return $updateStatus;
     }
 
     /**

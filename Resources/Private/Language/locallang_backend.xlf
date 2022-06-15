@@ -19,6 +19,13 @@
 				<source>Details of a specific user (account). Returns only the user constraint "account" data.</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.useraccountupdate.title" resname="plugin.useraccountupdate.title">
+				<source>User update (constraint: account)</source>
+			</trans-unit>
+			<trans-unit id="plugin.useraccountupdate.description" resname="plugin.useraccountupdate.description">
+				<source>Update data of account user.</source>
+			</trans-unit>
+
 			<trans-unit id="plugin.userdashboarddetail.title" resname="plugin.userdashboarddetail.title">
 				<source>User detail (constraint: dashboard)</source>
 			</trans-unit>
@@ -27,10 +34,10 @@
 			</trans-unit>
 
 			<trans-unit id="plugin.userdashboardupdate.title" resname="plugin.userdashboardupdate.title">
-				<source>User dashboard - update</source>
+				<source>User update (constraint: dashboard)</source>
 			</trans-unit>
 			<trans-unit id="plugin.userdashboardupdate.description" resname="plugin.userdashboardupdate.description">
-				<source>Update data of dashboard to user.</source>
+				<source>Update data of dashboard user.</source>
 			</trans-unit>
 
 			<trans-unit id="plugin.usersearchquerydetail.title" resname="plugin.usersearchquerydetail.title">
@@ -41,10 +48,10 @@
 			</trans-unit>
 
 			<trans-unit id="plugin.usersearchqueryupdate.title" resname="plugin.usersearchqueryupdate.title">
-				<source>User search query - update</source>
+				<source>User update (constraint: search query)</source>
 			</trans-unit>
 			<trans-unit id="plugin.usersearchqueryupdate.description" resname="plugin.usersearchqueryupdate.description">
-				<source>Update data of user search to user.</source>
+				<source>Update data of search user.</source>
 			</trans-unit>
 
 			<!--

@@ -13,7 +13,7 @@ namespace Slub\SlubProfileAccount\Sanitization;
 
 class WidgetSanitization
 {
-    protected array $pattern = [
+    protected array $stringPattern = [
         '/[^_a-zA-Z\s]/',
         '/ /'
     ];
@@ -37,8 +37,8 @@ class WidgetSanitization
      * @param string $string
      * @return string
      */
-    protected function sanitizeString($string = ''): string
+    protected function sanitizeString(string $string = ''): string
     {
-        return preg_replace($this->pattern, '', $string);
+        return preg_replace($this->stringPattern, '', $string);
     }
 }

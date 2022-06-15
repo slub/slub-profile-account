@@ -2,6 +2,7 @@
 # But you can simply include it in your site configuration:
 imports:
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserAccountDetail.yaml'
+  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserAccountUpdate.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardDetail.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardUpdate.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryDetail.yaml'

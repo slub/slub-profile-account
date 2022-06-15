@@ -23,6 +23,10 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-account-detail.svg'
     ],
+    'slubprofileaccount-wizard-useraccountupdate' => [
+        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-account-update.svg'
+    ],
     'slubprofileaccount-wizard-userdashboarddetail' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-dashboard-detail.svg'

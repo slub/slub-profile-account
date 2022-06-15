@@ -15,12 +15,14 @@ use Slub\SlubProfileAccount\Domain\Model\Dto\ApiConfiguration;
 use Slub\SlubProfileAccount\Sanitization\AccountArgumentSanitization;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\CacheUtility;
+use Slub\SlubProfileAccount\Validation\AccountArgumentValidation;
 use Slub\SlubProfileEvents\Http\Request;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
 class AccountService
 {
     protected AccountArgumentSanitization $accountArgumentSanitization;
+    protected AccountArgumentValidation $accountArgumentValidation;
     protected int $accountId;
     protected ApiConfiguration $apiConfiguration;
     protected FrontendInterface $cache;
@@ -28,17 +30,20 @@ class AccountService
 
     /**
      * @param AccountArgumentSanitization $accountArgumentSanitization
+     * @param AccountArgumentValidation $accountArgumentValidation
      * @param ApiConfiguration $apiConfiguration
      * @param FrontendInterface $cache
      * @param Request $request
      */
     public function __construct(
         AccountArgumentSanitization $accountArgumentSanitization,
+        AccountArgumentValidation $accountArgumentValidation,
         ApiConfiguration $apiConfiguration,
         FrontendInterface $cache,
         Request $request
     ) {
         $this->accountArgumentSanitization = $accountArgumentSanitization;
+        $this->accountArgumentValidation = $accountArgumentValidation;
         $this->apiConfiguration = $apiConfiguration;
         $this->cache = $cache;
         $this->request = $request;
@@ -77,11 +82,54 @@ class AccountService
 
     /**
      * @param int $id
+     * @param array $data
+     * @return array|null
+     */
+    public function updateAccount(int $id, array $data): ?array
+    {
+        $data = $this->accountArgumentSanitization->sanitizeUpdateArguments($data['account']);
+        $validated = $this->accountArgumentValidation->validateUpdateArguments($data);
+
+        if ($validated['code'] === 400) {
+            return $validated;
+        }
+
+        $uri = $this->apiConfiguration->getUserUri();
+        $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
+
+        $processed = $this->request->process($uri, 'PATCH', [
+            'body' => json_encode($data),
+            'headers' => [
+                'X-SLUB-Standard' => 'paia_ext',
+                'X-SLUB-pretty' => '1',
+                'X-SLUB-sort' => 'ASC'
+            ]
+        ]);
+
+        if ($processed['status'] === 1) {
+            return ApiUtility::STATUS[200];
+        }
+
+        return ApiUtility::STATUS[500];
+    }
+
+    /**
+     * @param int $id
+     */
+    public function flushCache(int $id): void
+    {
+        $cacheIdentifier = $this->getCacheIdentifier($id);
+
+        $this->cache->remove($cacheIdentifier);
+    }
+
+    /**
+     * @param int $id
      * @return array|null
      */
     protected function getAccount(int $id): ?array
     {
-        $cacheIdentifier = CacheUtility::getIdentifier((string)$id);
+        $cacheIdentifier = $this->getCacheIdentifier($id);
 
         if (!$this->cache->has($cacheIdentifier)) {
             $data = $this->requestAccount($id);
@@ -109,5 +157,14 @@ class AccountService
                 'X-SLUB-sort' => 'ASC'
             ]
         ]);
+    }
+
+    /**
+     * @param int $id
+     * @return string
+     */
+    protected function getCacheIdentifier(int $id): string
+    {
+        return CacheUtility::getIdentifier((string)$id);
     }
 }

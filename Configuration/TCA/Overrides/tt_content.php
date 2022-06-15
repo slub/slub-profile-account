@@ -6,8 +6,7 @@ defined('TYPO3') || die();
     $extensionName = str_replace('_', '', $extensionKey);
     $ll = [
         'backend' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_backend.xlf',
-        'core' => 'LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf',
-        'frontend' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf',
+        'core' => 'LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf'
     ];
 
     // Add new group to ctype selector
@@ -61,6 +60,7 @@ defined('TYPO3') || die();
     'slub_profile_account',
     [
         'useraccountdetail',
+        'useraccountupdate',
         'userdashboarddetail',
         'userdashboardupdate',
         'usersearchquerydetail',

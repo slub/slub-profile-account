@@ -46,6 +46,20 @@ class UserAccountController extends ActionController
     }
 
     /**
+     * @return ResponseInterface
+     * @throws \JsonException
+     */
+    public function updateAction(): ResponseInterface
+    {
+        $status = $this->userService->updateUser($this->user);
+
+        $this->view->setVariablesToRender(['status']);
+        $this->view->assign('status', $status);
+
+        return $this->jsonResponse();
+    }
+
+    /**
      * @throws Exception
      */
     protected function initializeAction(): void

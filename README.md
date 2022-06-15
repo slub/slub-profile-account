@@ -38,6 +38,26 @@ Please check the routes' configuration. You have to set the matching page (limit
 | plugin.tx_slubprofile_account.settings.api.path.user          | Path to get user info / detail.  |
 | plugin.tx_slubprofile_account.settings.cache.account.lifeTime | Life time to cache account data. |
 
+### 3.3 Update account data
+
+To update data via external form you have to send an array called "account" via post with the following fields:
+
+| Field name         | Comment    |
+|--------------------|------------|
+| EmailAddress       | Obligation |
+| GivenNames         | Obligation |
+| Surname            | Obligation |
+| PostalAddress1     |            |
+| PostalAddress2     |            |
+| PostalCity         |            |
+| PostalPostCode     |            |
+| PostalCountry      |            |
+| ResAddress1        |            |
+| ResAddress2        |            |
+| ResAddressCity     |            |
+| ResAddressPostCode |            |
+| ResAddressCountry  |            |
+
 [1]: https://getcomposer.org/
 [2]: https://semver.org/
 

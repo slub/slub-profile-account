@@ -22,6 +22,15 @@
 				<target>Details zu einem spezifischen Benutzer (Account). Gibt nur die Daten des Benutzers mit der Einschränkung "Account" zurück.</target>
 			</trans-unit>
 
+			<trans-unit id="plugin.useraccountupdate.title" resname="plugin.useraccountupdate.title">
+				<source>User update (constraint: account)</source>
+				<target>Aktualisierung eines Benutzers (Einschränkung: Account)</target>
+			</trans-unit>
+			<trans-unit id="plugin.useraccountupdate.description" resname="plugin.useraccountupdate.description">
+				<source>Update data of account user.</source>
+				<target>Daten eines Benutzers aktualisieren.</target>
+			</trans-unit>
+
 			<trans-unit id="plugin.userdashboarddetail.title" resname="plugin.userdashboarddetail.title">
 				<source>User detail (constraint: dashboard)</source>
 				<target>Details eines Benutzers (Einschränkung: Dashboard)</target>
@@ -32,11 +41,11 @@
 			</trans-unit>
 
 			<trans-unit id="plugin.userdashboardupdate.title" resname="plugin.userdashboardupdate.title">
-				<source>User dashboard - update</source>
-				<target>Benutzerdashboard - aktualisieren</target>
+				<source>User update (constraint: dashboard)</source>
+				<target>Aktualisierung eines Benutzers (Einschränkung: Dashboard)</target>
 			</trans-unit>
 			<trans-unit id="plugin.userdashboardupdate.description" resname="plugin.userdashboardupdate.description">
-				<source>Update data of dashboard to user.</source>
+				<source>Update data of dashboard user.</source>
 				<target>Daten der Dashboardeinstellung eines Benutzers aktualisieren.</target>
 			</trans-unit>
 
@@ -50,11 +59,11 @@
 			</trans-unit>
 
 			<trans-unit id="plugin.usersearchqueryupdate.title" resname="plugin.usersearchqueryupdate.title">
-				<source>User search query - update</source>
-				<target>Benutzersuchanfrage - aktualisieren</target>
+				<source>User update (constraint: search query)</source>
+				<target>Aktualisierung eines Benutzers (Einschränkung: Suchanfrage)</target>
 			</trans-unit>
 			<trans-unit id="plugin.usersearchqueryupdate.description" resname="plugin.usersearchqueryupdate.description">
-				<source>Update data of user search to user.</source>
+				<source>Update data of search user.</source>
 				<target>Daten der Benutzersuchanfrage eines Benutzers aktualisieren.</target>
 			</trans-unit>
 

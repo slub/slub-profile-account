@@ -18,9 +18,25 @@ class ApiUtility
             'code' => 200,
             'message' => 'OK'
         ],
+        400 => [
+            'code' => 400,
+            'message' => 'Bad Request',
+            'error' => []
+        ],
         500 => [
             'code' => 500,
             'message' => 'Internal Server Error'
+        ]
+    ];
+
+    public const VALIDATION = [
+        'isEmpty' => [
+            'code' => 'is_empty',
+            'message' => 'This field is required'
+        ],
+        'isInvalid' => [
+            'code' => 'is_invalid',
+            'message' => 'This field is invalid'
         ]
     ];
 
