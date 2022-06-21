@@ -17,6 +17,7 @@ use PDO;
 use Slub\SlubProfileAccount\Domain\Model\SearchQuery;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Domain\Repository\SearchQueryRepository;
+use Slub\SlubProfileAccount\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -90,6 +91,8 @@ class SearchQueryService
     {
         /** @var SearchQuery $searchQuery */
         $searchQuery = GeneralUtility::makeInstance(SearchQuery::class);
+        $searchQuery = LanguageUtility::setLanguageProperty($searchQuery);
+
         $title = $this->createTitle($query['query']);
 
         $searchQuery->setTitle($title);

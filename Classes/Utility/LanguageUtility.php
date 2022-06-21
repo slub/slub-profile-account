@@ -22,4 +22,15 @@ class LanguageUtility
     {
         return $GLOBALS['LANG'];
     }
+
+    /**
+     * Sets the sys_language_uid to All languages
+     */
+    public static function setLanguageProperty($object)
+    {
+        $object->_setProperty('_localizedUid', null);
+        $object->_setProperty('_languageUid', '-1');
+
+        return $object;
+    }
 }

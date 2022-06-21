@@ -16,6 +16,7 @@ use JsonException;
 use Slub\SlubProfileAccount\Domain\Model\User\SearchQuery as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\SearchQueryRepository as UserRepository;
 use Slub\SlubProfileAccount\Utility\FileUtility;
+use Slub\SlubProfileAccount\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
@@ -172,6 +173,7 @@ class UserSearchQueryService
     {
         /** @var User $user */
         $user = GeneralUtility::makeInstance(User::class);
+        $user = LanguageUtility::setLanguageProperty($user);
         $user->setAccountId($accountId);
 
         $this->userRepository->add($user);

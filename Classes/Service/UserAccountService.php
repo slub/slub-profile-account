@@ -15,6 +15,7 @@ use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
 use Slub\SlubProfileAccount\Domain\Repository\User\AccountRepository as UserRepository;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\FileUtility;
+use Slub\SlubProfileAccount\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
@@ -111,6 +112,7 @@ class UserAccountService
     {
         /** @var User $userAccount */
         $userAccount = GeneralUtility::makeInstance(User::class);
+        $userAccount = LanguageUtility::setLanguageProperty($userAccount);
         $userAccount->setAccountId($accountId);
 
         $this->userRepository->add($userAccount);
