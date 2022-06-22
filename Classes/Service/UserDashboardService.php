@@ -53,10 +53,10 @@ class UserDashboardService
     public function getUser(array $arguments): ?User
     {
         $user = null;
-        $accountData = $this->accountService->getAccountDataByArguments($arguments);
+        $account = $this->accountService->getAccountByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
 
-        if ($accountId > 0 && is_array($accountData)) {
+        if ($accountId > 0 && is_array($account)) {
             $user = $this->findUser($accountId);
         }
 

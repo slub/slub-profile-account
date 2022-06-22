@@ -3,7 +3,8 @@
 use Slub\SlubProfileAccount\Controller\UserAccountController;
 use Slub\SlubProfileAccount\Controller\UserDashboardController;
 use Slub\SlubProfileAccount\Controller\UserSearchQueryController;
-use Slub\SlubProfileAccount\Form\Element\AccountDataElement;
+use Slub\SlubProfileAccount\Form\Element\AccountOverviewElement;
+use Slub\SlubProfileAccount\Form\Element\UserCategoryDescriptionElement;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -92,11 +93,18 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Register new renderType - accountData
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][time()] = [
-    'nodeName' => 'accountData',
-    'priority' => 40,
-    'class' => AccountDataElement::class,
+// Register new renderTypes
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'] = [
+    'accountOverview' => [
+        'nodeName' => 'accountOverview',
+        'priority' => 40,
+        'class' => AccountOverviewElement::class,
+    ],
+    'userCategoryDescription' => [
+        'nodeName' => 'userCategoryDescription',
+        'priority' => 45,
+        'class' => UserCategoryDescriptionElement::class,
+    ]
 ];
 
 // Custom cache to save user account

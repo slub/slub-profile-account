@@ -19,23 +19,40 @@ class Account extends AbstractEntity implements AccountIdInterface
 {
     use AccountIdTrait;
 
-    protected array $accountData = [];
+    protected array $account = [];
+    protected array $user = [];
 
     /**
      * You have to set the data first to get something. They are not stored in the database.
      *
-     * @return array $accountData
+     * @return array $account
      */
-    public function getAccountData(): array
+    public function getAccount(): array
     {
-        return $this->accountData;
+        return $this->account;
     }
 
     /**
-     * @param array $accountData
+     * @param array $account
      */
-    public function setAccountData(array $accountData): void
+    public function setAccount(array $account): void
     {
-        $this->accountData = $accountData;
+        $this->account = $account;
+    }
+
+    /**
+     * @return array $user
+     */
+    public function getUser(): array
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param array $user
+     */
+    public function setUser(array $user): void
+    {
+        $this->user = $user;
     }
 }

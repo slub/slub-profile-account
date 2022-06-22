@@ -48,7 +48,9 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $ll['core']['tabs'] . ':general,
-                    account_id, account_overview,
+                    account_id, user_category_description,
+                --div--;' . $ll['slubProfileAccount']['tabs'] . ':account,
+                    account_overview,
                 --div--;' . $ll['slubProfileAccount']['tabs'] . ':dashboard,
                     dashboard_widgets,
                 --div--;' . $ll['slubProfileAccount']['tabs'] . ':searchQuery,
@@ -187,7 +189,7 @@ return [
             'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.account_overview',
             'config' => [
                 'type' => 'user',
-                'renderType' => 'accountData',
+                'renderType' => 'accountOverview',
             ],
         ],
         'dashboard_widgets' => [
@@ -200,6 +202,13 @@ return [
                 'rows' => 5,
                 'cols' => 30,
             ]
+        ],
+        'user_category_description' => [
+            'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.user_category_description',
+            'config' => [
+                'type' => 'user',
+                'renderType' => 'userCategoryDescription',
+            ],
         ],
         'search_query' => [
             'exclude' => true,

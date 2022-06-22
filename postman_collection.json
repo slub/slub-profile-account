@@ -44,7 +44,7 @@
 							"_postman_previewlanguage": "json",
 							"header": null,
 							"cookie": [],
-							"body": "{\n    \"accountData\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
 						}
 					]
 				},

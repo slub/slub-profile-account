@@ -24,20 +24,24 @@ class UserAccountService
 {
     protected AccountService $accountService;
     protected PersistenceManager $persistenceManager;
+    protected UserService $userService;
     protected UserRepository $userRepository;
 
     /**
      * @param AccountService $accountService
      * @param PersistenceManager $persistenceManager
+     * @param UserService $userService
      * @param UserRepository $userRepository
      */
     public function __construct(
         AccountService $accountService,
         PersistenceManager $persistenceManager,
+        UserService $userService,
         UserRepository $userRepository
     ) {
         $this->accountService = $accountService;
         $this->persistenceManager = $persistenceManager;
+        $this->userService = $userService;
         $this->userRepository = $userRepository;
     }
 
@@ -48,16 +52,18 @@ class UserAccountService
      */
     public function getUser(array $arguments): ?User
     {
-        $user = null;
-        $accountData = $this->accountService->getAccountDataByArguments($arguments);
+        $account = $this->accountService->getAccountByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
+        $userProfile = $this->userService->getUserByAccount($account);
+        $user = null;
 
-        if ($accountId > 0 && is_array($accountData)) {
+        if ($accountId > 0 && is_array($account)) {
             $user = $this->findUser($accountId);
         }
 
         if ($user instanceof User) {
-            $user->setAccountData($accountData);
+            $user->setAccount($account);
+            $user->setUser($userProfile);
         }
 
         return $user;

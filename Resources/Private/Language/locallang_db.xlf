@@ -14,6 +14,9 @@
 			<trans-unit id="tx_slubprofileaccount_domain_model_user.account_id" resname="tx_slubprofileaccount_domain_model_user.account_id">
 				<source>Account ID</source>
 			</trans-unit>
+			<trans-unit id="tx_slubprofileaccount_domain_model_user.user_category_description" resname="tx_slubprofileaccount_domain_model_user.user_category_description">
+				<source>User category description</source>
+			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_user.account_overview" resname="tx_slubprofileaccount_domain_model_user.account_overview">
 				<source>Account overview</source>
 			</trans-unit>
@@ -48,6 +51,14 @@
 			</trans-unit>
 			<trans-unit id="tx_slubprofileaccount_domain_model_searchquery.user" resname="tx_slubprofileaccount_domain_model_searchquery.user">
 				<source>User</source>
+			</trans-unit>
+
+			<!--
+				Category
+			-->
+
+			<trans-unit id="sys_category.tx_slubprofileaccount_code" resname="sys_category.tx_slubprofileaccount_code">
+				<source>Code</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -31,3 +31,6 @@ services:
 
   Slub\SlubProfileAccount\Service\UserSearchQueryService:
     public: true
+
+  Slub\SlubProfileAccount\Service\UserService:
+    public: true

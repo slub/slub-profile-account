@@ -53,7 +53,7 @@ class AccountService
      * @param int $id
      * @return array|null
      */
-    public function getAccountDataById(int $id): ?array
+    public function getAccountById(int $id): ?array
     {
         $this->accountId = $id;
 
@@ -64,7 +64,7 @@ class AccountService
      * @param array $arguments
      * @return array|null
      */
-    public function getAccountDataByArguments(array $arguments): ?array
+    public function getAccountByArguments(array $arguments): ?array
     {
         $id = (int)$this->accountArgumentSanitization->sanitizeAccountArguments($arguments)['user'];
         $this->accountId = $id;

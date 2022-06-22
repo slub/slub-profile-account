@@ -3,6 +3,14 @@
 defined('TYPO3') || die();
 
 return [
+    \Slub\SlubProfileAccount\Domain\Model\Category::class => [
+        'tableName' => 'sys_category',
+        'properties' => [
+            'code' => [
+                'fieldName' => 'tx_slubprofileaccount_code'
+            ],
+        ],
+    ],
     \Slub\SlubProfileAccount\Domain\Model\SearchQuery::class => [
         'tableName' => 'tx_slubprofileaccount_domain_model_searchquery',
         'properties' => [

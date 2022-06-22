@@ -62,3 +62,10 @@ CREATE TABLE tx_slubprofileaccount_domain_model_user_mm (
 
     PRIMARY KEY (uid)
 );
+
+#
+# Table structure for table 'sys_category'
+#
+CREATE TABLE sys_category (
+    tx_slubprofileaccount_code varchar(255) DEFAULT '' NOT NULL,
+);

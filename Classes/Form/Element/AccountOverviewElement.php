@@ -17,9 +17,9 @@ use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class AccountDataElement extends AbstractFormElement
+class AccountOverviewElement extends AbstractFormElement
 {
-    protected string $template = 'AccountData';
+    protected string $template = 'AccountOverview';
     protected string $templateRootPath = 'Templates/Backend/Form/Element';
     protected string $partialRootPath = 'Partials/Backend/Form/Element';
     protected string $layoutRootPath = 'Layouts/Backend';
@@ -29,8 +29,8 @@ class AccountDataElement extends AbstractFormElement
      */
     public function render(): array
     {
-        $accountData = $this->getAccountData((int)$this->data['databaseRow']['account_id']);
-        $result['html'] = $this->getHtml($accountData);
+        $account = $this->getAccount((int)$this->data['databaseRow']['account_id']);
+        $result['html'] = $this->getHtml($account);
 
         return $result;
     }
@@ -58,11 +58,11 @@ class AccountDataElement extends AbstractFormElement
      * @param int $accountId
      * @return array
      */
-    protected function getAccountData(int $accountId): array
+    protected function getAccount(int $accountId): array
     {
         /** @var AccountService $accountService */
         $accountService = GeneralUtility::makeInstance(AccountService::class);
 
-        return $accountService->getAccountDataById($accountId) ?? [];
+        return $accountService->getAccountById($accountId) ?? [];
     }
 }
