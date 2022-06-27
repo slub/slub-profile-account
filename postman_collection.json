@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b4dcb360-8cf5-4df6-85a3-65cc2d896e92",
+		"_postman_id": "ce58ca83-8870-485e-b3d9-4458316539c2",
 		"name": "SLUB - Profile Service - Account (slub_profile_account)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -42,7 +42,7 @@
 								}
 							},
 							"_postman_previewlanguage": "json",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
 						}
@@ -83,7 +83,7 @@
 								}
 							},
 							"_postman_previewlanguage": "json",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
 						}
@@ -91,23 +91,21 @@
 				},
 				{
 					"name": "Update",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"account\": {\r\n        \"EmailAddress\": \"heike.suetterlin@slub-dresden.de\",\r\n        \"PostalAddress1\": \"\",\r\n        \"PostalAddress2\": \"\",\r\n        \"PostalCity\": \"Berlin\",\r\n        \"PostalPostCode\": \"12345\",\r\n        \"PostalCountry\": \"\",\r\n        \"ResAddress1\": \"\",\r\n        \"ResAddress2\": \"\",\r\n        \"ResAddressCity\": \"\",\r\n        \"ResAddressPostCode\": \"\",\r\n        \"ResAddressCountry\": \"\"\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "{{domain}}/benutzer/{{user}}",
+							"raw": "{{domain}}/benutzer/aktualisieren/{{user}}",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"benutzer",
+								"aktualisieren",
 								"{{user}}"
 							]
 						}
@@ -135,7 +133,7 @@
 								}
 							},
 							"_postman_previewlanguage": "json",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"body": "{\n    \"code\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"EmailAddress\": {\n            \"code\": \"is_invalid\",\n            \"message\": \"This field is invalid\"\n        }\n    }\n}"
 						}
