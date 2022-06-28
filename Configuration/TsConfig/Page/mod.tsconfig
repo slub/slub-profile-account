@@ -36,6 +36,14 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
 
+      slubprofileaccount_userpasswordupdate {
+        iconIdentifier = slubprofileaccount-wizard-userpasswordupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userpasswordupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userpasswordupdate.description
+        tt_content_defValues.CType = slubprofileaccount_userpasswordupdate
+      }
+
       slubprofileaccount_usersearchquerydetail {
         iconIdentifier = slubprofileaccount-wizard-usersearchquerydetail
         iconOverlay = slubprofileaccount-overlay-extension
@@ -53,7 +61,13 @@ mod {
       }
     }
 
-    show := addToList(slubprofileaccount_useraccountdetail, slubprofileaccount_useraccountupdate, slubprofileaccount_userdashboardupdate, slubprofileaccount_userdashboarddetail, slubprofileaccount_usersearchqueryupdate, slubprofileaccount_usersearchquerydetail)
+    show := addToList(slubprofileaccount_useraccountdetail)
+    show := addToList(slubprofileaccount_useraccountupdate)
+    show := addToList(slubprofileaccount_userdashboardupdate)
+    show := addToList(slubprofileaccount_userdashboarddetail)
+    show := addToList(slubprofileaccount_userpasswordupdate)
+    show := addToList(slubprofileaccount_usersearchqueryupdate)
+    show := addToList(slubprofileaccount_usersearchquerydetail)
   }
 
   web_list.tableDisplayOrder {

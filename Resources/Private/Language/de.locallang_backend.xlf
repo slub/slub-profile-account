@@ -49,6 +49,15 @@
 				<target>Daten der Dashboardeinstellung eines Benutzers aktualisieren.</target>
 			</trans-unit>
 
+			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
+				<source>Update password</source>
+				<target>Passwort aktualisieren</target>
+			</trans-unit>
+			<trans-unit id="plugin.userpasswordupdate.description" resname="plugin.userpasswordupdate.description">
+				<source>Update the password of a specific user.</source>
+				<target>Das Passwort eines spezifischen Benutzers aktualisieren.</target>
+			</trans-unit>
+
 			<trans-unit id="plugin.usersearchquerydetail.title" resname="plugin.usersearchquerydetail.title">
 				<source>User detail (constraint: search query)</source>
 				<target>Details eines Benutzers (Einschränkung: Suchanfrage)</target>

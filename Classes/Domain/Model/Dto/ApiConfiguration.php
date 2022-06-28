@@ -15,16 +15,15 @@ use Slub\SlubProfileAccount\Utility\SettingsUtility;
 
 class ApiConfiguration
 {
-    /**
-     * @var string
-     */
     protected string $userUri = '';
+    protected string $passwordUpdateUri = '';
 
     public function __construct()
     {
         $settings = SettingsUtility::getPluginSettings();
 
         $this->setUserUri($settings['api']['path']['user']);
+        $this->setPasswordUpdateUri($settings['api']['path']['passwordUpdate']);
     }
 
     /**
@@ -41,5 +40,21 @@ class ApiConfiguration
     public function setUserUri(string $userUri = ''): void
     {
         $this->userUri = $userUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPasswordUpdateUri(): string
+    {
+        return $this->passwordUpdateUri;
+    }
+
+    /**
+     * @param string $passwordUpdateUri
+     */
+    public function setPasswordUpdateUri(string $passwordUpdateUri = ''): void
+    {
+        $this->passwordUpdateUri = $passwordUpdateUri;
     }
 }

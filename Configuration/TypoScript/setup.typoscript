@@ -8,7 +8,11 @@ plugin.tx_slubprofileaccount {
   persistence.storagePid = {$plugin.tx_slubprofileaccount.persistence.storagePid}
 
   settings {
-    api.path.user = {$plugin.tx_slubprofileaccount.settings.api.path.user}
+    api.path {
+      user = {$plugin.tx_slubprofileaccount.settings.api.path.user}
+      passwordUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.passwordUpdate}
+    }
+
     cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}
   }
 }

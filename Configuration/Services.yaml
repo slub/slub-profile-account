@@ -29,6 +29,9 @@ services:
   Slub\SlubProfileAccount\Service\UserDashboardService:
     public: true
 
+  Slub\SlubProfileAccount\Service\UserPasswordService:
+    public: true
+
   Slub\SlubProfileAccount\Service\UserSearchQueryService:
     public: true
 
