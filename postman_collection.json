@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ce58ca83-8870-485e-b3d9-4458316539c2",
+		"_postman_id": "8b8facb3-ab8d-4f06-980d-531159a5714b",
 		"name": "SLUB - Profile Service - Account (slub_profile_account)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -99,7 +99,7 @@
 				{
 					"name": "Update",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -274,6 +274,40 @@
 							"path": [
 								"benutzer",
 								"suchanfrage",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": {\r\n        \"newPassword\": \"test\",\r\n        \"patron\": \"4998866\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/passwort/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"passwort",
 								"aktualisieren",
 								"{{user}}"
 							]
