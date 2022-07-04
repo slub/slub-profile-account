@@ -13,10 +13,9 @@ namespace Slub\SlubProfileAccount\Service;
 
 use Slub\SlubProfileAccount\Domain\Model\Dto\ApiConfiguration;
 use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
+use Slub\SlubProfileAccount\Http\Request;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\FileUtility;
-use Slub\SlubProfileEvents\Http\Request;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class PasswordService
 {
@@ -58,9 +57,7 @@ class PasswordService
                 'patron' => (string)$accountId
             ])
         ]);
-DebuggerUtility::var_dump($uri);
-DebuggerUtility::var_dump($processed);
-exit();
+
         if ($processed['status'] === 1) {
             return ApiUtility::STATUS[200];
         }
