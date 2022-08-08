@@ -10,9 +10,16 @@
 			"item": [
 				{
 					"name": "Get - Default",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": {\r\n        \"EmailAddress\": \"heike.suetterlin@slub-dresden.de\",\r\n        \"PostalAddress1\": \"\",\r\n        \"PostalAddress2\": \"\",\r\n        \"PostalCity\": \"Berlin\",\r\n        \"PostalPostCode\": \"12345\",\r\n        \"PostalCountry\": \"\",\r\n        \"ResAddress1\": \"\",\r\n        \"ResAddress2\": \"\",\r\n        \"ResAddressCity\": \"\",\r\n        \"ResAddressPostCode\": \"\",\r\n        \"ResAddressCountry\": \"\"\r\n    }\r\n}"
+						},
 						"url": {
 							"raw": "{{domain}}/benutzer/{{user}}",
 							"host": [
