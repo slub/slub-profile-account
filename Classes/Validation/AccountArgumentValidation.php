@@ -15,20 +15,27 @@ use Slub\SlubProfileAccount\Utility\ApiUtility;
 
 class AccountArgumentValidation
 {
+    protected const REQUIRED_ARGUMENTS = [
+        'PostalAddress1',
+        'PostalCity',
+        'PostalPostCode',
+        'PostalCountry'
+    ];
+
     /**
      * @param array $arguments
      * @return array
      */
     public function validateUpdateArguments(array $arguments): array
     {
-        $error = [];
-
-        if (isset($arguments['EmailAddress']) && empty($arguments['EmailAddress'])) {
-            $error['EmailAddress'] = ApiUtility::VALIDATION['isEmpty'];
+        if (count($arguments) === 0) {
+            return [];
         }
 
-        if (isset($arguments['EmailAddress']) && !filter_var($arguments['EmailAddress'], FILTER_VALIDATE_EMAIL)) {
-            $error['EmailAddress'] = ApiUtility::VALIDATION['isInvalid'];
+        $error = $this->isEmpty($arguments) ?? [];
+
+        if (isset($arguments['EmailAddress'])) {
+            $error = array_merge($error, $this->validateEMail($arguments['EmailAddress']));
         }
 
         if (count($error) > 0) {
@@ -39,5 +46,41 @@ class AccountArgumentValidation
         }
 
         return [];
+    }
+
+    /**
+     * @param string $email
+     * @return array
+     */
+    private function validateEMail(string $email = ''): array
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return [
+                'EmailAddress' => ApiUtility::VALIDATION['isInvalid']
+            ];
+        }
+
+        return [];
+    }
+
+    /**
+     * @param array $arguments
+     * @return array
+     */
+    private function isEmpty(array $arguments): array
+    {
+        if (count($arguments) === 0) {
+            return [];
+        }
+
+        $error = [];
+
+        foreach ($arguments as $key => $value) {
+            if (in_array($key, self::REQUIRED_ARGUMENTS) && empty($value)) {
+                $error[$key] = ApiUtility::VALIDATION['isEmpty'];
+            }
+        }
+
+        return $error;
     }
 }
