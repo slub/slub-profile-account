@@ -6,5 +6,6 @@ imports:
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardDetail.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserDashboardUpdate.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserPasswordUpdate.yaml'
+  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserPinUpdate.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryDetail.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryUpdate.yaml'

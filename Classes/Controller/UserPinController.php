@@ -15,28 +15,28 @@ use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
-use Slub\SlubProfileAccount\Service\UserPasswordService;
+use Slub\SlubProfileAccount\Service\UserPinService;
 use Slub\SlubProfileAccount\Service\UserAccountService as UserService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 
-class UserPasswordController extends ActionController
+class UserPinController extends ActionController
 {
     protected $view;
     protected $defaultViewObjectName = JsonView::class;
     protected ?User $user;
-    protected UserPasswordService $userPasswordService;
+    protected UserPinService $userPinService;
     protected UserService $userService;
 
     /**
-     * @param UserPasswordService $userPasswordService
+     * @param UserPinService $userPinService
      * @param UserService $userService
      */
     public function __construct(
-        UserPasswordService $userPasswordService,
+        UserPinService $userPinService,
         UserService $userService
     ) {
-        $this->userPasswordService = $userPasswordService;
+        $this->userPinService = $userPinService;
         $this->userService = $userService;
     }
 
@@ -46,7 +46,7 @@ class UserPasswordController extends ActionController
      */
     public function updateAction(): ResponseInterface
     {
-        $status = $this->userPasswordService->update($this->user);
+        $status = $this->userPinService->update($this->user);
 
         $this->view->setVariablesToRender(['status']);
         $this->view->assign('status', $status);

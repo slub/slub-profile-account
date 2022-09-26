@@ -9,8 +9,10 @@ plugin.tx_slubprofileaccount {
 
   settings {
     api.path {
+      login = {$plugin.tx_slubprofileaccount.settings.api.path.login}
       user = {$plugin.tx_slubprofileaccount.settings.api.path.user}
       passwordUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.passwordUpdate}
+      pinUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.pinUpdate}
     }
 
     cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}

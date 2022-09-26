@@ -3,6 +3,7 @@
 use Slub\SlubProfileAccount\Controller\UserAccountController;
 use Slub\SlubProfileAccount\Controller\UserDashboardController;
 use Slub\SlubProfileAccount\Controller\UserPasswordController;
+use Slub\SlubProfileAccount\Controller\UserPinController;
 use Slub\SlubProfileAccount\Controller\UserSearchQueryController;
 use Slub\SlubProfileAccount\Form\Element\AccountOverviewElement;
 use Slub\SlubProfileAccount\Form\Element\UserCategoryDescriptionElement;
@@ -38,6 +39,19 @@ ExtensionUtility::configurePlugin(
     ],
     [
         UserAccountController::class => 'update'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - user pin update
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserPinUpdate',
+    [
+        UserPinController::class => 'update'
+    ],
+    [
+        UserPinController::class => 'update'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

@@ -15,15 +15,35 @@ use Slub\SlubProfileAccount\Utility\SettingsUtility;
 
 class ApiConfiguration
 {
+    protected string $login = '';
     protected string $userUri = '';
     protected string $passwordUpdateUri = '';
+    protected string $pinUpdateUri = '';
 
     public function __construct()
     {
         $settings = SettingsUtility::getPluginSettings();
 
+        $this->setLoginUri($settings['api']['path']['login']);
         $this->setUserUri($settings['api']['path']['user']);
         $this->setPasswordUpdateUri($settings['api']['path']['passwordUpdate']);
+        $this->setPinUpdateUri($settings['api']['path']['pinUpdate']);
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoginUri(): string
+    {
+        return $this->login;
+    }
+
+    /**
+     * @param string $loginUri
+     */
+    public function setLoginUri(string $loginUri = ''): void
+    {
+        $this->login = $loginUri;
     }
 
     /**
@@ -56,5 +76,21 @@ class ApiConfiguration
     public function setPasswordUpdateUri(string $passwordUpdateUri = ''): void
     {
         $this->passwordUpdateUri = $passwordUpdateUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPinUpdateUri(): string
+    {
+        return $this->pinUpdateUri;
+    }
+
+    /**
+     * @param string $pinUpdateUri
+     */
+    public function setPinUpdateUri(string $pinUpdateUri = ''): void
+    {
+        $this->pinUpdateUri = $pinUpdateUri;
     }
 }

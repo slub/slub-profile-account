@@ -31,12 +31,25 @@ class ApiUtility
     public const VALIDATION = [
         'isEmpty' => [
             'code' => 'is_empty',
-            'message' => 'This field is required'
+            'message' => 'This field is required.'
         ],
         'isInvalid' => [
             'code' => 'is_invalid',
-            'message' => 'This field is invalid'
-        ]
+            'message' => 'This field is invalid.'
+        ],
+        'isInvalidLogin' => [
+            'code' => 'is_invalid_login',
+            'message' => 'This field is invalid.'
+        ],
+        'isInvalidPin' => [
+            'code' => 'is_invalid_pin',
+            'message' => 'This field is invalid',
+            'info' => 'Only four numbers exactly.'
+        ],
+        'isInvalidPinRepeat' => [
+            'code' => 'is_invalid_pin_repeat',
+            'message' => 'This field is not even with pin.'
+        ],
     ];
 
     public const URI_PLACEHOLDER = [

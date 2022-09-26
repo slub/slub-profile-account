@@ -16,21 +16,26 @@ use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
 use Slub\SlubProfileAccount\Http\Request;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\FileUtility;
+use Slub\SlubProfileAccount\Validation\PinArgumentValidation;
 
-class PasswordService
+class UserPinService
 {
     protected ApiConfiguration $apiConfiguration;
+    protected PinArgumentValidation $pinArgumentValidation;
     protected Request $request;
 
     /**
      * @param ApiConfiguration $apiConfiguration
+     * @param PinArgumentValidation $pinArgumentValidation
      * @param Request $request
      */
     public function __construct(
         ApiConfiguration $apiConfiguration,
+        PinArgumentValidation $pinArgumentValidation,
         Request $request
     ) {
         $this->apiConfiguration = $apiConfiguration;
+        $this->pinArgumentValidation = $pinArgumentValidation;
         $this->request = $request;
     }
 
@@ -42,19 +47,24 @@ class PasswordService
     public function update(User $user): array
     {
         $accountId = $user->getAccountId();
-        $data = FileUtility::getContent()['password'];
+        $data = FileUtility::getContent()['pin'];
 
         if ($data === null) {
             return ApiUtility::STATUS[400];
         }
 
-        $uri = $this->apiConfiguration->getPasswordUpdateUri();
+        $validated = $this->pinArgumentValidation->validateUpdateArguments($data, $accountId);
+
+        if ($validated['code'] === 400) {
+            return $validated;
+        }
+
+        $uri = $this->apiConfiguration->getPinUpdateUri();
         $uri = ApiUtility::replaceUriPlaceholder([$accountId], $uri);
 
         $processed = $this->request->process($uri, 'POST', [
             'body' => json_encode([
-                'new_password' => $data['newPassword'],
-                'patron' => (string)$accountId
+                'SelfCheckPin' => $data['pin']
             ])
         ]);
 
