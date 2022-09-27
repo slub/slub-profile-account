@@ -15,8 +15,8 @@ use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
-use Slub\SlubProfileAccount\Service\UserPasswordService;
 use Slub\SlubProfileAccount\Service\UserAccountService as UserService;
+use Slub\SlubProfileAccount\Service\UserPasswordService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 

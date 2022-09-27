@@ -116,14 +116,14 @@ class UserAccountService
      */
     protected function createUser(int $accountId): User
     {
-        /** @var User $userAccount */
-        $userAccount = GeneralUtility::makeInstance(User::class);
-        $userAccount = LanguageUtility::setLanguageProperty($userAccount);
-        $userAccount->setAccountId($accountId);
+        /** @var User $user */
+        $user = GeneralUtility::makeInstance(User::class);
+        $user = LanguageUtility::setLanguageProperty($user);
+        $user->setAccountId($accountId);
 
-        $this->userRepository->add($userAccount);
+        $this->userRepository->add($user);
         $this->persistenceManager->persistAll();
 
-        return $userAccount;
+        return $user;
     }
 }
