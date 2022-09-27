@@ -18,7 +18,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"account\": {\r\n        \"EmailAddress\": \"heike.suetterlin@slub-dresden.de\",\r\n        \"PostalAddress1\": \"\",\r\n        \"PostalAddress2\": \"\",\r\n        \"PostalCity\": \"Berlin\",\r\n        \"PostalPostCode\": \"12345\",\r\n        \"PostalCountry\": \"\",\r\n        \"ResAddress1\": \"\",\r\n        \"ResAddress2\": \"\",\r\n        \"ResAddressCity\": \"\",\r\n        \"ResAddressPostCode\": \"\",\r\n        \"ResAddressCountry\": \"\"\r\n    }\r\n}"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{domain}}/benutzer/{{user}}",
@@ -202,6 +202,60 @@
 			]
 		},
 		{
+			"name": "Loan History",
+			"item": [
+				{
+					"name": "Get - Default",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"ausleihhistorie",
+								"{{user}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unknown user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"ausleihhistorie",
+										"{{user}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Search query",
 			"item": [
 				{
@@ -308,6 +362,40 @@
 							"path": [
 								"benutzer",
 								"passwort",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PIN",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\": {\r\n        \"password\": \"test\",\r\n        \"pin\": \"1234\",\r\n        \"pinRepeat\": \"1234\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/pin/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"pin",
 								"aktualisieren",
 								"{{user}}"
 							]
