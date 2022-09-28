@@ -68,7 +68,8 @@ class UserLoanHistoryService
 
         krsort($data);
 
-        return $data;
+        // Set natural keys again
+        return array_values($data);
     }
 
     /**
