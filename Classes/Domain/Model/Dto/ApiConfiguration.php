@@ -15,10 +15,11 @@ use Slub\SlubProfileAccount\Utility\SettingsUtility;
 
 class ApiConfiguration
 {
-    protected string $login = '';
+    protected string $loginUri = '';
     protected string $userUri = '';
     protected string $passwordUpdateUri = '';
     protected string $pinUpdateUri = '';
+    protected string $loanHistoryUri = '';
 
     public function __construct()
     {
@@ -28,6 +29,7 @@ class ApiConfiguration
         $this->setUserUri($settings['api']['path']['user']);
         $this->setPasswordUpdateUri($settings['api']['path']['passwordUpdate']);
         $this->setPinUpdateUri($settings['api']['path']['pinUpdate']);
+        $this->setLoanHistoryUri($settings['api']['path']['loanHistory']);
     }
 
     /**
@@ -35,7 +37,7 @@ class ApiConfiguration
      */
     public function getLoginUri(): string
     {
-        return $this->login;
+        return $this->loginUri;
     }
 
     /**
@@ -43,7 +45,7 @@ class ApiConfiguration
      */
     public function setLoginUri(string $loginUri = ''): void
     {
-        $this->login = $loginUri;
+        $this->loginUri = $loginUri;
     }
 
     /**
@@ -92,5 +94,21 @@ class ApiConfiguration
     public function setPinUpdateUri(string $pinUpdateUri = ''): void
     {
         $this->pinUpdateUri = $pinUpdateUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoanHistoryUri(): string
+    {
+        return $this->loanHistoryUri;
+    }
+
+    /**
+     * @param string $loanHistoryUri
+     */
+    public function setLoanHistoryUri(string $loanHistoryUri = ''): void
+    {
+        $this->loanHistoryUri = $loanHistoryUri;
     }
 }

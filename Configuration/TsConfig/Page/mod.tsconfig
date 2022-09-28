@@ -36,6 +36,14 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
 
+      slubprofileaccount_userloanhistorydetail {
+        iconIdentifier = slubprofileaccount-wizard-userloanhistorydetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistorydetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistorydetail.description
+        tt_content_defValues.CType = slubprofileaccount_userloanhistorydetail
+      }
+
       slubprofileaccount_userpindupdate {
         iconIdentifier = slubprofileaccount-wizard-userpinupdate
         iconOverlay = slubprofileaccount-overlay-extension
@@ -73,6 +81,7 @@ mod {
     show := addToList(slubprofileaccount_useraccountupdate)
     show := addToList(slubprofileaccount_userdashboardupdate)
     show := addToList(slubprofileaccount_userdashboarddetail)
+    show := addToList(slubprofileaccount_userloanhistorydetail)
     show := addToList(slubprofileaccount_userpasswordupdate)
     show := addToList(slubprofileaccount_userpindupdate)
     show := addToList(slubprofileaccount_usersearchqueryupdate)

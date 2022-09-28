@@ -40,6 +40,13 @@
 				<source>Update data of dashboard user.</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.userloanhistorydetail.title" resname="plugin.userloanhistorydetail.title">
+				<source>User detail (constraint: loan history)</source>
+			</trans-unit>
+			<trans-unit id="plugin.userloanhistorydetail.description" resname="plugin.userloanhistorydetail.description">
+				<source>Details of a specific user (loan history). Returns only the user constraint "loan history" data.</source>
+			</trans-unit>
+
 			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
 				<source>Update password</source>
 			</trans-unit>
