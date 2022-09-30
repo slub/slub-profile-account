@@ -47,29 +47,12 @@ class UserLoanHistoryService
         $accountId = $this->accountService->getAccountId();
 
         if ($accountId > 0 && is_array($account)) {
-            $processed = $this->requestData($accountId);
-            $prepared = $this->prepareHistory($processed['history'] ?? []);
+            $processed = $this->requestData($accountId)['history'] ?? [];
 
-            return ['loanHistory' => $prepared];
+            return ['loanHistory' => $processed];
         }
 
         return [];
-    }
-
-    /**
-     * @param array $data
-     * @return array
-     */
-    protected function prepareHistory(array $data): array
-    {
-        if (count($data) === 0) {
-            return [];
-        }
-
-        krsort($data);
-
-        // Set natural keys again
-        return array_values($data);
     }
 
     /**
@@ -86,7 +69,7 @@ class UserLoanHistoryService
             'headers' => [
                 'X-SLUB-Standard' => 'paia_ext',
                 'X-SLUB-pretty' => '1',
-                'X-SLUB-sort' => 'ASC',
+                'X-SLUB-sort' => 'DESC',
                 //'X-SLUB-count' => '10',
                 //'X-SLUB-offset' => 0
             ]
