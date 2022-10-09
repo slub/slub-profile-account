@@ -1,0 +1,9 @@
+routeEnhancers:
+  SlubAccountUserDashboardUpdate:
+    type: Simple
+    limitToPages: [13]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userdashboardupdate/user'

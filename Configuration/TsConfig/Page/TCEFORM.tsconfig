@@ -1,0 +1,17 @@
+TCEFORM {
+  sys_category {
+    tx_slubprofileaccount_code.disabled = 1
+  }
+}
+
+# Folder with categories
+# This is not interpreted by list view -> show columns, means the column code is not selectable
+# Do not disable this column, if you want select it
+[page["uid"] == 14]
+  TCEFORM {
+    sys_category {
+      tx_slubprofileaccount_code.disabled = 0
+      parent.config.treeConfig.rootUid = 16
+    }
+  }
+[END]

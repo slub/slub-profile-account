@@ -1,0 +1,45 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  cache.account:
+    class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+    factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+    arguments: ['slubprofileaccount_account']
+
+  Slub\SlubProfileAccount\:
+    resource: '../Classes/*'
+
+  Slub\SlubProfileAccount\Http\Request:
+    public: true
+
+  Slub\SlubProfileAccount\Service\AccountService:
+    public: true
+    arguments:
+      $cache: '@cache.account'
+
+  Slub\SlubProfileAccount\Service\DashboardService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserAccountService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserDashboardService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserLoanHistoryService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserPasswordService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserPinService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserSearchQueryService:
+    public: true
+
+  Slub\SlubProfileAccount\Service\UserService:
+    public: true

@@ -1,0 +1,95 @@
+mod {
+  wizards.newContentElement.wizardItems.slubprofileaccount {
+    after = common
+    header = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.title
+
+    elements {
+      slubprofileaccount_useraccountdetail {
+        iconIdentifier = slubprofileaccount-wizard-useraccountdetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.useraccountdetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.useraccountdetail.description
+        tt_content_defValues.CType = slubprofileaccount_useraccountdetail
+      }
+
+      slubprofileaccount_useraccountupdate {
+        iconIdentifier = slubprofileaccount-wizard-useraccountupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.useraccountupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.useraccountupdate.description
+        tt_content_defValues.CType = slubprofileaccount_useraccountupdate
+      }
+
+      slubprofileaccount_userdashboarddetail {
+        iconIdentifier = slubprofileaccount-wizard-userdashboarddetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboarddetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboarddetail.description
+        tt_content_defValues.CType = slubprofileaccount_userdashboarddetail
+      }
+
+      slubprofileaccount_userdashboardupdate {
+        iconIdentifier = slubprofileaccount-wizard-userdashboardupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboardupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdashboardupdate.description
+        tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
+      }
+
+      slubprofileaccount_userloanhistorydetail {
+        iconIdentifier = slubprofileaccount-wizard-userloanhistorydetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistorydetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistorydetail.description
+        tt_content_defValues.CType = slubprofileaccount_userloanhistorydetail
+      }
+
+      slubprofileaccount_userpindupdate {
+        iconIdentifier = slubprofileaccount-wizard-userpinupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userpinupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userpinupdate.description
+        tt_content_defValues.CType = slubprofileaccount_userpinupdate
+      }
+
+      slubprofileaccount_userpasswordupdate {
+        iconIdentifier = slubprofileaccount-wizard-userpasswordupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userpasswordupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userpasswordupdate.description
+        tt_content_defValues.CType = slubprofileaccount_userpasswordupdate
+      }
+
+      slubprofileaccount_usersearchquerydetail {
+        iconIdentifier = slubprofileaccount-wizard-usersearchquerydetail
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchquerydetail.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchquerydetail.description
+        tt_content_defValues.CType = slubprofileaccount_usersearchquerydetail
+      }
+
+      slubprofileaccount_usersearchqueryupdate {
+        iconIdentifier = slubprofileaccount-wizard-usersearchqueryupdate
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryupdate.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.usersearchqueryupdate.description
+        tt_content_defValues.CType = slubprofileaccount_usersearchqueryupdate
+      }
+    }
+
+    show := addToList(slubprofileaccount_useraccountdetail)
+    show := addToList(slubprofileaccount_useraccountupdate)
+    show := addToList(slubprofileaccount_userdashboardupdate)
+    show := addToList(slubprofileaccount_userdashboarddetail)
+    show := addToList(slubprofileaccount_userloanhistorydetail)
+    show := addToList(slubprofileaccount_userpasswordupdate)
+    show := addToList(slubprofileaccount_userpindupdate)
+    show := addToList(slubprofileaccount_usersearchqueryupdate)
+    show := addToList(slubprofileaccount_usersearchquerydetail)
+  }
+
+  web_list.tableDisplayOrder {
+    tx_slubprofileaccount_domain_model_user.before = tx_slubprofileaccount_domain_model_searchquery
+    sys_category.after = tx_slubprofileaccount_domain_model_user
+  }
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_account">
+		<header/>
+		<body>
+
+			<!--
+				Plugin
+			-->
+
+			<trans-unit id="plugin.title" resname="plugin.title">
+				<source>User account</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.useraccountdetail.title" resname="plugin.useraccountdetail.title">
+				<source>User detail (constraint: account)</source>
+			</trans-unit>
+			<trans-unit id="plugin.useraccountdetail.description" resname="plugin.useraccountdetail.description">
+				<source>Details of a specific user (account). Returns only the user constraint "account" data.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.useraccountupdate.title" resname="plugin.useraccountupdate.title">
+				<source>User update (constraint: account)</source>
+			</trans-unit>
+			<trans-unit id="plugin.useraccountupdate.description" resname="plugin.useraccountupdate.description">
+				<source>Update data of account user.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.userdashboarddetail.title" resname="plugin.userdashboarddetail.title">
+				<source>User detail (constraint: dashboard)</source>
+			</trans-unit>
+			<trans-unit id="plugin.userdashboarddetail.description" resname="plugin.userdashboarddetail.description">
+				<source>Details of a specific user (dashboard). Returns only the user constraint "dashboard" data.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.userdashboardupdate.title" resname="plugin.userdashboardupdate.title">
+				<source>User update (constraint: dashboard)</source>
+			</trans-unit>
+			<trans-unit id="plugin.userdashboardupdate.description" resname="plugin.userdashboardupdate.description">
+				<source>Update data of dashboard user.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.userloanhistorydetail.title" resname="plugin.userloanhistorydetail.title">
+				<source>User detail (constraint: loan history)</source>
+			</trans-unit>
+			<trans-unit id="plugin.userloanhistorydetail.description" resname="plugin.userloanhistorydetail.description">
+				<source>Details of a specific user (loan history). Returns only the user constraint "loan history" data.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
+				<source>Update password</source>
+			</trans-unit>
+			<trans-unit id="plugin.userpasswordupdate.description" resname="plugin.userpasswordupdate.description">
+				<source>Update the password of a specific user.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.userpinupdate.title" resname="plugin.userpinupdate.title">
+				<source>Update pin</source>
+			</trans-unit>
+			<trans-unit id="plugin.userpinupdate.description" resname="plugin.userpinupdate.description">
+				<source>Update the pin of a specific user.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.usersearchquerydetail.title" resname="plugin.usersearchquerydetail.title">
+				<source>User detail (constraint: search query)</source>
+			</trans-unit>
+			<trans-unit id="plugin.usersearchquerydetail.description" resname="plugin.usersearchquerydetail.description">
+				<source>Details of a specific user (search query). Returns only the user constraint "search query" data.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.usersearchqueryupdate.title" resname="plugin.usersearchqueryupdate.title">
+				<source>User update (constraint: search query)</source>
+			</trans-unit>
+			<trans-unit id="plugin.usersearchqueryupdate.description" resname="plugin.usersearchqueryupdate.description">
+				<source>Update data of search user.</source>
+			</trans-unit>
+
+			<!--
+				Error
+			-->
+
+			<trans-unit id="error.api.account.title" resname="error.api.account.title">
+				<source>Error connect user account</source>
+			</trans-unit>
+			<trans-unit id="error.api.account.message" resname="error.api.account.message">
+				<source>A connection to the account api was not possible. Please check your settings.</source>
+			</trans-unit>
+
+			<!--
+				Table
+			-->
+
+			<trans-unit id="table.head.id" resname="table.head.id">
+				<source>ID</source>
+			</trans-unit>
+			<trans-unit id="table.head.value" resname="table.head.value">
+				<source>Value</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

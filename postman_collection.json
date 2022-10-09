@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "8b8facb3-ab8d-4f06-980d-531159a5714b",
+		"name": "SLUB - Profile Service - Account (slub_profile_account)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Get - Default",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"{{user}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unknown user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/benutzer/{{user}}",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"{{user}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get - English",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/en/user/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"en",
+								"user",
+								"{{user}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unknown user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/benutzer/{{user}}",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"{{user}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": {\r\n        \"EmailAddress\": \"heike.suetterlin@slub-dresden.de\",\r\n        \"PostalAddress1\": \"\",\r\n        \"PostalAddress2\": \"\",\r\n        \"PostalCity\": \"Berlin\",\r\n        \"PostalPostCode\": \"12345\",\r\n        \"PostalCountry\": \"\",\r\n        \"ResAddress1\": \"\",\r\n        \"ResAddress2\": \"\",\r\n        \"ResAddressCity\": \"\",\r\n        \"ResAddressPostCode\": \"\",\r\n        \"ResAddressCountry\": \"\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error messages",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"account\": {\r\n        \"GivenNames\" : \"<! GivenName *\",\r\n        \"Surname\": \"  Surname .%\",\r\n        \"EmailAddress\": \"heike.suetterlin@slub-dresden.de\"\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{domain}}/benutzer/aktualisieren/{{user}}",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"aktualisieren",
+										"{{user}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"EmailAddress\": {\n            \"code\": \"is_invalid\",\n            \"message\": \"This field is invalid\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get - Default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/benutzer/dashboard/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"dashboard",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"widgets\": [\r\n        \"slubwebprofile_bookmarklist\", \"slubwebprofile_borrowinglist\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/dashboard/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"dashboard",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loan History",
+			"item": [
+				{
+					"name": "Get - Default",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"ausleihhistorie",
+								"{{user}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unknown user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"ausleihhistorie",
+										"{{user}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Search query",
+			"item": [
+				{
+					"name": "Get - Default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/benutzer/suchanfrage/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"suchanfrage",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"searchQuery\": {\r\n        \"type\": \"simple\",\r\n        \"query\": [\r\n            {\r\n                \"field\": \"default\",\r\n                \"input\": \"Mein-Suchbegriff\"\r\n            }\r\n        ],\r\n        \"numberOfResults\": 0,\r\n        \"description\": \"Meine Beschreibung zu der Suche\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/suchanfrage/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"suchanfrage",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"searchQuery\": {\r\n        \"delete\": [7, 8]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/suchanfrage/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"suchanfrage",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": {\r\n        \"newPassword\": \"test\",\r\n        \"patron\": \"4998866\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/passwort/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"passwort",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PIN",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\": {\r\n        \"password\": \"test\",\r\n        \"pin\": \"1234\",\r\n        \"pinRepeat\": \"1234\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/pin/aktualisieren/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"pin",
+								"aktualisieren",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "user",
+			"value": "4998866",
+			"type": "default"
+		},
+		{
+			"key": "domain",
+			"value": "https://ddev-slub-profile-service.ddev.site/",
+			"type": "default"
+		}
+	]
+}
