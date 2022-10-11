@@ -2,8 +2,10 @@ routeEnhancers:
   SlubAccountUserLoanHistoryDetail:
     type: Simple
     limitToPages: [31]
-    routePath: '/{user}'
+    routePath: '/{user}/page/{page}'
     requirements:
       user: '[0-9]{1,10}'
+      page: '[0-9]{1,10}'
     _arguments:
       user: 'tx_slubprofileaccount_userloanhistorydetail/user'
+      page: 'tx_slubprofileaccount_userloanhistorydetail/page'

@@ -217,14 +217,16 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+							"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}/page/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"benutzer",
 								"ausleihhistorie",
-								"{{user}}"
+								"{{user}}",
+								"page",
+								"1"
 							]
 						}
 					},

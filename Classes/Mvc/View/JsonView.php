@@ -52,6 +52,7 @@ class JsonView extends ExtbaseJsonView
         ],
         'userLoanHistoryDetail' => [
             '_only' => [
+                'paginator',
                 'loanHistory'
             ]
         ],

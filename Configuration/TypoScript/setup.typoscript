@@ -17,6 +17,7 @@ plugin.tx_slubprofileaccount {
     }
 
     cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}
+    general.itemsPerPage = {$plugin.tx_slubprofileaccount.settings.general.itemsPerPage}
   }
 }
 
