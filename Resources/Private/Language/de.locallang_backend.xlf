@@ -49,13 +49,13 @@
 				<target>Daten der Dashboardeinstellung eines Benutzers aktualisieren.</target>
 			</trans-unit>
 
-			<trans-unit id="plugin.userloanhistorydetail.title" resname="plugin.userloanhistorydetail.title">
-				<source>User detail (constraint: loan history)</source>
-				<target>Details eines Benutzers (Einschränkung: Ausleihhistorie)</target>
+			<trans-unit id="plugin.userloanhistory.title" resname="plugin.userloanhistory.title">
+				<source>User loan history</source>
+				<target>Ausleihhistorie eines Benutzers</target>
 			</trans-unit>
-			<trans-unit id="plugin.userloanhistorydetail.description" resname="plugin.userloanhistorydetail.description">
-				<source>Details of a specific user (loan history). Returns only the user constraint "loan history" data.</source>
-				<target>Details zu einem spezifischen Benutzer (Ausleihhistorie). Gibt nur die Daten des Benutzers mit der Einschränkung "Ausleihhistorie" zurück.</target>
+			<trans-unit id="plugin.userloanhistory.description" resname="plugin.userloanhistory.description">
+				<source>Loan history of a specific user. Returns only the user constraint "loan history" data.</source>
+				<target>Ausleihhistorie zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Ausleihhistorie" zurück.</target>
 			</trans-unit>
 
 			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">

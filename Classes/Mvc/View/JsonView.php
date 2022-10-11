@@ -50,7 +50,7 @@ class JsonView extends ExtbaseJsonView
                 'dashboardWidgets'
             ]
         ],
-        'userLoanHistoryDetail' => [
+        'userLoanHistory' => [
             '_only' => [
                 'paginator',
                 'loanHistory'

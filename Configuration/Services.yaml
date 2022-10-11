@@ -29,7 +29,7 @@ services:
   Slub\SlubProfileAccount\Service\UserDashboardService:
     public: true
 
-  Slub\SlubProfileAccount\Service\UserLoanHistoryService:
+  Slub\SlubProfileAccount\Service\UserLoanService:
     public: true
 
   Slub\SlubProfileAccount\Service\UserPasswordService:

@@ -36,12 +36,12 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
 
-      slubprofileaccount_userloanhistorydetail {
-        iconIdentifier = slubprofileaccount-wizard-userloanhistorydetail
+      slubprofileaccount_userloanhistory {
+        iconIdentifier = slubprofileaccount-wizard-userloanhistory
         iconOverlay = slubprofileaccount-overlay-extension
-        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistorydetail.title
-        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistorydetail.description
-        tt_content_defValues.CType = slubprofileaccount_userloanhistorydetail
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistory.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userloanhistory.description
+        tt_content_defValues.CType = slubprofileaccount_userloanhistory
       }
 
       slubprofileaccount_userpindupdate {
@@ -81,7 +81,7 @@ mod {
     show := addToList(slubprofileaccount_useraccountupdate)
     show := addToList(slubprofileaccount_userdashboardupdate)
     show := addToList(slubprofileaccount_userdashboarddetail)
-    show := addToList(slubprofileaccount_userloanhistorydetail)
+    show := addToList(slubprofileaccount_userloanhistory)
     show := addToList(slubprofileaccount_userpasswordupdate)
     show := addToList(slubprofileaccount_userpindupdate)
     show := addToList(slubprofileaccount_usersearchqueryupdate)

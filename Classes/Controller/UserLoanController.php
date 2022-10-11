@@ -14,10 +14,10 @@ namespace Slub\SlubProfileAccount\Controller;
 use JsonException;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
-use Slub\SlubProfileAccount\Service\UserLoanHistoryService as UserService;
+use Slub\SlubProfileAccount\Service\UserLoanService as UserService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class UserLoanHistoryController extends ActionController
+class UserLoanController extends ActionController
 {
     protected $view;
     protected $defaultViewObjectName = JsonView::class;
@@ -35,14 +35,14 @@ class UserLoanHistoryController extends ActionController
      * @return ResponseInterface
      * @throws JsonException
      */
-    public function detailAction(): ResponseInterface
+    public function historyAction(): ResponseInterface
     {
-        $loanHistory = $this->userService->getData(
+        $loanHistory = $this->userService->getHistory(
             $this->request->getArguments()
         );
 
-        $this->view->setVariablesToRender(['userLoanHistoryDetail']);
-        $this->view->assign('userLoanHistoryDetail', $loanHistory);
+        $this->view->setVariablesToRender(['userLoanHistory']);
+        $this->view->assign('userLoanHistory', $loanHistory);
 
         return $this->jsonResponse();
     }

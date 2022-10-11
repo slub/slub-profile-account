@@ -2,7 +2,7 @@
 
 use Slub\SlubProfileAccount\Controller\UserAccountController;
 use Slub\SlubProfileAccount\Controller\UserDashboardController;
-use Slub\SlubProfileAccount\Controller\UserLoanHistoryController;
+use Slub\SlubProfileAccount\Controller\UserLoanController;
 use Slub\SlubProfileAccount\Controller\UserPasswordController;
 use Slub\SlubProfileAccount\Controller\UserPinController;
 use Slub\SlubProfileAccount\Controller\UserSearchQueryController;
@@ -96,15 +96,15 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - user search query detail
+// Configure plugin - user loan history
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
-    'UserLoanHistoryDetail',
+    'UserLoanHistory',
     [
-        UserLoanHistoryController::class => 'detail'
+        UserLoanController::class => 'history'
     ],
     [
-        UserLoanHistoryController::class => 'detail'
+        UserLoanController::class => 'history'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

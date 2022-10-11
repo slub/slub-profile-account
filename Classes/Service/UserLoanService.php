@@ -16,7 +16,7 @@ use Slub\SlubProfileAccount\Http\Request;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\SettingsUtility;
 
-class UserLoanHistoryService
+class UserLoanService
 {
     protected ApiConfiguration $apiConfiguration;
     protected AccountService $accountService;
@@ -44,14 +44,14 @@ class UserLoanHistoryService
      * @return array|null
      * @throws \JsonException
      */
-    public function getData(array $arguments): ?array
+    public function getHistory(array $arguments): ?array
     {
         $page = (int)($arguments['page'] ?? 1);
         $account = $this->accountService->getAccountByArguments($arguments);
         $accountId = $this->accountService->getAccountId();
 
         if ($accountId > 0 && is_array($account)) {
-            $processed = $this->requestData($accountId, $page);
+            $processed = $this->requestHistory($accountId, $page);
 
             return [
                 'paginator' => [
@@ -72,7 +72,7 @@ class UserLoanHistoryService
      * @return array|null
      * @throws \JsonException
      */
-    protected function requestData(int $id, int $page): ?array
+    protected function requestHistory(int $id, int $page): ?array
     {
         $uri = $this->apiConfiguration->getLoanHistoryUri();
         $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
