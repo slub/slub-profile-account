@@ -34,14 +34,15 @@ Furthermore, have a look at postman and import the "postman_collection" file. Th
 
 ### 3.2 Typoscript
 
-| Setup / Constant                                                | Comment                          |
-|-----------------------------------------------------------------|----------------------------------|
-| plugin.tx_slubprofile_account.settings.api.path.user            | Path to get user info / detail   |
-| plugin.tx_slubprofile_account.settings.api.path.login           | Path to login                    |
-| plugin.tx_slubprofile_account.settings.api.path.passwordUpdate  | Path to change password          |
-| plugin.tx_slubprofile_account.settings.api.path.pinUpdate       | Path to change pin               |
-| plugin.tx_slubprofile_account.settings.api.path.loanHistory     | path tp loan history             |
-| plugin.tx_slubprofile_account.settings.cache.account.lifeTime   | Life time to cache account data. |
+| Setup / Constant                                               | Comment                          |
+|----------------------------------------------------------------|----------------------------------|
+| plugin.tx_slubprofile_account.settings.api.path.user           | Path to get user info / detail   |
+| plugin.tx_slubprofile_account.settings.api.path.login          | Path to login                    |
+| plugin.tx_slubprofile_account.settings.api.path.passwordUpdate | Path to change password          |
+| plugin.tx_slubprofile_account.settings.api.path.pinUpdate      | Path to change pin               |
+| plugin.tx_slubprofile_account.settings.api.path.loanHistory    | Path to loan history             |
+| plugin.tx_slubprofile_account.settings.cache.account.lifeTime  | Life time to cache account data  |
+| plugin.tx_slubprofile_account.settings.general.itemsPerPage    | Items per page for pagination    |
 
 ### 3.3 Update account data
 
