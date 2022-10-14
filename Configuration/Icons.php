@@ -35,6 +35,10 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-dashboard-update.svg'
     ],
+    'slubprofileaccount-wizard-userloancurrent' => [
+        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-loan-current.svg'
+    ],
     'slubprofileaccount-wizard-userloanhistory' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-loan-history.svg'

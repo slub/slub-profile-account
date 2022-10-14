@@ -44,6 +44,27 @@ class UserLoanService
      * @return array|null
      * @throws \JsonException
      */
+    public function getCurrent(array $arguments): ?array
+    {
+        $account = $this->accountService->getAccountByArguments($arguments);
+        $accountId = $this->accountService->getAccountId();
+
+        if ($accountId > 0 && is_array($account)) {
+            $processed = $this->requestCurrent($accountId);
+
+            return [
+                'loanCurrent' => $processed['loan']
+            ];
+        }
+
+        return [];
+    }
+
+    /**
+     * @param array $arguments
+     * @return array|null
+     * @throws \JsonException
+     */
     public function getHistory(array $arguments): ?array
     {
         $page = (int)($arguments['page'] ?? 1);
@@ -64,6 +85,25 @@ class UserLoanService
         }
 
         return [];
+    }
+
+    /**
+     * @param int $id
+     * @return array|null
+     * @throws \JsonException
+     */
+    protected function requestCurrent(int $id): ?array
+    {
+        $uri = $this->apiConfiguration->getLoanCurrentUri();
+        $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
+
+        return $this->request->process($uri, 'GET', [
+            'headers' => [
+                'X-SLUB-Standard' => 'paia_ext',
+                'X-SLUB-pretty' => '1',
+                'X-SLUB-sort' => 'DESC'
+            ]
+        ]);
     }
 
     /**

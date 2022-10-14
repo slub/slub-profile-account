@@ -15,7 +15,9 @@ plugin.tx_slubprofileaccount {
       passwordUpdate = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/auth/change
       # cat=plugin.tx_slubprofileaccount/76595002_Api/115; type=string; label=Path to update pin
       pinUpdate = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/auth/###USER_ID###/pin
-      # cat=plugin.tx_slubprofileaccount/76595002_Api/120; type=string; label=Path to loan history
+      # cat=plugin.tx_slubprofileaccount/76595002_Api/120; type=string; label=Path to loan current
+      loanCurrent = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/loan
+      # cat=plugin.tx_slubprofileaccount/76595002_Api/125; type=string; label=Path to loan history
       loanHistory = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/history
     }
 

@@ -19,6 +19,7 @@ class ApiConfiguration
     protected string $userUri = '';
     protected string $passwordUpdateUri = '';
     protected string $pinUpdateUri = '';
+    protected string $loanCurrentUri = '';
     protected string $loanHistoryUri = '';
 
     public function __construct()
@@ -29,6 +30,7 @@ class ApiConfiguration
         $this->setUserUri($settings['api']['path']['user']);
         $this->setPasswordUpdateUri($settings['api']['path']['passwordUpdate']);
         $this->setPinUpdateUri($settings['api']['path']['pinUpdate']);
+        $this->setLoanCurrentUri($settings['api']['path']['loanCurrent']);
         $this->setLoanHistoryUri($settings['api']['path']['loanHistory']);
     }
 
@@ -94,6 +96,22 @@ class ApiConfiguration
     public function setPinUpdateUri(string $pinUpdateUri = ''): void
     {
         $this->pinUpdateUri = $pinUpdateUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoanCurrentUri(): string
+    {
+        return $this->loanCurrentUri;
+    }
+
+    /**
+     * @param string $loanCurrentUri
+     */
+    public function setLoanCurrentUri(string $loanCurrentUri = ''): void
+    {
+        $this->loanCurrentUri = $loanCurrentUri;
     }
 
     /**

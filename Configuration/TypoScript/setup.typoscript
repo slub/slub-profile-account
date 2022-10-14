@@ -13,6 +13,7 @@ plugin.tx_slubprofileaccount {
       user = {$plugin.tx_slubprofileaccount.settings.api.path.user}
       passwordUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.passwordUpdate}
       pinUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.pinUpdate}
+      loanCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.loanCurrent}
       loanHistory = {$plugin.tx_slubprofileaccount.settings.api.path.loanHistory}
     }
 

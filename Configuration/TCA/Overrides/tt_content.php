@@ -63,6 +63,7 @@ defined('TYPO3') || die();
         'useraccountupdate',
         'userdashboarddetail',
         'userdashboardupdate',
+        'userloancurrent',
         'userloanhistory',
         'userpinupdate',
         'userpasswordupdate',

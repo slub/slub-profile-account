@@ -96,6 +96,19 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - user loan current
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserLoanCurrent',
+    [
+        UserLoanController::class => 'current'
+    ],
+    [
+        UserLoanController::class => 'current'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user loan history
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',

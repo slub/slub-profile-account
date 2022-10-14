@@ -35,6 +35,22 @@ class UserLoanController extends ActionController
      * @return ResponseInterface
      * @throws JsonException
      */
+    public function currentAction(): ResponseInterface
+    {
+        $loanCurrent = $this->userService->getCurrent(
+            $this->request->getArguments()
+        );
+
+        $this->view->setVariablesToRender(['userLoanCurrent']);
+        $this->view->assign('userLoanCurrent', $loanCurrent);
+
+        return $this->jsonResponse();
+    }
+
+    /**
+     * @return ResponseInterface
+     * @throws JsonException
+     */
     public function historyAction(): ResponseInterface
     {
         $loanHistory = $this->userService->getHistory(
