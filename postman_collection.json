@@ -202,56 +202,117 @@
 			]
 		},
 		{
-			"name": "Loan History",
+			"name": "Loan",
 			"item": [
 				{
-					"name": "Get - Default",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}/page/1",
-							"host": [
-								"{{domain}}"
-							],
-							"path": [
-								"benutzer",
-								"ausleihhistorie",
-								"{{user}}",
-								"page",
-								"1"
-							]
-						}
-					},
-					"response": [
+					"name": "Current",
+					"item": [
 						{
-							"name": "Unknown user",
-							"originalRequest": {
+							"name": "Get - Default",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+									"raw": "{{domain}}/benutzer/ausleihe/aktuell/{{user}}",
 									"host": [
 										"{{domain}}"
 									],
 									"path": [
 										"benutzer",
-										"ausleihhistorie",
+										"ausleihe",
+										"aktuell",
 										"{{user}}"
 									]
 								}
 							},
-							"_postman_previewlanguage": "json",
-							"header": [],
-							"cookie": [],
-							"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+							"response": [
+								{
+									"name": "Unknown user",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"benutzer",
+												"ausleihhistorie",
+												"{{user}}"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "History",
+					"item": [
+						{
+							"name": "Get - Default",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/benutzer/ausleihe/historie/{{user}}/page/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"ausleihe",
+										"historie",
+										"{{user}}",
+										"page",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unknown user",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"benutzer",
+												"ausleihhistorie",
+												"{{user}}"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+								}
+							]
 						}
 					]
 				}
