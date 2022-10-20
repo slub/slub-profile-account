@@ -61,6 +61,17 @@ class JsonView extends ExtbaseJsonView
                 'loanHistory'
             ]
         ],
+        'userReserveCurrent' => [
+            '_only' => [
+                'reserveCurrent'
+            ]
+        ],
+        'userReserveHistory' => [
+            '_only' => [
+                'paginator',
+                'reserveHistory'
+            ]
+        ],
         'userSearchQueryDetail' => [
             '_only' => [
                 'searchQuery'

@@ -68,6 +68,22 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userpasswordupdate
       }
 
+      slubprofileaccount_userreservecurrent {
+        iconIdentifier = slubprofileaccount-wizard-userreservecurrent
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservecurrent.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservecurrent.description
+        tt_content_defValues.CType = slubprofileaccount_userreservecurrent
+      }
+
+      slubprofileaccount_userreservehistory {
+        iconIdentifier = slubprofileaccount-wizard-userreservehistory
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservehistory.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservehistory.description
+        tt_content_defValues.CType = slubprofileaccount_userreservehistory
+      }
+
       slubprofileaccount_usersearchquerydetail {
         iconIdentifier = slubprofileaccount-wizard-usersearchquerydetail
         iconOverlay = slubprofileaccount-overlay-extension
@@ -93,6 +109,8 @@ mod {
     show := addToList(slubprofileaccount_userloanhistory)
     show := addToList(slubprofileaccount_userpasswordupdate)
     show := addToList(slubprofileaccount_userpindupdate)
+    show := addToList(slubprofileaccount_userreservecurrent)
+    show := addToList(slubprofileaccount_userreservehistory)
     show := addToList(slubprofileaccount_usersearchqueryupdate)
     show := addToList(slubprofileaccount_usersearchquerydetail)
   }

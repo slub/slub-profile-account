@@ -38,6 +38,9 @@ services:
   Slub\SlubProfileAccount\Service\UserPinService:
     public: true
 
+  Slub\SlubProfileAccount\Service\UserReserveService:
+    public: true
+
   Slub\SlubProfileAccount\Service\UserSearchQueryService:
     public: true
 

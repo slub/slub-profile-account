@@ -21,6 +21,8 @@ class ApiConfiguration
     protected string $pinUpdateUri = '';
     protected string $loanCurrentUri = '';
     protected string $loanHistoryUri = '';
+    protected string $reserveCurrentUri = '';
+    protected string $reserveHistoryUri = '';
 
     public function __construct()
     {
@@ -32,6 +34,8 @@ class ApiConfiguration
         $this->setPinUpdateUri($settings['api']['path']['pinUpdate']);
         $this->setLoanCurrentUri($settings['api']['path']['loanCurrent']);
         $this->setLoanHistoryUri($settings['api']['path']['loanHistory']);
+        $this->setReserveCurrentUri($settings['api']['path']['reserveCurrent']);
+        $this->setReserveHistoryUri($settings['api']['path']['reserveHistory']);
     }
 
     /**
@@ -128,5 +132,37 @@ class ApiConfiguration
     public function setLoanHistoryUri(string $loanHistoryUri = ''): void
     {
         $this->loanHistoryUri = $loanHistoryUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReserveCurrentUri(): string
+    {
+        return $this->reserveCurrentUri;
+    }
+
+    /**
+     * @param string $reserveCurrentUri
+     */
+    public function setReserveCurrentUri(string $reserveCurrentUri = ''): void
+    {
+        $this->reserveCurrentUri = $reserveCurrentUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReserveHistoryUri(): string
+    {
+        return $this->reserveHistoryUri;
+    }
+
+    /**
+     * @param string $reserveHistoryUri
+     */
+    public function setReserveHistoryUri(string $reserveHistoryUri = ''): void
+    {
+        $this->reserveHistoryUri = $reserveHistoryUri;
     }
 }

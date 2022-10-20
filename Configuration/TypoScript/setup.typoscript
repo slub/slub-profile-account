@@ -15,6 +15,8 @@ plugin.tx_slubprofileaccount {
       pinUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.pinUpdate}
       loanCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.loanCurrent}
       loanHistory = {$plugin.tx_slubprofileaccount.settings.api.path.loanHistory}
+      reserveCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.reserveCurrent}
+      reserveHistory = {$plugin.tx_slubprofileaccount.settings.api.path.reserveHistory}
     }
 
     cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}

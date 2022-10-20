@@ -1,0 +1,19 @@
+routeEnhancers:
+  SlubAccountUserReserveCurrent:
+    type: Simple
+    limitToPages: [35]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userreservecurrent/user'
+  SlubAccountUserReserveHistory:
+    type: Simple
+    limitToPages: [36]
+    routePath: '/{user}/page/{page}'
+    requirements:
+      user: '[0-9]{1,10}'
+      page: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userreservehistory/user'
+      page: 'tx_slubprofileaccount_userreservehistory/page'

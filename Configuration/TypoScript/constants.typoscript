@@ -19,6 +19,10 @@ plugin.tx_slubprofileaccount {
       loanCurrent = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/loan
       # cat=plugin.tx_slubprofileaccount/76595002_Api/125; type=string; label=Path to loan history
       loanHistory = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/history
+      # cat=plugin.tx_slubprofileaccount/76595002_Api/130; type=string; label=Path to reserve current
+      reserveCurrent = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/reserve
+      # cat=plugin.tx_slubprofileaccount/76595002_Api/135; type=string; label=Path to reserve history
+      reserveHistory = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/historyres
     }
 
     # cat=plugin.tx_slubprofileaccount/76595003_Cache/100; type=int; label=Life time account cache in seconds

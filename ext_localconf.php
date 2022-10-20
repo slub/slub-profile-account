@@ -5,6 +5,7 @@ use Slub\SlubProfileAccount\Controller\UserDashboardController;
 use Slub\SlubProfileAccount\Controller\UserLoanController;
 use Slub\SlubProfileAccount\Controller\UserPasswordController;
 use Slub\SlubProfileAccount\Controller\UserPinController;
+use Slub\SlubProfileAccount\Controller\UserReserveController;
 use Slub\SlubProfileAccount\Controller\UserSearchQueryController;
 use Slub\SlubProfileAccount\Form\Element\AccountOverviewElement;
 use Slub\SlubProfileAccount\Form\Element\UserCategoryDescriptionElement;
@@ -118,6 +119,32 @@ ExtensionUtility::configurePlugin(
     ],
     [
         UserLoanController::class => 'history'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - user reserve current
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserReserveCurrent',
+    [
+        UserReserveController::class => 'current'
+    ],
+    [
+        UserReserveController::class => 'current'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - user reserve history
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserReserveHistory',
+    [
+        UserReserveController::class => 'history'
+    ],
+    [
+        UserReserveController::class => 'history'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

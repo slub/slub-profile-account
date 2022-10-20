@@ -54,6 +54,20 @@
 				<source>Loan history of a specific user. Returns only the user constraint "loan history" data.</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.userreservecurrent.title" resname="plugin.userreservecurrent.title">
+				<source>User current reservation</source>
+			</trans-unit>
+			<trans-unit id="plugin.userreservecurrent.description" resname="plugin.userreservecurrent.description">
+				<source>Current reservation of a specific user. Returns only the user constraint "current reservation" data.</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.userreservehistory.title" resname="plugin.userreservehistory.title">
+				<source>User reservation history</source>
+			</trans-unit>
+			<trans-unit id="plugin.userreservehistory.description" resname="plugin.userreservehistory.description">
+				<source>Reservation history of a specific user. Returns only the user constraint "reservation history" data.</source>
+			</trans-unit>
+
 			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
 				<source>Update password</source>
 			</trans-unit>

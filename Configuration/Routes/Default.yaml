@@ -8,5 +8,6 @@ imports:
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserLoan.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserPasswordUpdate.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserPinUpdate.yaml'
+  - resource: 'EXT:slub_profile_account/Configuration/Routes/UserReserve.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryDetail.yaml'
   - resource: 'EXT:slub_profile_account/Configuration/Routes/UserSearchQueryUpdate.yaml'
