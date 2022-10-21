@@ -337,13 +337,13 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{domain}}/benutzer/ausleihe/aktuell/{{user}}",
+									"raw": "{{domain}}/benutzer/vormerkung/aktuell/{{user}}",
 									"host": [
 										"{{domain}}"
 									],
 									"path": [
 										"benutzer",
-										"ausleihe",
+										"vormerkung",
 										"aktuell",
 										"{{user}}"
 									]
