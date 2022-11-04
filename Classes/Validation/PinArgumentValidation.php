@@ -98,13 +98,13 @@ class PinArgumentValidation
                 ])
         ]);
 
-        if ($processed['code'] !== 200) {
-            return [
-                'password' => ApiUtility::VALIDATION['isInvalidLogin']
-            ];
+        if ($processed['status'] === 1) {
+            return [];
         }
 
-        return [];
+        return [
+            'password' => ApiUtility::VALIDATION['isInvalidLogin']
+        ];
     }
 
     /**

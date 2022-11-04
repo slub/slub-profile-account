@@ -17,6 +17,7 @@ use Slub\SlubProfileAccount\Http\Request;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\FileUtility;
 use Slub\SlubProfileAccount\Validation\PinArgumentValidation;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class UserPinService
 {
@@ -62,7 +63,7 @@ class UserPinService
         $uri = $this->apiConfiguration->getPinUpdateUri();
         $uri = ApiUtility::replaceUriPlaceholder([$accountId], $uri);
 
-        $processed = $this->request->process($uri, 'POST', [
+        $processed = $this->request->process($uri, 'PATCH', [
             'body' => json_encode([
                 'SelfCheckPin' => $data['pin']
             ])
