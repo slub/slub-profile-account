@@ -16,21 +16,26 @@ use Slub\SlubProfileAccount\Domain\Model\User\Account as User;
 use Slub\SlubProfileAccount\Http\Request;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
 use Slub\SlubProfileAccount\Utility\FileUtility;
+use Slub\SlubProfileAccount\Validation\PasswordArgumentValidation;
 
 class UserPasswordService
 {
     protected ApiConfiguration $apiConfiguration;
+    protected PasswordArgumentValidation $passwordArgumentValidation;
     protected Request $request;
 
     /**
      * @param ApiConfiguration $apiConfiguration
+     * @param PasswordArgumentValidation $passwordArgumentValidation
      * @param Request $request
      */
     public function __construct(
         ApiConfiguration $apiConfiguration,
+        PasswordArgumentValidation $passwordArgumentValidation,
         Request $request
     ) {
         $this->apiConfiguration = $apiConfiguration;
+        $this->passwordArgumentValidation = $passwordArgumentValidation;
         $this->request = $request;
     }
 
@@ -46,6 +51,12 @@ class UserPasswordService
 
         if ($data === null) {
             return ApiUtility::STATUS[400];
+        }
+
+        $validated = $this->passwordArgumentValidation->validateUpdateArguments($data, $accountId);
+
+        if ($validated['code'] === 400) {
+            return $validated;
         }
 
         $uri = $this->apiConfiguration->getPasswordUpdateUri();
