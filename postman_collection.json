@@ -527,7 +527,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"password\": {\r\n        \"newPassword\": \"test\",\r\n        \"patron\": \"4998866\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"password\": {\r\n        \"password\": \"test\",\r\n        \"newPassword\": \"test\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
