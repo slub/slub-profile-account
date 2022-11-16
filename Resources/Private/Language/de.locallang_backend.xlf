@@ -67,6 +67,15 @@
 				<target>Ausleihhistorie zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Ausleihhistorie" zurück.</target>
 			</trans-unit>
 
+			<trans-unit id="plugin.userloanrenewal.title" resname="plugin.userloanrenewal.title">
+				<source>User loan renew medium</source>
+				<target>Ausleihe eines Mediums verlängern</target>
+			</trans-unit>
+			<trans-unit id="plugin.userloanrenewal.description" resname="plugin.userloanrenewal.description">
+				<source>Renew a loan medium from a specific user.</source>
+				<target>Ausleihe eines Mediums zu einem spezifischen Benutzer verlängern.</target>
+			</trans-unit>
+
 			<trans-unit id="plugin.userreservecurrent.title" resname="plugin.userreservecurrent.title">
 				<source>User current reservation</source>
 				<target>Aktuelle Vormerkungen eines Benutzers</target>

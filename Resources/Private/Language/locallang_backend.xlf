@@ -54,6 +54,13 @@
 				<source>Loan history of a specific user. Returns only the user constraint "loan history" data.</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.userloanrenewal.title" resname="plugin.userloanrenewal.title">
+				<source>User loan renew medium</source>
+			</trans-unit>
+			<trans-unit id="plugin.userloanrenewal.description" resname="plugin.userloanrenewal.description">
+				<source>Renew a loan medium from a specific user.</source>
+			</trans-unit>
+
 			<trans-unit id="plugin.userreservecurrent.title" resname="plugin.userreservecurrent.title">
 				<source>User current reservation</source>
 			</trans-unit>

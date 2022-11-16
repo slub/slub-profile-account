@@ -15,6 +15,7 @@ plugin.tx_slubprofileaccount {
       pinUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.pinUpdate}
       loanCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.loanCurrent}
       loanHistory = {$plugin.tx_slubprofileaccount.settings.api.path.loanHistory}
+      loanRenewal = {$plugin.tx_slubprofileaccount.settings.api.path.loanRenewal}
       reserveCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.reserveCurrent}
       reserveHistory = {$plugin.tx_slubprofileaccount.settings.api.path.reserveHistory}
     }

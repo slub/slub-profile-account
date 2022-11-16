@@ -17,3 +17,11 @@ routeEnhancers:
     _arguments:
       user: 'tx_slubprofileaccount_userloanhistory/user'
       page: 'tx_slubprofileaccount_userloanhistory/page'
+  SlubAccountUserLoanRenewal:
+    type: Simple
+    limitToPages: [37]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userloanrenewal/user'

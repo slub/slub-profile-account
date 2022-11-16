@@ -21,6 +21,7 @@ class ApiConfiguration
     protected string $pinUpdateUri = '';
     protected string $loanCurrentUri = '';
     protected string $loanHistoryUri = '';
+    protected string $loanRenewalUri = '';
     protected string $reserveCurrentUri = '';
     protected string $reserveHistoryUri = '';
 
@@ -34,6 +35,7 @@ class ApiConfiguration
         $this->setPinUpdateUri($settings['api']['path']['pinUpdate']);
         $this->setLoanCurrentUri($settings['api']['path']['loanCurrent']);
         $this->setLoanHistoryUri($settings['api']['path']['loanHistory']);
+        $this->setLoanRenewalUri($settings['api']['path']['loanRenewal']);
         $this->setReserveCurrentUri($settings['api']['path']['reserveCurrent']);
         $this->setReserveHistoryUri($settings['api']['path']['reserveHistory']);
     }
@@ -132,6 +134,22 @@ class ApiConfiguration
     public function setLoanHistoryUri(string $loanHistoryUri = ''): void
     {
         $this->loanHistoryUri = $loanHistoryUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoanRenewalUri(): string
+    {
+        return $this->loanRenewalUri;
+    }
+
+    /**
+     * @param string $loanRenewalUri
+     */
+    public function setLoanRenewalUri(string $loanRenewalUri = ''): void
+    {
+        $this->loanRenewalUri = $loanRenewalUri;
     }
 
     /**

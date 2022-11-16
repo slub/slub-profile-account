@@ -58,6 +58,8 @@ defined('TYPO3') || die();
     }
 })(
     'slub_profile_account',
+    // All the content elements have the same structure. Keep them in one file
+    // instead of making each separate.
     [
         'useraccountdetail',
         'useraccountupdate',
@@ -65,6 +67,7 @@ defined('TYPO3') || die();
         'userdashboardupdate',
         'userloancurrent',
         'userloanhistory',
+        'userloanrenewal',
         'userpinupdate',
         'userpasswordupdate',
         'userreservecurrent',

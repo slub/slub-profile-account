@@ -123,6 +123,20 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+
+// Configure plugin - user loan history
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserLoanRenewal',
+    [
+        UserLoanController::class => 'renewal'
+    ],
+    [
+        UserLoanController::class => 'renewal'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user reserve current
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',

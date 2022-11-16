@@ -43,6 +43,10 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-loan-history.svg'
     ],
+    'slubprofileaccount-wizard-userloanrenewal' => [
+        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-loan-renewal.svg'
+    ],
     'slubprofileaccount-wizard-userpasswordupdate' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-password-update.svg'

@@ -22,6 +22,14 @@ class ApiUtility
             'code' => 400,
             'message' => 'Bad Request',
         ],
+        405 => [
+            'code' => 405,
+            'message' => 'Bad Request. No renewable data given.',
+        ],
+        410 => [
+            'code' => 410,
+            'message' => 'Bad Request. Renewal not possible.',
+        ],
         500 => [
             'code' => 500,
             'message' => 'Internal Server Error'
@@ -53,7 +61,8 @@ class ApiUtility
     ];
 
     public const URI_PLACEHOLDER = [
-        '###USER_ID###'
+        '###USER_ID###',
+        '###BARCODE###'
     ];
 
     /**
