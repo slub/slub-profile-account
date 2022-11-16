@@ -315,6 +315,35 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Renewal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"renew\": [\r\n        34778448,\r\n        30688558,\r\n        34779972\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/ausleihe/erneuern/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"ausleihe",
+								"erneuern",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
