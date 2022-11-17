@@ -41,7 +41,6 @@ class LoanArgumentValidation
      *
      * @param int $barcode
      * @param array $loans
-     * @return void
      */
     private function validateBarcode(int $barcode, array $loans): void
     {

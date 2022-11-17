@@ -16,7 +16,6 @@ use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileAccount\Mvc\View\JsonView;
 use Slub\SlubProfileAccount\Service\UserLoanService as UserService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class UserLoanController extends ActionController
 {

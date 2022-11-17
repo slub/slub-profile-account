@@ -123,7 +123,6 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-
 // Configure plugin - user loan history
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',
