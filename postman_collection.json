@@ -461,6 +461,35 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delete\": [\r\n        30490690,\r\n        1234567890\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/vormerkung/loeschen/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"vormerkung",
+								"loeschen",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
