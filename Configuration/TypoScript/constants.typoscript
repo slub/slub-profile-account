@@ -23,7 +23,9 @@ plugin.tx_slubprofileaccount {
       loanRenewal = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/renew/###BARCODE###
       # cat=plugin.tx_slubprofileaccount/76595002_Api/135; type=string; label=Path to reserve current
       reserveCurrent = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/reserve
-      # cat=plugin.tx_slubprofileaccount/76595002_Api/140; type=string; label=Path to reserve history
+      # cat=plugin.tx_slubprofileaccount/76595002_Api/140; type=string; label=Path to delete reservation
+      reserveDelete = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/cancel/###LABEL###/###QUEUE_NUMBER###
+      # cat=plugin.tx_slubprofileaccount/76595002_Api/145; type=string; label=Path to reserve history
       reserveHistory = https://liberoproxy.staging.katalogbeta.slub-dresden.de/core/###USER_ID###/items/historyres
     }
 

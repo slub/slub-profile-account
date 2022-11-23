@@ -85,6 +85,15 @@
 				<target>Aktuelle Vormerkungen zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Aktuelle Vormerkungen" zurück.</target>
 			</trans-unit>
 
+			<trans-unit id="plugin.userreservedelete.title" resname="plugin.userreservedelete.title">
+				<source>User reservation delete</source>
+				<target>Vormerkungen löschen</target>
+			</trans-unit>
+			<trans-unit id="plugin.userreservedelete.description" resname="plugin.userreservedelete.description">
+				<source>Delete entry from user reservation.</source>
+				<target>Eintrag aus den Vormerkungen eines bestimmten Benutzers löschen.</target>
+			</trans-unit>
+
 			<trans-unit id="plugin.userreservehistory.title" resname="plugin.userreservehistory.title">
 				<source>User reservation history</source>
 				<target>Vormerkhistorie eines Benutzers</target>

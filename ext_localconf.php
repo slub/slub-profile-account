@@ -149,6 +149,19 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - user reserve delete
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserReserveDelete',
+    [
+        UserReserveController::class => 'delete'
+    ],
+    [
+        UserReserveController::class => 'delete'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user reserve history
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',

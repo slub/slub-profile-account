@@ -134,8 +134,8 @@ class UserLoanService
         $results = [];
 
         foreach ($barcodes as $barcode) {
-            $barCodeUri = ApiUtility::replaceUriPlaceholder([$accountId, $barcode], $uri);
-            $processed = $this->request->process($barCodeUri, 'POST');
+            $renewalUri = ApiUtility::replaceUriPlaceholder([$accountId, $barcode], $uri);
+            $processed = $this->request->process($renewalUri, 'POST');
 
             if ($processed['status'] === 1) {
                 $results[$barcode] = ApiUtility::STATUS[200];

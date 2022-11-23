@@ -17,6 +17,7 @@ plugin.tx_slubprofileaccount {
       loanHistory = {$plugin.tx_slubprofileaccount.settings.api.path.loanHistory}
       loanRenewal = {$plugin.tx_slubprofileaccount.settings.api.path.loanRenewal}
       reserveCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.reserveCurrent}
+      reserveDelete = {$plugin.tx_slubprofileaccount.settings.api.path.reserveDelete}
       reserveHistory = {$plugin.tx_slubprofileaccount.settings.api.path.reserveHistory}
     }
 

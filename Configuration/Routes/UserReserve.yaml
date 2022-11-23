@@ -7,6 +7,14 @@ routeEnhancers:
       user: '[0-9]{1,10}'
     _arguments:
       user: 'tx_slubprofileaccount_userreservecurrent/user'
+  SlubAccountUserReserveDelete:
+    type: Simple
+    limitToPages: [38]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userreservedelete/user'
   SlubAccountUserReserveHistory:
     type: Simple
     limitToPages: [36]

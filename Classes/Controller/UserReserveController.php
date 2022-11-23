@@ -62,4 +62,20 @@ class UserReserveController extends ActionController
 
         return $this->jsonResponse();
     }
+
+    /**
+     * @return ResponseInterface
+     * @throws JsonException
+     */
+    public function deleteAction(): ResponseInterface
+    {
+        $status = $this->userService->getDelete(
+            $this->request->getArguments()
+        );
+
+        $this->view->setVariablesToRender(['status']);
+        $this->view->assign('status', $status);
+
+        return $this->jsonResponse();
+    }
 }

@@ -14,27 +14,33 @@ namespace Slub\SlubProfileAccount\Service;
 use Slub\SlubProfileAccount\Domain\Model\Dto\ApiConfiguration;
 use Slub\SlubProfileAccount\Http\Request;
 use Slub\SlubProfileAccount\Utility\ApiUtility;
+use Slub\SlubProfileAccount\Utility\FileUtility;
 use Slub\SlubProfileAccount\Utility\SettingsUtility;
+use Slub\SlubProfileAccount\Validation\ReserveArgumentValidation;
 
 class UserReserveService
 {
     protected ApiConfiguration $apiConfiguration;
     protected AccountService $accountService;
+    protected ReserveArgumentValidation $reserveArgumentValidation;
     protected Request $request;
     protected int $itemsPerPage;
 
     /**
      * @param ApiConfiguration $apiConfiguration
      * @param AccountService $accountService
+     * @param ReserveArgumentValidation $reserveArgumentValidation
      * @param Request $request
      */
     public function __construct(
         ApiConfiguration $apiConfiguration,
         AccountService $accountService,
+        ReserveArgumentValidation $reserveArgumentValidation,
         Request $request
     ) {
         $this->apiConfiguration = $apiConfiguration;
         $this->accountService = $accountService;
+        $this->reserveArgumentValidation = $reserveArgumentValidation;
         $this->request = $request;
         $this->itemsPerPage = (int)SettingsUtility::getPluginSettings()['general']['itemsPerPage'] ?? 25;
     }
@@ -88,6 +94,31 @@ class UserReserveService
     }
 
     /**
+     * @param array $arguments
+     * @return array|null
+     * @throws \JsonException
+     */
+    public function getDelete(array $arguments): ?array
+    {
+        $current = $this->getCurrent($arguments);
+
+        if (count($current) === 0) {
+            return [];
+        }
+
+        $data = FileUtility::getContent()['delete'];
+
+        if ($data === null) {
+            return ApiUtility::STATUS[400];
+        }
+
+        $validArguments = $this->reserveArgumentValidation->validateDeleteArguments($data, $current['reserveCurrent']);
+        $accountId = $this->getAccountId($arguments);
+
+        return $this->requestDelete($validArguments, $accountId);
+    }
+
+    /**
      * @param int $id
      * @return array|null
      * @throws \JsonException
@@ -104,6 +135,47 @@ class UserReserveService
                 'X-SLUB-sort' => 'DESC'
             ]
         ]);
+    }
+
+    /**
+     * @param array $data
+     * @param int $accountId
+     * @return array
+     * @throws \JsonException
+     */
+    protected function requestDelete(array $data, int $accountId): array
+    {
+        if (count($data) === 0) {
+            return [
+                0 => ApiUtility::STATUS[415]
+            ];
+        }
+
+        $uri = $this->apiConfiguration->getReserveDeleteUri();
+        $results = [];
+
+        foreach ($data as $item) {
+            $label = $item['label'];
+            $deleteUri = ApiUtility::replaceUriPlaceholder(
+                [
+                    $accountId,
+                    '',
+                    $label,
+                    $item['queueNumber']
+                ],
+                $uri
+            );
+            $processed = $this->request->process($deleteUri, 'POST');
+
+            if ($processed['status'] === 1) {
+                $results[$label] = ApiUtility::STATUS[200];
+            } else {
+                $results[$label] = ApiUtility::STATUS[420];
+                $results[$label]['error'] = $processed['message'];
+            }
+        }
+
+        return $results;
     }
 
     /**
@@ -135,5 +207,21 @@ class UserReserveService
     protected function getOffset(int $page): int
     {
         return (int)($page * $this->itemsPerPage) - $this->itemsPerPage;
+    }
+
+    /**
+     * @param array $arguments
+     * @return int|null
+     */
+    protected function getAccountId(array $arguments): ?int
+    {
+        $account = $this->accountService->getAccountByArguments($arguments);
+        $accountId = $this->accountService->getAccountId();
+
+        if ($accountId > 0 && is_array($account)) {
+            return $accountId;
+        }
+
+        return null;
     }
 }

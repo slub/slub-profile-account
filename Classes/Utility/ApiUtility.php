@@ -30,6 +30,14 @@ class ApiUtility
             'code' => 410,
             'message' => 'Bad Request. Renewal not possible.',
         ],
+        415 => [
+            'code' => 415,
+            'message' => 'Bad Request. No deletable data given.',
+        ],
+        420 => [
+            'code' => 420,
+            'message' => 'Bad Request. Deletable not possible.',
+        ],
         500 => [
             'code' => 500,
             'message' => 'Internal Server Error'
@@ -62,7 +70,9 @@ class ApiUtility
 
     public const URI_PLACEHOLDER = [
         '###USER_ID###',
-        '###BARCODE###'
+        '###BARCODE###',
+        '###LABEL###',
+        '###QUEUE_NUMBER###'
     ];
 
     /**

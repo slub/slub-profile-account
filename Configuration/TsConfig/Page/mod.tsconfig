@@ -84,6 +84,14 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userreservecurrent
       }
 
+      slubprofileaccount_userreservedelete {
+        iconIdentifier = slubprofileaccount-wizard-userreservedelete
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservedelete.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservedelete.description
+        tt_content_defValues.CType = slubprofileaccount_userreservedelete
+      }
+
       slubprofileaccount_userreservehistory {
         iconIdentifier = slubprofileaccount-wizard-userreservehistory
         iconOverlay = slubprofileaccount-overlay-extension
@@ -119,6 +127,7 @@ mod {
     show := addToList(slubprofileaccount_userpasswordupdate)
     show := addToList(slubprofileaccount_userpindupdate)
     show := addToList(slubprofileaccount_userreservecurrent)
+    show := addToList(slubprofileaccount_userreservedelete)
     show := addToList(slubprofileaccount_userreservehistory)
     show := addToList(slubprofileaccount_usersearchqueryupdate)
     show := addToList(slubprofileaccount_usersearchquerydetail)

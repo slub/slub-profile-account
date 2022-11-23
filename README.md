@@ -44,6 +44,7 @@ Furthermore, have a look at postman and import the "postman_collection" file. Th
 | plugin.tx_slubprofile_account.settings.api.path.loanHistory    | Path to loan history            |
 | plugin.tx_slubprofile_account.settings.api.path.loanRenewal    | Path to loan loanRenewal        |
 | plugin.tx_slubprofile_account.settings.api.path.reserveCurrent | Path to reserve current         |
+| plugin.tx_slubprofile_account.settings.api.path.reserveDelete  | Path to delete reservation      |
 | plugin.tx_slubprofile_account.settings.api.path.reserveHistory | Path to reserve history         |
 | plugin.tx_slubprofile_account.settings.cache.account.lifeTime  | Life time to cache account data |
 | plugin.tx_slubprofile_account.settings.general.itemsPerPage    | Items per page for pagination   |
