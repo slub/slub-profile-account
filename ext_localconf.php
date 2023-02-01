@@ -202,17 +202,16 @@ ExtensionUtility::configurePlugin(
 );
 
 // Register new renderTypes
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'] = [
-    'accountOverview' => [
-        'nodeName' => 'accountOverview',
-        'priority' => 40,
-        'class' => AccountOverviewElement::class,
-    ],
-    'userCategoryDescription' => [
-        'nodeName' => 'userCategoryDescription',
-        'priority' => 45,
-        'class' => UserCategoryDescriptionElement::class,
-    ]
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1675154443] = [
+    'nodeName' => 'accountOverview',
+    'priority' => 40,
+    'class' => AccountOverviewElement::class,
+];
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1675154444] = [
+    'nodeName' => 'userCategoryDescription',
+    'priority' => 45,
+    'class' => UserCategoryDescriptionElement::class,
 ];
 
 // Custom cache to save user account
