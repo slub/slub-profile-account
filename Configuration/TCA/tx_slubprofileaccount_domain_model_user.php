@@ -188,7 +188,7 @@ return [
         'account_overview' => [
             'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.account_overview',
             'config' => [
-                'type' => 'user',
+                'type' => 'none',
                 'renderType' => 'accountOverview',
             ],
         ],
@@ -206,7 +206,7 @@ return [
         'user_category_description' => [
             'label' => $ll['slubProfileAccount']['db'] . ':tx_slubprofileaccount_domain_model_user.user_category_description',
             'config' => [
-                'type' => 'user',
+                'type' => 'none',
                 'renderType' => 'userCategoryDescription',
             ],
         ],
