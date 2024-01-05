@@ -72,6 +72,8 @@ class JsonView extends ExtbaseJsonView
                 'reserveHistory'
             ]
         ],
+        'userDataDownload' => [
+        ],
         'userSearchQueryDetail' => [
             '_only' => [
                 'searchQuery'

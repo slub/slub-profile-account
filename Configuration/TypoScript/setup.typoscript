@@ -19,6 +19,7 @@ plugin.tx_slubprofileaccount {
       reserveCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.reserveCurrent}
       reserveDelete = {$plugin.tx_slubprofileaccount.settings.api.path.reserveDelete}
       reserveHistory = {$plugin.tx_slubprofileaccount.settings.api.path.reserveHistory}
+      dataDownload = {$plugin.tx_slubprofileaccount.settings.api.path.dataDownload}
     }
 
     cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}

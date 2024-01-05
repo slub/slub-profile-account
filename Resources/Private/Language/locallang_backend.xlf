@@ -40,6 +40,13 @@
 				<source>Update data of dashboard user.</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.userdatadownload.title" resname="plugin.userdatadownload.title">
+				<source>Download data</source>
+			</trans-unit>
+			<trans-unit id="plugin.userdatadownload.description" resname="plugin.userdatadownload.description">
+				<source>Download all data a user has accumulated.</source>
+			</trans-unit>
+
 			<trans-unit id="plugin.userloancurrent.title" resname="plugin.userloancurrent.title">
 				<source>User current loan</source>
 			</trans-unit>

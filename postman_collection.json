@@ -642,6 +642,70 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Data",
+			"item": [
+				{
+					"name": "Download",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/download/{{user}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"download",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download with file type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/benutzer/download/{{user}}?tx_slubprofileaccount_userdatadownload[fileFormat]=htmlx",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"benutzer",
+								"download",
+								"{{user}}"
+							],
+							"query": [
+								{
+									"key": "tx_slubprofileaccount_userdatadownload[fileFormat]",
+									"value": "htmlx",
+									"description": "html, csv or json"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

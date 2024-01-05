@@ -2,6 +2,7 @@
 
 use Slub\SlubProfileAccount\Controller\UserAccountController;
 use Slub\SlubProfileAccount\Controller\UserDashboardController;
+use Slub\SlubProfileAccount\Controller\UserDataController;
 use Slub\SlubProfileAccount\Controller\UserLoanController;
 use Slub\SlubProfileAccount\Controller\UserPasswordController;
 use Slub\SlubProfileAccount\Controller\UserPinController;
@@ -93,6 +94,19 @@ ExtensionUtility::configurePlugin(
     ],
     [
         UserDashboardController::class => 'update'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - user data download
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserDataDownload',
+    [
+        UserDataController::class => 'download'
+    ],
+    [
+        UserDataController::class => 'download'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

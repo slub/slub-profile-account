@@ -49,6 +49,15 @@
 				<target>Daten der Dashboardeinstellung eines Benutzers aktualisieren.</target>
 			</trans-unit>
 
+			<trans-unit id="plugin.userdatadownload.title" resname="plugin.userdatadownload.title">
+				<source>Download data</source>
+				<target>Download der Daten</target>
+			</trans-unit>
+			<trans-unit id="plugin.userdatadownload.description" resname="plugin.userdatadownload.description">
+				<source>Download all data a user has accumulated.</source>
+				<target>Download aller Daten, die ein Benutzer angesammelt hat.</target>
+			</trans-unit>
+
 			<trans-unit id="plugin.userloancurrent.title" resname="plugin.userloancurrent.title">
 				<source>User current loan</source>
 				<target>Aktuelle Ausleihen eines Benutzers</target>

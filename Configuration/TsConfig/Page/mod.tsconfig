@@ -36,6 +36,14 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userdashboardupdate
       }
 
+      slubprofileaccount_userdatadownload {
+        iconIdentifier = slubprofileaccount-wizard-userdatadownload
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdatadownload.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userdatadownload.description
+        tt_content_defValues.CType = slubprofileaccount_userdatadownload
+      }
+
       slubprofileaccount_userloancurrent {
         iconIdentifier = slubprofileaccount-wizard-userloancurrent
         iconOverlay = slubprofileaccount-overlay-extension
@@ -121,6 +129,7 @@ mod {
     show := addToList(slubprofileaccount_useraccountupdate)
     show := addToList(slubprofileaccount_userdashboardupdate)
     show := addToList(slubprofileaccount_userdashboarddetail)
+    show := addToList(slubprofileaccount_userdatadownload)
     show := addToList(slubprofileaccount_userloancurrent)
     show := addToList(slubprofileaccount_userloanhistory)
     show := addToList(slubprofileaccount_userloanrenewal)

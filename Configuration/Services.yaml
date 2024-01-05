@@ -23,6 +23,9 @@ services:
   Slub\SlubProfileAccount\Service\DashboardService:
     public: true
 
+  Slub\SlubProfileAccount\Service\DataService:
+    public: true
+
   Slub\SlubProfileAccount\Service\UserAccountService:
     public: true
 

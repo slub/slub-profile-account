@@ -72,7 +72,8 @@ class ApiUtility
         '###USER_ID###',
         '###BARCODE###',
         '###LABEL###',
-        '###QUEUE_NUMBER###'
+        '###QUEUE_NUMBER###',
+        '###FILE_FORMAT###',
     ];
 
     /**
