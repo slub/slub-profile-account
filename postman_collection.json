@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "8b8facb3-ab8d-4f06-980d-531159a5714b",
+		"_postman_id": "233a4a8e-6509-4ff3-9178-68876237ce3f",
 		"name": "SLUB - Profile Service - Account (slub_profile_account)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32157282"
 	},
 	"item": [
 		{
@@ -685,7 +686,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/benutzer/download/{{user}}?tx_slubprofileaccount_userdatadownload[fileFormat]=htmlx",
+							"raw": "{{domain}}/benutzer/download/{{user}}?tx_slubprofileaccount_userdatadownload[fileFormat]=csv",
 							"host": [
 								"{{domain}}"
 							],
@@ -697,7 +698,7 @@
 							"query": [
 								{
 									"key": "tx_slubprofileaccount_userdatadownload[fileFormat]",
-									"value": "htmlx",
+									"value": "csv",
 									"description": "html, csv or json"
 								}
 							]
@@ -738,6 +739,16 @@
 			"key": "domain",
 			"value": "https://ddev-slub-profile-service.ddev.site/",
 			"type": "default"
+		},
+		{
+			"key": "domainCatalogue",
+			"value": "https://katalog.ddev.site/",
+			"type": "string"
+		},
+		{
+			"key": "appKey",
+			"value": "6627b6fab58c1",
+			"type": "string"
 		}
 	]
 }
