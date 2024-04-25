@@ -71,6 +71,10 @@ return [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-reserve-history.svg'
     ],
+    'slubprofileaccount-wizard-userreservehold' => [
+        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-reserve-hold.svg'
+    ],
     'slubprofileaccount-wizard-usersearchquerydetail' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:slub_profile_account/Resources/Public/Icons/Wizard/user-search-query-detail.svg'

@@ -189,6 +189,19 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - user reserve hold
+ExtensionUtility::configurePlugin(
+    'SlubProfileAccount',
+    'UserReserveHold',
+    [
+        UserReserveController::class => 'hold'
+    ],
+    [
+        UserReserveController::class => 'hold'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user search query detail
 ExtensionUtility::configurePlugin(
     'SlubProfileAccount',

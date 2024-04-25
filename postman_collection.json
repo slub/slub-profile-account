@@ -379,30 +379,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "Unknown user",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
-											"host": [
-												"{{domain}}"
-											],
-											"path": [
-												"benutzer",
-												"ausleihhistorie",
-												"{{user}}"
-											]
-										}
-									},
-									"_postman_previewlanguage": "json",
-									"header": [],
-									"cookie": [],
-									"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
-								}
-							]
+							"response": []
 						}
 					]
 				},
@@ -436,30 +413,39 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "Unknown user",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{domain}}/benutzer/ausleihhistorie/{{user}}",
-											"host": [
-												"{{domain}}"
-											],
-											"path": [
-												"benutzer",
-												"ausleihhistorie",
-												"{{user}}"
-											]
-										}
-									},
-									"_postman_previewlanguage": "json",
-									"header": [],
-									"cookie": [],
-									"body": "{\n    \"account\": {\n        \"code\": 404,\n        \"error\": \"not_found\",\n        \"X_message\": \"patronid not found\"\n    }\n}"
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Hold",
+					"item": [
+						{
+							"name": "Get - Default",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/benutzer/vormerkung/abholbereit/{{user}}",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"benutzer",
+										"vormerkung",
+										"abholbereit",
+										"{{user}}"
+									]
 								}
-							]
+							},
+							"response": []
 						}
 					]
 				},

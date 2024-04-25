@@ -112,6 +112,15 @@
 				<target>Vormerkhistorie zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Vormerkhistorie" zurück.</target>
 			</trans-unit>
 
+			<trans-unit id="plugin.userreservehold.title" resname="plugin.userreservehold.title">
+				<source>Hold user reservation</source>
+				<target>Abholbereite Vormerkungen eines Benutzers</target>
+			</trans-unit>
+			<trans-unit id="plugin.userreservehold.description" resname="plugin.userreservehold.description">
+				<source>Hold reservation of a specific user.</source>
+				<target>Abholbereite Vormerkungen zu einem spezifischen Benutzer.</target>
+			</trans-unit>
+
 			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
 				<source>Update password</source>
 				<target>Passwort aktualisieren</target>

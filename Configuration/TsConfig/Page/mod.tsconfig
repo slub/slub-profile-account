@@ -108,6 +108,14 @@ mod {
         tt_content_defValues.CType = slubprofileaccount_userreservehistory
       }
 
+      slubprofileaccount_userreservehold {
+        iconIdentifier = slubprofileaccount-wizard-userreservehold
+        iconOverlay = slubprofileaccount-overlay-extension
+        title = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservehold.title
+        description = LLL:EXT:slub_profile_account/Resources/Private/Language/locallang_backend.xlf:plugin.userreservehold.description
+        tt_content_defValues.CType = slubprofileaccount_userreservehold
+      }
+
       slubprofileaccount_usersearchquerydetail {
         iconIdentifier = slubprofileaccount-wizard-usersearchquerydetail
         iconOverlay = slubprofileaccount-overlay-extension
@@ -138,6 +146,7 @@ mod {
     show := addToList(slubprofileaccount_userreservecurrent)
     show := addToList(slubprofileaccount_userreservedelete)
     show := addToList(slubprofileaccount_userreservehistory)
+    show := addToList(slubprofileaccount_userreservehold)
     show := addToList(slubprofileaccount_usersearchqueryupdate)
     show := addToList(slubprofileaccount_usersearchquerydetail)
   }

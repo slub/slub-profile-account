@@ -67,6 +67,22 @@ class UserReserveController extends ActionController
      * @return ResponseInterface
      * @throws JsonException
      */
+    public function holdAction(): ResponseInterface
+    {
+        $reserveHold = $this->userService->getHold(
+            $this->request->getArguments()
+        );
+
+        $this->view->setVariablesToRender(['userReserveHold']);
+        $this->view->assign('userReserveHold', $reserveHold);
+
+        return $this->jsonResponse();
+    }
+
+    /**
+     * @return ResponseInterface
+     * @throws JsonException
+     */
     public function deleteAction(): ResponseInterface
     {
         $status = $this->userService->getDelete(

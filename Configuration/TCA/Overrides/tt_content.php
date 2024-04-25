@@ -74,6 +74,7 @@ defined('TYPO3') || die();
         'userreservecurrent',
         'userreservedelete',
         'userreservehistory',
+        'userreservehold',
         'usersearchquerydetail',
         'usersearchqueryupdate'
     ]

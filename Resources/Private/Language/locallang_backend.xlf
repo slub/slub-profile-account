@@ -89,6 +89,13 @@
 				<source>Reservation history of a specific user. Returns only the user constraint "reservation history" data.</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.userreservehold.title" resname="plugin.userreservehold.title">
+				<source>Hold user reservation</source>
+			</trans-unit>
+			<trans-unit id="plugin.userreservehold.description" resname="plugin.userreservehold.description">
+				<source>Hold reservation of a specific user.</source>
+			</trans-unit>
+
 			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
 				<source>Update password</source>
 			</trans-unit>

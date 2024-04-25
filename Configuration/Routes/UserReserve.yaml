@@ -1,4 +1,12 @@
 routeEnhancers:
+  SlubAccountUserReserveHold:
+    type: Simple
+    limitToPages: [40]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userreservehold/user'
   SlubAccountUserReserveCurrent:
     type: Simple
     limitToPages: [35]

@@ -25,6 +25,7 @@ class ApiConfiguration
     protected string $reserveCurrentUri = '';
     protected string $reserveDeleteUri = '';
     protected string $reserveHistoryUri = '';
+    protected string $reserveHoldUri = '';
     protected string $dataDownloadUri = '';
 
     public function __construct()
@@ -41,6 +42,7 @@ class ApiConfiguration
         $this->setReserveCurrentUri($settings['api']['path']['reserveCurrent']);
         $this->setReserveDeleteUri($settings['api']['path']['reserveDelete']);
         $this->setReserveHistoryUri($settings['api']['path']['reserveHistory']);
+        $this->setReserveHoldUri($settings['api']['path']['reserveHold']);
         $this->setDataDownloadUri($settings['api']['path']['dataDownload']);
     }
 
@@ -202,6 +204,22 @@ class ApiConfiguration
     public function setReserveHistoryUri(string $reserveHistoryUri = ''): void
     {
         $this->reserveHistoryUri = $reserveHistoryUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReserveHoldUri(): string
+    {
+        return $this->reserveHoldUri;
+    }
+
+    /**
+     * @param string $reserveHoldUri
+     */
+    public function setReserveHoldUri(string $reserveHoldUri = ''): void
+    {
+        $this->reserveHoldUri = $reserveHoldUri;
     }
 
     /**

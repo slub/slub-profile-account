@@ -98,6 +98,27 @@ class UserReserveService
      * @return array|null
      * @throws \JsonException
      */
+    public function getHold(array $arguments): ?array
+    {
+        $account = $this->accountService->getAccountByArguments($arguments);
+        $accountId = $this->accountService->getAccountId();
+
+        if ($accountId > 0 && is_array($account)) {
+            $processed = $this->requestHold($accountId);
+
+            return [
+                'reserveHold' => $processed['hold']
+            ];
+        }
+
+        return [];
+    }
+
+    /**
+     * @param array $arguments
+     * @return array|null
+     * @throws \JsonException
+     */
     public function getDelete(array $arguments): ?array
     {
         $current = $this->getCurrent($arguments);
@@ -126,6 +147,25 @@ class UserReserveService
     protected function requestCurrent(int $id): ?array
     {
         $uri = $this->apiConfiguration->getReserveCurrentUri();
+        $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
+
+        return $this->request->process($uri, 'GET', [
+            'headers' => [
+                'X-SLUB-Standard' => 'paia_ext',
+                'X-SLUB-pretty' => '1',
+                'X-SLUB-sort' => 'DESC'
+            ]
+        ]);
+    }
+
+    /**
+     * @param int $id
+     * @return array|null
+     * @throws \JsonException
+     */
+    protected function requestHold(int $id): ?array
+    {
+        $uri = $this->apiConfiguration->getReserveHoldUri();
         $uri = ApiUtility::replaceUriPlaceholder([$id], $uri);
 
         return $this->request->process($uri, 'GET', [
