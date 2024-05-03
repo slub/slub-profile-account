@@ -709,6 +709,7 @@
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
+				"packages": {},
 				"exec": [
 					""
 				]
@@ -725,16 +726,6 @@
 			"key": "domain",
 			"value": "https://ddev-slub-profile-service.ddev.site/",
 			"type": "default"
-		},
-		{
-			"key": "domainCatalogue",
-			"value": "https://katalog.ddev.site/",
-			"type": "string"
-		},
-		{
-			"key": "appKey",
-			"value": "6627b6fab58c1",
-			"type": "string"
 		}
 	]
 }
