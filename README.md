@@ -16,23 +16,14 @@ Run the following command within your Composer based TYPO3 project:
 composer require slub/slub-profile-account
 ```
 
-## 2 Administration corner
+## 2 Api
 
-### 2.1 Release Management
-
-News uses [semantic versioning][2], which means, that
-* **bugfix updates** (e.g. 1.0.0 => 1.0.1) just includes small bugfixes or security relevant stuff without breaking changes,
-* **minor updates** (e.g. 1.0.0 => 1.1.0) includes new features and smaller tasks without breaking changes,
-* **major updates** (e.g. 1.0.0 => 2.0.0) breaking changes which can be refactorings, features or bugfixes.
-
-## 3 Api
-
-### 3.1 Routes
+### 2.1 Routes
 
 Please check the routes' configuration. You have to set the matching page (limitToPages). If not the routes will not work properly.
 Furthermore, have a look at postman and import the "postman_collection" file. This explains the possible APIs very well.
 
-### 3.2 Typoscript
+### 2.2 Typoscript
 
 | Setup / Constant                                               | Comment                         |
 |----------------------------------------------------------------|---------------------------------|
@@ -51,7 +42,7 @@ Furthermore, have a look at postman and import the "postman_collection" file. Th
 | plugin.tx_slubprofile_account.settings.cache.account.lifeTime  | Life time to cache account data |
 | plugin.tx_slubprofile_account.settings.general.itemsPerPage    | Items per page for pagination   |
 
-### 3.3 Update account data
+### 2.3 Update account data
 
 To update data via external form you have to send an array called "account" via post with the following fields:
 
@@ -69,7 +60,7 @@ To update data via external form you have to send an array called "account" via 
 | ResAddressPostCode |            |
 | ResAddressCountry  |            |
 
-### 3.4 Update pin
+### 2.4 Update pin
 
 To update pin via external form you have to send an array called "pin" via post with the following fields:
 
@@ -79,7 +70,7 @@ To update pin via external form you have to send an array called "pin" via post 
 | pinRepeat  | Obligation |
 | password   | Obligation |
 
-### 3.5 Update password
+### 2.5 Update password
 
 To update password via external form you have to send a string called "password" via post with the following fields:
 
@@ -88,5 +79,4 @@ To update password via external form you have to send a string called "password"
 | password   | Obligation |
 
 [1]: https://getcomposer.org/
-[2]: https://semver.org/
 
