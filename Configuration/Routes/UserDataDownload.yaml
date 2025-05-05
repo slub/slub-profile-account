@@ -1,0 +1,9 @@
+routeEnhancers:
+  SlubAccountUserDataDownload:
+    type: Simple
+    limitToPages: [39]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_userdatadownload/user'

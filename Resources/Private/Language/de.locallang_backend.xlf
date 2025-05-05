@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_account">
+		<header/>
+		<body>
+
+			<!--
+				Plugin
+			-->
+
+			<trans-unit id="plugin.title" resname="plugin.title">
+				<source>User account</source>
+				<target>Benutzerkonto</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.useraccountdetail.title" resname="plugin.useraccountdetail.title">
+				<source>User detail (constraint: account)</source>
+				<target>Details eines Benutzers (Einschränkung: Account)</target>
+			</trans-unit>
+			<trans-unit id="plugin.useraccountdetail.description" resname="plugin.useraccountdetail.description">
+				<source>Details of a specific user (account). Returns only the user constraint "account" data.</source>
+				<target>Details zu einem spezifischen Benutzer (Account). Gibt nur die Daten des Benutzers mit der Einschränkung "Account" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.useraccountupdate.title" resname="plugin.useraccountupdate.title">
+				<source>User update (constraint: account)</source>
+				<target>Aktualisierung eines Benutzers (Einschränkung: Account)</target>
+			</trans-unit>
+			<trans-unit id="plugin.useraccountupdate.description" resname="plugin.useraccountupdate.description">
+				<source>Update data of account user.</source>
+				<target>Daten eines Benutzers aktualisieren.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userdashboarddetail.title" resname="plugin.userdashboarddetail.title">
+				<source>User detail (constraint: dashboard)</source>
+				<target>Details eines Benutzers (Einschränkung: Dashboard)</target>
+			</trans-unit>
+			<trans-unit id="plugin.userdashboarddetail.description" resname="plugin.userdashboarddetail.description">
+				<source>Details of a specific user (dashboard). Returns only the user constraint "dashboard" data.</source>
+				<target>Details zu einem spezifischen Benutzer (Dashboard). Gibt nur die Daten des Benutzers mit der Einschränkung "Dashboard" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userdashboardupdate.title" resname="plugin.userdashboardupdate.title">
+				<source>User update (constraint: dashboard)</source>
+				<target>Aktualisierung eines Benutzers (Einschränkung: Dashboard)</target>
+			</trans-unit>
+			<trans-unit id="plugin.userdashboardupdate.description" resname="plugin.userdashboardupdate.description">
+				<source>Update data of dashboard user.</source>
+				<target>Daten der Dashboardeinstellung eines Benutzers aktualisieren.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userdatadownload.title" resname="plugin.userdatadownload.title">
+				<source>Download data</source>
+				<target>Download der Daten</target>
+			</trans-unit>
+			<trans-unit id="plugin.userdatadownload.description" resname="plugin.userdatadownload.description">
+				<source>Download all data a user has accumulated.</source>
+				<target>Download aller Daten, die ein Benutzer angesammelt hat.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userloancurrent.title" resname="plugin.userloancurrent.title">
+				<source>User current loan</source>
+				<target>Aktuelle Ausleihen eines Benutzers</target>
+			</trans-unit>
+			<trans-unit id="plugin.userloancurrent.description" resname="plugin.userloancurrent.description">
+				<source>Current loan of a specific user. Returns only the user constraint "current loan" data.</source>
+				<target>Aktuelle Ausleihen zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Aktuelle Ausleihen" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userloanhistory.title" resname="plugin.userloanhistory.title">
+				<source>User loan history</source>
+				<target>Ausleihhistorie eines Benutzers</target>
+			</trans-unit>
+			<trans-unit id="plugin.userloanhistory.description" resname="plugin.userloanhistory.description">
+				<source>Loan history of a specific user. Returns only the user constraint "loan history" data.</source>
+				<target>Ausleihhistorie zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Ausleihhistorie" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userloanrenewal.title" resname="plugin.userloanrenewal.title">
+				<source>User loan renew medium</source>
+				<target>Ausleihe eines Mediums verlängern</target>
+			</trans-unit>
+			<trans-unit id="plugin.userloanrenewal.description" resname="plugin.userloanrenewal.description">
+				<source>Renew a loan medium from a specific user.</source>
+				<target>Ausleihe eines Mediums zu einem spezifischen Benutzer verlängern.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userreservecurrent.title" resname="plugin.userreservecurrent.title">
+				<source>User current reservation</source>
+				<target>Aktuelle Vormerkungen eines Benutzers</target>
+			</trans-unit>
+			<trans-unit id="plugin.userreservecurrent.description" resname="plugin.userreservecurrent.description">
+				<source>Current reservation of a specific user. Returns only the user constraint "current reservation" data.</source>
+				<target>Aktuelle Vormerkungen zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Aktuelle Vormerkungen" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userreservedelete.title" resname="plugin.userreservedelete.title">
+				<source>User reservation delete</source>
+				<target>Vormerkungen löschen</target>
+			</trans-unit>
+			<trans-unit id="plugin.userreservedelete.description" resname="plugin.userreservedelete.description">
+				<source>Delete entry from user reservation.</source>
+				<target>Eintrag aus den Vormerkungen eines bestimmten Benutzers löschen.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userreservehistory.title" resname="plugin.userreservehistory.title">
+				<source>User reservation history</source>
+				<target>Vormerkhistorie eines Benutzers</target>
+			</trans-unit>
+			<trans-unit id="plugin.userreservehistory.description" resname="plugin.userreservehistory.description">
+				<source>Reservation history of a specific user. Returns only the user constraint "reservation history" data.</source>
+				<target>Vormerkhistorie zu einem spezifischen Benutzer. Gibt nur die Daten des Benutzers mit der Einschränkung "Vormerkhistorie" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userreservehold.title" resname="plugin.userreservehold.title">
+				<source>Hold user reservation</source>
+				<target>Abholbereite Vormerkungen eines Benutzers</target>
+			</trans-unit>
+			<trans-unit id="plugin.userreservehold.description" resname="plugin.userreservehold.description">
+				<source>Hold reservation of a specific user.</source>
+				<target>Abholbereite Vormerkungen zu einem spezifischen Benutzer.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userpasswordupdate.title" resname="plugin.userpasswordupdate.title">
+				<source>Update password</source>
+				<target>Passwort aktualisieren</target>
+			</trans-unit>
+			<trans-unit id="plugin.userpasswordupdate.description" resname="plugin.userpasswordupdate.description">
+				<source>Update the password of a specific user.</source>
+				<target>Das Passwort eines spezifischen Benutzers aktualisieren.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.userpinupdate.title" resname="plugin.userpinupdate.title">
+				<source>Update pin</source>
+				<target>PIN aktualisieren</target>
+			</trans-unit>
+			<trans-unit id="plugin.userpinupdate.description" resname="plugin.userpinupdate.description">
+				<source>Update the pin of a specific user.</source>
+				<target>Die PIN eines spezifischen Benutzers aktualisieren.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.usersearchquerydetail.title" resname="plugin.usersearchquerydetail.title">
+				<source>User detail (constraint: search query)</source>
+				<target>Details eines Benutzers (Einschränkung: Suchanfrage)</target>
+			</trans-unit>
+			<trans-unit id="plugin.usersearchquerydetail.description" resname="plugin.usersearchquerydetail.description">
+				<source>Details of a specific user (search query). Returns only the user constraint "search query" data.</source>
+				<target>Details zu einem spezifischen Benutzer (Suchanfrage). Gibt nur die Daten des Benutzers mit der Einschränkung "Suchanfrage" zurück.</target>
+			</trans-unit>
+
+			<trans-unit id="plugin.usersearchqueryupdate.title" resname="plugin.usersearchqueryupdate.title">
+				<source>User update (constraint: search query)</source>
+				<target>Aktualisierung eines Benutzers (Einschränkung: Suchanfrage)</target>
+			</trans-unit>
+			<trans-unit id="plugin.usersearchqueryupdate.description" resname="plugin.usersearchqueryupdate.description">
+				<source>Update data of search user.</source>
+				<target>Daten der Benutzersuchanfrage eines Benutzers aktualisieren.</target>
+			</trans-unit>
+
+			<!--
+				Error
+			-->
+
+			<trans-unit id="error.api.account.title" resname="error.api.account.title">
+				<source>Error connect user account</source>
+				<target>Fehler bei Verbindung mit Benutzerkonto</target>
+			</trans-unit>
+			<trans-unit id="error.api.account.message" resname="error.api.account.message">
+				<source>A connection to the account api was not possible. Please check your settings.</source>
+				<target>Eine Verbindung zum Benutzerkonto konnte nicht hergestellt werden. Bitte prüfen Sie die Einstellungen.</target>
+			</trans-unit>
+
+			<!--
+				Table
+			-->
+
+			<trans-unit id="table.head.id" resname="table.head.id">
+				<source>ID</source>
+				<target>ID</target>
+			</trans-unit>
+			<trans-unit id="table.head.value" resname="table.head.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

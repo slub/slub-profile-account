@@ -1,0 +1,9 @@
+routeEnhancers:
+  SlubAccountUserSearchQueryDetail:
+    type: Simple
+    limitToPages: [16]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileaccount_usersearchquerydetail/user'

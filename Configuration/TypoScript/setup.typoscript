@@ -1,0 +1,32 @@
+plugin.tx_slubprofileaccount {
+  mvc {
+    callDefaultActionIfActionCantBeResolved = 1
+    throwPageNotFoundExceptionIfActionCantBeResolved = 1
+  }
+
+  features.skipDefaultArguments = 1
+  persistence.storagePid = {$plugin.tx_slubprofileaccount.persistence.storagePid}
+
+  settings {
+    api.path {
+      login = {$plugin.tx_slubprofileaccount.settings.api.path.login}
+      user = {$plugin.tx_slubprofileaccount.settings.api.path.user}
+      passwordUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.passwordUpdate}
+      pinUpdate = {$plugin.tx_slubprofileaccount.settings.api.path.pinUpdate}
+      loanCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.loanCurrent}
+      loanHistory = {$plugin.tx_slubprofileaccount.settings.api.path.loanHistory}
+      loanRenewal = {$plugin.tx_slubprofileaccount.settings.api.path.loanRenewal}
+      reserveCurrent = {$plugin.tx_slubprofileaccount.settings.api.path.reserveCurrent}
+      reserveDelete = {$plugin.tx_slubprofileaccount.settings.api.path.reserveDelete}
+      reserveHistory = {$plugin.tx_slubprofileaccount.settings.api.path.reserveHistory}
+      reserveHold = {$plugin.tx_slubprofileaccount.settings.api.path.reserveHold}
+      dataDownload = {$plugin.tx_slubprofileaccount.settings.api.path.dataDownload}
+    }
+
+    cache.account.lifeTime = {$plugin.tx_slubprofileaccount.settings.cache.account.lifeTime}
+    general.itemsPerPage = {$plugin.tx_slubprofileaccount.settings.general.itemsPerPage}
+  }
+}
+
+# Event this extension has not module, this is used to call the api from backend in general.
+module.tx_slubprofileaccount.settings < plugin.tx_slubprofileaccount.settings
